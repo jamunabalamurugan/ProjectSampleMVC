@@ -1,0 +1,66 @@
+﻿@using Rash_Airlines.Models
+@model IEnumerable<Rash_Airlines.Models.search_flight_Result>
+
+{
+    ViewBag.Title = "DisplayFlight";
+}
+
+<h2>DisplayFlight</h2>
+
+
+<p>
+
+</p>
+<table class="table table-responsive table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.flight_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departure_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.arrival_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrival)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.flight_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departure_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.arrival_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arrival)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.flight_name }) |
+            @Html.ActionLink("Details", "Details", new { id=item.flight_name }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.flight_name })
+        </td>*@
+        <td>
+            @Html.ActionLink("Book Now", "Book", new { flight_name = item.flight_name}) 
+            </td>
+    </tr>
+    }
+
+</table>
+
+

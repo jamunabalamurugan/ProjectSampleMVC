@@ -1,0 +1,167 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <style>
+
+
+        .full {
+            color: red;
+        }
+
+        .rating-love {
+            position: relative;
+            display: inline-block;
+        }
+
+        .rate {
+            white-space: nowrap;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+    @Html.ActionLink("Back", "Index", "Home")
+
+    @if (Convert.ToBoolean(Session["result"]) == true)
+    {
+        @Html.Partial("~/Views/Shared/_cart.cshtml")
+    }
+    @{
+        ViewBag.Title = "indianFiction";
+    }
+
+
+
+
+
+
+    @*@using (Html.BeginForm("indianFiction", "products", FormMethod.Post))
+        {
+
+            <h6>Search for different Color</h6>
+            <input name="submit" type="submit" id="submit" value="Motivational Books" />
+
+            <input name="submit" type="submit" id="submit" value="Non Fictional" />
+
+            <input name="submit" type="submit" id="submit" value="Fantasy Fiction" />
+
+            <input name="submit" type="submit" id="submit" value="Indian Fiction" />
+
+            <input name="submit" type="submit" id="submit" value="Kids Books" />
+        }*@
+
+    <div class="row" style="margin:5px">
+        <div class="col-md-4" style="border-style : solid;border-color:black;border-width:2px; width:200px;">
+            @Html.ActionLink("Motivational Books", "motivationalBook", "products")
+        </div>
+
+
+        <div class="col-md-4" style="border-style : solid;border-color:black;border-width:2px; width:200px;">
+            @Html.ActionLink("Kids Book", "kidsBook", "products")
+        </div>
+
+
+        <div class="col-md-4" style="border-style : solid;border-color:black;border-width:2px; width:200px;">
+            @Html.ActionLink("Indian Fictional Books", "indianFiction", "products")
+        </div>
+
+        <div class="col-md-4" style="border-style : solid;border-color:black;border-width:2px; width:200px;">
+            @Html.ActionLink("Fantasy Fiction Books", "fantacyFiction", "products")
+        </div>
+        <div class="col-md-4" style="border-style : solid;border-color:black;border-width:2px; width:200px;">
+            @Html.ActionLink("Non Fiction Books", "nonFiction", "products")
+        </div>
+    </div>
+
+
+
+
+    <div>
+        <br /><br />
+        <h2 style="font-family: Algerian ;letter-spacing:3px;text-align:center">INDIAN FICTION</h2>
+
+
+
+        <div class="row" style="margin:5px;">
+            @foreach (var item in Model)
+            {
+                if (item.categoryId == 303)
+                {
+                    <div class="col-md-4">
+
+                        <br /><br />
+                        @if (item.frontImage != null)
+                        {
+
+
+                            <a href="@Url.Action( "productDescription", "products",new { id=item.itemId,catId=item.categoryId })" style="align-content:center">
+                                <img style="align-content:center" src="@Url.Content(item.frontImage)" height="280" width="200" /><br /><br />
+                            </a>
+
+
+                        }
+                        <br /><br /><br />
+
+
+
+
+                        <b style="letter-spacing:1px;">Indian Fiction</b>
+                        <br />
+
+                        @{
+                            int rate = item.rating;
+                        }
+
+                        <div class="rating-love " style="float:left">
+                            <span class="fa fa-heart"></span>
+                            <span class="fa fa-heart "></span>
+                            <span class="fa fa-heart"></span>
+                            <span class="fa fa-heart"></span>
+                            <span class="fa fa-heart"></span>
+                            <span class="rate" style="width:@rate%;">
+                                <!-- change this value for 0 to 100 -->
+                                <span class="fa fa-heart full"></span>
+                                <span class="fa fa-heart full"></span>
+                                <span class="fa fa-heart full"></span>
+                                <span class="fa fa-heart full"></span>
+                                <span class="fa fa-heart full"></span>
+                            </span>
+                        </div>
+                        <br />
+
+                        @item.productName<br /><br />
+                        <p>
+                            Travel without moving your feet. Tell more bed time stories.
+                        </p>
+
+
+
+                        <p> @item.currentCost&nbsp;INR<p>   <br /><br /> <br /><br />
+                    </div>
+                }
+
+
+
+            }
+        </div>
+    </div>
+
+
+
+
+</body></html>
+

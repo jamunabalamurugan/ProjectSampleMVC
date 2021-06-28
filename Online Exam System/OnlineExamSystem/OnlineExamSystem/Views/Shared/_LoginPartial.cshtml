@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Convert.ToBoolean(Session["LoginStatus"])==true)
+{
+   
+    <ul class="nav navbar-nav navbar-right" style="font-weight:bold; font-size:x-large">
+        <li>
+            @Html.ActionLink("LogOut", "LogOut", "User")
+        </li>
+      
+    </ul>    
+}

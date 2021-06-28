@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1fac6fabd4194545b5c3919662c12b57" Name="Diagram1">
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.feedback" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Flights_Master" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Flights_Schedule" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Passenger_booking_details" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Passenger_Reg" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Passengers_Details" Width="1.5" PointX="9.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Payment" Width="1.5" PointX="9.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Place" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.Routes_Master" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Rash_AirlinesModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Rash_AirlinesModel.fb_pid_Fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.f_idFk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.fid_Fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.fm_rid_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.route_idFk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.pass_arrFk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.pass_deptFk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.payment_bid_Fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.pdet_bid_Fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.pid_Fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.passDet_pid_Fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.rm_arr_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Rash_AirlinesModel.rm_dep_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

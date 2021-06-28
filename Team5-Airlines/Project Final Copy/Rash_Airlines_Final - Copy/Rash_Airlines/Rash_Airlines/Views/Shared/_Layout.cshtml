@@ -1,0 +1,180 @@
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title -Layout</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+    </head>
+    <body>
+        <div class="navbar topnav navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("RASH Airlines", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse pull-right">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Flight Schedule", "Index", "Flights_Schedule")</li>
+                        <li>@Html.ActionLink("Routes", "Index", "Routes_Master")</li>
+                        <li>@Html.ActionLink("Flights", "Index", "Flights_Master")</li>
+                        <li>@Html.ActionLink("Places", "Index", "Places")</li>
+                    </ul>
+                   
+                    @*</div>
+                                </div>
+                            </div>
+                            <div class="container body-content">
+                                @RenderBody()
+                                <hr/>
+                                <footer>
+                                    <p style="text-align:center">&copy; @DateTime.Now.Year - Rash Airlines &reg;</p>
+                                </footer>
+                            </div>
+
+                            @Scripts.Render("~/bundles/jquery")
+                            @Scripts.Render("~/bundles/bootstrap")
+                            @RenderSection("scripts", required: false)
+                        </body>
+                        </html>*@
+
+
+
+
+
+
+              <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>@ViewBag.Title -Layout</title>
+                        @Styles.Render("~/Content/css")
+                        @Scripts.Render("~/bundles/modernizr")
+                        <link href="~/Content/Site.css" rel="stylesheet" />
+                        <style>
+                            #footer {
+                                position: relative;
+                                margin-top: 10px;
+                                width: 100%;
+                                height: 2.5rem; /* Footer height */
+                                text-align: center;
+                            }
+                                .icon-bar
+                                    {
+                                        background-color:darkslategray;
+                                    }
+                                    
+                            
+                        </style>
+                    </head>
+                    <body>
+                        <br><br>
+                       <div class="container">
+                            <div class="navbar topnav navbar-fixed-top pull-left" style="margin:10px 60px 0px 60px;">
+
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    @Html.ActionLink("RASH Airlines", "Search", "SearchFlight", new { area = "" }, new { @class = "navbar-brand" })
+                                </div>
+                                
+                                    <div class="navbar-collapse collapse">
+                                        <ul class="nav navbar-nav pull-right">
+                                            @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+
+
+                                            @{
+                                                if (Session["Username"] != null)
+                                                {
+                                                    <li class="navbar-brand" style="color:dodgerblue;font-family:'Comic Sans MS'">Welcome @Session["Username"]!</li>
+                                                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                                                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                                    <li>@Html.ActionLink("LogOut", "LogOut", "Passenger_Login")</li>
+
+                                                }
+                                                else
+                                                {
+                                                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                                                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                                    <li>@Html.ActionLink("Register", "Create_Passenger", "Passenger_Reg")</li>
+                                                    <li>@Html.ActionLink("Login", "Login_Passenger", "Passenger_Login")</li>
+                                                }
+                                            }
+
+                                        </ul>
+
+
+                                        @*<li style="font-weight:bolder">  @Session["passenger_id"]   </li>*@
+
+
+                                        @*@Html.Partial("_LoginPartial")*@
+                                    </div>
+                                </div>
+                           </div>
+                       
+                      <div>
+                            @RenderBody()
+                            @*<div id="feedback-main">
+                <div id="feedback-div">
+                    <form action="contact.php" method="post" class="form" id="feedback-form1" name="form1" enctype="multipart/form-data">
+
+                        <p class="name">
+                            <input name="id" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" required placeholder="ID" id="feedback-name" />
+                        </p>
+
+
+                        <p class="text">
+                            <textarea name="comment" type="comment" class="validate[required,length[6,300]] feedback-input" id="feedback-comment" required placeholder="Hey, I really love the site but I believe that you could incorporate some ..... and also get rid of the ...... on the section."></textarea>
+                        </p>
+
+                        <div class="feedback-submit">
+                            <input type="submit" value="SEND" id="feedback-button-blue" />
+                            <div class="feedback-ease"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                function toggle_visibility() {
+                    var e = document.getElementById('feedback-main');
+                    if (e.style.display == 'block')
+                        e.style.display = 'none';
+                    else
+                        e.style.display = 'block';
+                }
+            </script>*@
+
+
+                            @*<button id="popup" class="feedback-button" onclick="toggle_visibility()">Feedback</button>
+            <script src="_include/js/feedback.js"></script>*@
+
+
+                        </div>
+                        @*<div id="page-container" style="margin-bottom:1px;">*@
+
+                        <footer id="footer"> <hr/> &copy; @DateTime.Now.Year - Rash Airlines &reg;</footer>
+                        @*</div>*@
+
+
+                        @Scripts.Render("~/bundles/jquery")
+                        @Scripts.Render("~/bundles/bootstrap")
+                        @RenderSection("scripts", required: false)
+
+
+
+
+
+                    </body>
+                </html>
+
+

@@ -1,0 +1,156 @@
+﻿@model IEnumerable<projectOnlineShopping.Models.productDescription>
+@*@model IEnumerable<projectOnlineShopping.Models.retailer>*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<br/><br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.itemId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productDescription1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+
+
+
+            @Html.DisplayNameFor(model => model.backImage)
+
+
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frontImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sideImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actualCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.currentCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approvalStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.categoryDetail.categoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retailer.phoneNo)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        if (item.retailerId == @ViewBag.ik)
+        {
+
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.itemId)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productDescription1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.color)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.backImage)*@
+                    @if (item.backImage != null)
+                    {
+                        <img src="@Url.Content(item.backImage)" height="100" width="100" />
+                    }
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.frontImage)*@
+                    @if (item.frontImage != null)
+                    {
+                        <img src="@Url.Content(item.frontImage)" height="100" width="100" />
+                    }
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.sideImage)*@
+                    @if (item.sideImage != null)
+                    {
+                        <img src="@Url.Content(item.sideImage)" height="100" width="100" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.actualCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.discount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.currentCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.approvalStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.categoryDetail.categoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.retailer.phoneNo)
+                </td>
+                <td>
+                    @Html.ActionLink("Make changes", "Edit", new { id = item.itemId }) |
+                    @Html.ActionLink("View a specific product", "Details", new { id = item.itemId }) |
+                    @Html.ActionLink("Remove a specific record", "Delete", new { id = item.itemId })
+                </td>
+            </tr>
+        }
+    }
+
+</table>

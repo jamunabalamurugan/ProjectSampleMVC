@@ -1,0 +1,62 @@
+﻿
+@model IEnumerable<Rash_Airlines.Models.display_ticket_Result>
+@{
+    ViewBag.Title = "Show_Tickets_list";
+   
+}
+
+<h2>Show_Tickets_list</h2>
+
+
+
+
+<p>
+
+</p>
+<table class="table table-responsive table-hover">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.booking_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.journey_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.booking_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.seat_no)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.first_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booking_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.journey_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booking_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.seat_no)
+            </td>
+           
+        </tr>
+
+    }
+</table>
+
+  

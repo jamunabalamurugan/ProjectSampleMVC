@@ -1,0 +1,119 @@
+﻿<script src="@Url.Content("~/Scripts/jquery-1.6.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+<link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+@using CaptchaMvc.HtmlHelpers
+
+@{
+    ViewBag.Title = "Login";
+
+    Layout = "~/Views/Shared/_RegisterLoginLayout.cshtml";
+}
+<style>
+    #Loginform {
+        height: 60%;
+        width: 440px;
+        border-radius: 32px;
+         background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        position: center;
+        align-content: center;
+        text-align: center;
+        margin-top:30px;
+        padding-bottom: 20px;
+        font-family: 'Montserrat';
+        display:inline-block;
+    }
+    .Textbox {
+        width: 100%;
+        height: 50px;
+        border-radius: 32px;
+        text-align: center;
+        background-color: white;
+        outline: none;
+        border: none;
+    }
+        #btnSubmit {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 32px;
+       background-color: #efefef;
+        width: 200px;
+        height: 50px;
+
+    }
+    .msg{
+    color :  white;
+    }
+
+    h2 {
+        color: white;
+        font-family: 'Megrim';
+        letter-spacing: 10px;
+    }
+    label
+    {
+        color: white;
+        font-family: 'Montserrat';
+        letter-spacing: 3px;
+    }
+    #imgLogin
+    {
+        background-image:url('@Url.Content("~/Images/loginpic.gif")') ;
+        border-radius: 35px;
+        width: 100%;
+        height: 566px;
+        background-size: 100% 100%;
+        display:inline-block;
+        margin-top:30px;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6 " @*style="background:red;"*@>
+            <div id="Loginform" class="column left">
+                <br />
+                <h2>Login</h2><br />
+                @using (Html.BeginForm())
+                {
+                    @Html.Label("Please enter your Pay Sheet number ")
+                    <br /><br />
+                    @*@Html.ValidationMessage("PSNo", "*", new { @class = "text-danger" });*@
+                    @Html.TextBox("PSNo", null, new { @class = "Textbox" })
+                    <div class="msg">@ViewBag.errorL</div>
+                    <br />
+                    @Html.Label("Please enter password ")
+                    <br />
+
+                    @Html.ValidationMessage("password", "", new { @class = "text-danger" });
+
+                    @Html.Password("password", "", new { @class = "Textbox" })
+
+                    <div class="msg">@ViewBag.errorP</div>
+                    <br />
+                    @Html.Captcha(5)
+                    <br />
+                    <p class="msg"> @ViewBag.ErrorMessage </p>
+
+                    <div class="msg">@ViewBag.errorR</div>
+
+                    <input type="submit" id="btnSubmit" value="Login" data-toggle="modal" data-target="#myModal" />
+                }
+
+            </div>
+
+
+
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 " @*style="background:red;"*@>
+            <div id="imgLogin" class="column right"></div>
+        </div>
+    </div>
+</div>
+
+@ViewBag.exception

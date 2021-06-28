@@ -1,0 +1,51 @@
+﻿@model Rash_Airlines.Models.Routes_Master
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Routes_Master</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.economy_cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.economy_cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.business_cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.business_cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.place_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place.place_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place1.place_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place1.place_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.route_id }) |
+    @Html.ActionLink("Back to List", "Index_Routes")
+</p>

@@ -1,0 +1,85 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<style>
+    div.b {
+        font-size: 20px;
+        width: 100%;
+        height: 40%;
+    }
+
+    .navbar-inverse {
+        background-color: #2f4628;
+    }
+
+   
+
+    .img2 {
+        width: 50%;
+    }
+
+    footer {
+        position: absolute;
+    }
+</style>
+
+
+<h2>Welcome Admin</h2>
+<br />
+<br />
+<center>
+    <div class="b">
+        <div class="col-md-3">
+            <div id="logo">
+                <a href="@Url.Action("FarDetails", "Admin")">
+                    <br />
+                    <img src="~/FarmerImages/viewfarmer.png" />
+                </a>
+                <br />
+                Farmer Details
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="logo">
+                <br /><br />
+                <a href="@Url.Action("BidDetails", "Admin")">
+                    <br />
+                    <img src="~/FarmerImages/bidder.jpg" width="80%"  />
+                </a>
+                <br />
+                Bidder Details
+
+            </div>
+        </div>
+        <br />
+        <div class="col-md-3">
+            <div id="logo">
+                <a href="@Url.Action("ViewBidding", "Admin")">
+                    <img src="~/FarmerImages/Bid.png" />
+                </a>
+                <br />
+                Bidding Details
+               
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div id="logo">
+                <a href="@Url.Action("ViewSoldhistory", "Admin")">
+                    <img src="~/FarmerImages/sold1.png" />
+                </a>
+                <br />
+                Sold History
+            </div>
+        </div>
+    </div>
+
+</center>
+
+
+

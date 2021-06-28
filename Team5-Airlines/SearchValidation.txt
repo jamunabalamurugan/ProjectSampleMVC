@@ -1,0 +1,54 @@
+<script>
+         var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2500); // Change image every 2.5 seconds
+        }
+    @*</script>
+
+    <script>*@
+        function loc() {
+            var x = document.getElementById("a").value;
+            var y = document.getElementById("b").value;
+            if (x == y) {
+                alert("Departure and arrival cant be same. Do you want to try again?");
+                window.location.href = "http://localhost:52284/SearchFlight/Search";
+                var d = document.getElementById("date").min.disabled=true;
+                //document.getElementById("test").innerHTML = d; 
+
+            }
+            //var GivenDate = document.getElementById("date").value;
+            //var CurrentDate = new Date();
+            //GivenDate = new Date(GivenDate);
+            //if (GivenDate > CurrentDate)
+            //{
+            //    alert("Given date is greater than the current date.");
+            //    //window.location.href = "http://localhost:52284/SearchFlight/Search";
+            //}
+            //else
+            //{
+            //    alert("You can't enter previous date.");
+            //    window.location.href = "http://localhost:52284/SearchFlight/Search";
+                
+            //}
+        } 
+        
+    </script>
+
+
+
+  @Html.DropDownList("dep", null, "From", new { @class = "form-control search-slt", @id = "a" }) 
+
+@Html.DropDownList("arr", null, "To", new { @class = "form-control search-slt", @id = "b" })
+
+
+ onclick="loc()

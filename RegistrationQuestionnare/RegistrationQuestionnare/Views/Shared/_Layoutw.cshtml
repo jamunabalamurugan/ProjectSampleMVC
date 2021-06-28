@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - iRelax</title>
+
+
+    <style>
+
+        #navigbar {
+            box-shadow: rgba(0,0,0,0.3) 5px 5px 5px 5px;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+            border-radius: 35px;
+            background-color: white;
+            height: 40px;
+            text-align: right;
+            color: black;
+            display: inline;
+            
+        }
+
+        li {
+            margin-right: 20px;
+        }
+
+        .footer {
+            font-size: 20px;
+            height: 40px;
+            box-shadow: rgba(0,0,0,0.1) 3px 3px 3px 3px;
+            border-top-left-radius: 35px;
+            border-top-right-radius: 35px;
+            position: page;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            text-align: center;
+            /*padding-top:10px;*/
+        }
+
+        .navbar-collapse {
+            background-color: grey;
+            color: white;
+            border-radius: 32px;
+        }
+    </style>
+    <script>
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onload = function () { null };
+    </script>
+</head>
+<body>
+    <center>
+        <div class="navbar  navbar-fixed-top" id="navigbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><img src="~/Images/iRELAX.png" height="23" id="Logo" /></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="color:black">
+                        <span class="icon-bar navbar-inverse"></span>
+                        <span class="icon-bar navbar-inverse"></span>
+                        <span class="icon-bar navbar-inverse"></span>
+                    </button>
+                    @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                </div>
+                <div class="navbar-collapse collapse navbar-right">
+                    <ul class="nav navbar-nav" style="text-align:right;border-radius:32px;background-color: #310e68;
+            background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);  color :black;display:inline">
+                        <li>@Html.ActionLink("DashBoard", "Dashboard", "Main")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("My Space", "Space", "MySpace")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Main")</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </center>
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <!-- Footer -->
+
+
+        <div class="footer bottom" style="font-size:16px">
+            <p align="center" style="padding-top:10px">&copy; iRelax  | my<b>LTI</b>  @DateTime.Now.Year</p>
+        </div>
+
+    </div>
+</body>
+</html>

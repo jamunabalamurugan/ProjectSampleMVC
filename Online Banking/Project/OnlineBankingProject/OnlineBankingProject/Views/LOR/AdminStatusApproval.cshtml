@@ -1,0 +1,110 @@
+﻿@model IEnumerable<OnlineBankingProject.Models.Open_Savings_Account>
+
+@{
+    ViewBag.Title = "AdminStatusApproval";
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+<html>
+<head>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>AdminStatusApproval</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Account_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First_Name)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Last_Name)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Father_Name)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AadharCard_Number)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Occupational_type)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Gross_Annual_income)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Approve_Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.First_Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AadharCard_Number)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Occupational_type)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gross_Annual_income)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Approve_Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Approved", "Approved", new { id = item.Account_Number }) |
+                    @Html.ActionLink("Reject", "Delete", new { id = item.Account_Number })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.ActionLink("View Registration Table", "Registration_table", "DashBoard") <br />
+    @Html.ActionLink("View Savings Account Table", "Open_Savings_Account", "DashBoard")<br />
+    <hr />
+    <footer>
+        <p>Terms of Use| &copy; @DateTime.Now.Year -SNK Bank Copyright Reserved </p>
+    </footer>
+
+</body>
+</html>

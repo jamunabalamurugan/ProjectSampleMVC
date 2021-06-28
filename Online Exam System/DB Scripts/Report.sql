@@ -1,0 +1,62 @@
+CREATE TABLE REPORT
+(
+REPORT_ID INT PRIMARY KEY IDENTITY(1, 1),
+USERID INT,
+FULL_NAME VARCHAR(20),
+TEST_LEVEL INT,
+TECHNOLOGY_ID INT,
+DATE_OF_EXAM DATE,
+SCORE INT,
+EMAIL VARCHAR(30),
+FOREIGN KEY(TECHNOLOGY_ID) REFERENCES TECHNOLOGY(TECHNOLOGY_ID),
+FOREIGN KEY(USERID) REFERENCES USER_DETAIL(USERID)
+)
+
+SELECT * FROM REPORT
+
+INSERT INTO REPORT VALUES
+(1,
+'Louretta Spandhana',
+1,
+1,
+'10/15/2019',
+9,
+'louretta.spandhu@gmail.com')
+
+INSERT INTO REPORT VALUES
+(2,
+'Sharukh Khan',
+2,
+2,
+'10/29/2019',
+5,
+'sharuksharuk@gmail.com')
+
+INSERT INTO REPORT VALUES
+(3,
+'Shweta Sukul',
+3,
+3,
+'11/2/2019',
+6,
+'shwethasukul@gmail.com')
+
+INSERT INTO REPORT VALUES
+(9,
+'Kumaran Sabapathy',
+3,
+5,
+'11/10/2019',
+9,
+'kumaran98@gmail.com')
+
+INSERT INTO REPORT VALUES
+(10,
+'Harish Balasubranian',
+2,
+6,
+'11/11/2019',
+6,
+'harishb@gmail.com')
+
+DROP TABLE REPORT

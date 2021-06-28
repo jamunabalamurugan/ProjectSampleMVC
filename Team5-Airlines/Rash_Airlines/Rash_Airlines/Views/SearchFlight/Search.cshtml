@@ -1,0 +1,504 @@
+﻿@using Rash_Airlines.Models
+@model IEnumerable<search_flight2_Result>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+
+    <style>
+
+        body{
+            position:relative;
+            margin-top:15px;
+            
+        }
+
+        .info-card {
+            float: left;
+            margin: 10px;
+            -webkit-perspective: 600px;
+        }
+
+        .front, .back {
+            background: #FFF;
+            border-radius: 10px;
+            transition: -webkit-transform 1s;
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+            border: 1px solid black;
+        }
+
+        .front {
+            overflow: hidden;
+            width: 300px;
+            height: 330px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .back {
+            padding: 20px;
+            padding-top: 0px;
+            width: 250px;
+            height: 330px;
+            -webkit-transform: rotateY(-180deg);
+            overflow: scroll;
+        }
+
+        .info-card:hover .back {
+            -webkit-transform: rotateY(0);
+        }
+
+        .info-card:hover .front {
+            -webkit-transform: rotateY(180deg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* Social buttons */
+        .social {
+            list-style: none;
+            padding: 0px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+            .social a {
+                position: relative;
+                display: inline-block;
+                min-width: 40px;
+                padding: 10px 0px;
+                margin: 0px 5px;
+                overflow: hidden;
+                text-align: center;
+                background-color: rgb(215, 215, 215);
+                border-radius: 40px;
+            }
+
+            .f{
+                margin-bottom:600px;
+            }
+    </style>
+</head>
+<body>
+    <div style="position:relative;margin-top:0px;">
+        <div class="w3-content w3-section" style="max-width:1350px;height:510px;">
+            <img class="mySlides" src="~/images/home.jpg" style="width:100%;height:510px;">
+            <img class="mySlides" src="~/images/index.jpg" style="width:100%;height:510px;">
+            <img class="mySlides" src="~/images/about.jpg" style="width:100%;height:510px;">
+        </div>
+        <section class="search-sec">
+            <div class="container">
+
+                @using (Html.BeginForm())
+                {
+                    <div action="#" class="form-row" @*method="post"*@ novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        @Html.DropDownList("dep", null, "From", new { @class = "form-control search-slt", @id = "a" })
+                                        @*<input type="text" class="form-control search-slt" placeholder="Enter Pickup City">*@
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+@Html.DropDownList("arr", null, "To", new { @class = "form-control search-slt", @id = "b" })
+ @*<input type="text" class="form-control search-slt" placeholder="Enter Drop City">*@
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <input type="date" name="date" required class="form-control search-slt" id="date" />
+
+
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <input type="submit" value="Search" class="btn btn-danger wrn-btn" onclick="location()" />
+                                        @*<button type="button" class="btn btn-danger wrn-btn">Search</button>*@
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </section>
+        <div class="row container" style="margin-left:90px;">
+            <hr/><br>
+            <!-- Info Card with social icons -->
+            <div style="text-align:center;text-shadow:2px 2px 3px #333;font-size: x-large;">Places To Visit</div><br />
+            <div class="info-card">
+                <div class="front">
+
+                    <img class="card-image" src="~/images/bangalore.jpg">
+                </div>
+                <div class="back">
+                    <h2>Bangalore</h2>
+                    <p>
+                        Bangalore officially known as Bengaluru is the capital of Indian state  of Karnataka.It is a Mega city also called "The Silicon City of India" and "Garden city"
+                    </p>
+                    <p style="text-shadow:5px 5px;font-family:Algerian;font-size:25px">
+                        <div class="social">
+                            @*<a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span>Home</a>
+                             <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span>twitter</a>
+                             <a href="~/Passenger_Login/Login_Passenger.cshtml" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span>Login</a>
+                            <> @Html.ActionLink("Login", "Login", "Passenger_Login")*@
+                            <h2 style="font-weight:700">Starts from Rs.5000/- *</h2>
+                        </div>
+
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="front">
+
+                    <img class="card-image" src="~/images/delhi.jpg">
+                </div>
+                <div class="back">
+                    <h2>Delhi</h2>
+                    <p>
+                        <strong>National Capital Territory of Delhi</strong>, is a city and a union territory of India containing New Delhi, the capital of India.The city is believed to be the site of Indraprastha, the legendary capital of the Pandavas in the Indian epic Mahabharata.
+                        Delhi is currently the second-wealthiest city in India
+                    </p>
+
+                    <div class="social">
+                        <h2 style="font-weight:700">Starts from Rs.5000/- *</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="front">
+
+                    <img class="card-image" src="~/images/chennai.jpg">
+                </div>
+                <div class="back">
+                    <h2>Chennai</h2>
+                    <p>
+                        Chennai,previously known as  <strong>Madras</strong> situated on the Bay of Bengal in eastern India, is the capital of the state of Tamil Nadu.
+                        it is termed as "India's health capital".
+                    </p>
+                    <div class="social">
+                        <h2 style="font-weight:700">Starts from Rs.5000/- *</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="front">
+
+                    <img class="card-image" src="~/images/mumbai.jpg">
+                </div>
+                <div class="back">
+                    <h2>Mumbai</h2>
+                    <p>
+                        Mumbai also known as  <strong>Bombay</strong> is the capital city of the Indian state of Maharastra. Mumbai is the second most populous city in India after Delhi and Sixth most populous metropolitan area in the world.
+                    </p>
+                    <div class="social">
+                        <h2 style="font-weight:700">Starts from Rs.5000/- *</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="front">
+
+                    <img class="card-image" src="~/images/pune.jpg">
+                </div>
+                <div class="back">
+                    <h2>Pune</h2>
+                    <p>
+                        Pune also called <strong>Poona</strong> is the cultaral capital of Maharastra.It is also known as the "Oxford of the East" due to the presence of several well-known educational institutions.
+
+                    </p>
+                    <div class="social">
+                        <h2 style="font-weight:700">Starts from Rs.5000/- *</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="front">
+
+                    <img class="card-image" src="~/images/andaman.jpg">
+                </div>
+                <div class="back">
+                    <h2>Andaman & Nicobar Islands</h2>
+                    <p>
+                        The <strong> Andaman and Nicobar</strong> Islands, a Union territory of India comprising 572 islands of which 37 are inhabited, are a group of islands at the juncture of the Bay of Bengal and the Andaman Sea. For a vacation filled with exotic beaches visit Andaman.
+                    </p>
+                    <div class="social">
+                        <h2 style="font-weight:700">Starts from Rs.5000/- *</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="front">
+
+                    <img class="card-image" src="~/images/kolkata.jpg">
+                </div>
+                <div class="back">
+                    <h2>Kolkata</h2>
+                    <p>
+                        Kolkata also known as <strong>Calcutta</strong>  is the capital of Indian state of West Benagal. It is the third-most populous metropolitan area in India.
+                        Located on the east bank of the Hooghly River
+                    </p>
+                    <div class="social">
+                        <h2 style="font-weight:700">Starts from Rs.5000/- *</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="front">
+
+                    <img class="card-image" src="~/images/jaipur.jpg">
+                </div>
+                <div class="back">
+                    <h2>Jaipur</h2>
+                    <p>
+                        Jaipur is also known as the Pink City, due to the dominant color scheme of its buildings.Jaipur is a major tourist destination in India forming a part of the Golden Triangle.So plan your vacation now.
+                    </p>
+                    <div class="social">
+                        <h2 style="font-weight:700">Starts from Rs.5000/- *</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        
+                    <div class="container" id="imagepanel">
+                        <br>  <hr /><br>
+                        <div class="justify-content-center">
+                            <div style="text-align:center;text-shadow:2px 2px 3px #333;font-size: x-large;">The Rash Experience</div><br />
+                            <div class="col-md-3">
+                                <div class="card inner" style="width: 17rem;">
+                                    <img class="card-img-top" src="~/images/seats.jpg" alt="Card image cap" style="width: 230px;height:200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><br />Economy Class Seats</h4>
+                                        <p class="card-text">
+                                            Best in class economy seats with sufficient leg room at great prices.
+                                            Relax, Recline and enjoy the comfort for your travel.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card inner" style="width: 17rem;">
+                                    <img class="card-img-top" src="~/images/seats1.jpg" alt="Card image cap" style="width: 230px;height:200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><br />Buisness Class Seats</h4>
+                                        <p class="card-text">
+                                            Best in class Buisness seats with reclining seats and wider leg room.
+                                            Relax, Recline and enjoy the comfort for your travel.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card inner" style="width: 17rem;">
+                                    <img class="card-img-top" src="~/images/wifi.jpg" alt="Card image cap" style="width: 230px;height:200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><br />Wifi Enabled Flights</h4>
+                                        <p class="card-text">
+                                            Free Wi-Fi 20MB
+                                            Free or pick a value Wi-Fi plan.
+                                            Connect to our inflight Wifi and enjoy a conversation with your loved ones.
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card inner" style="width: 17rem;">
+                                    <img class="card-img-top" src="~/images/screen.jpg" alt="Card image cap" style="width: 230px;height:200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><br />Best in class Entertainment</h4>
+                                        <p class="card-text">
+                                            Inflight entertainment
+                                            on screens of high quality.
+                                            Explore over 4,500 channels.
+                                            All latest collection in many regional languages.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+    </div>
+   <div class="f">
+     
+    
+   </div>
+    
+
+     
+
+
+
+    <script>
+         var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2500); // Change image every 2.5 seconds
+        }
+    </script>
+
+    <script>
+        function location() {
+            var x = document.getElementById("a").value;
+            var y = document.getElementById("b").value;
+            
+            var GivenDate = document.getElementById("date").value;
+            var CurrentDate = new Date();
+            GivenDate = new Date(GivenDate);
+            if (x == y)
+            {
+                alert("Departure and arrival Locations cannot be the same!");
+                window.location.href = "http://localhost:52284/SearchFlight/Search";
+            }
+            if (GivenDate > CurrentDate)
+            {
+                alert('Given date is greater than the current date.');
+            }
+            else
+            {
+                alert('Given date is not greater than the current date.');
+                window.location.href = "http://localhost:52284/SearchFlight/Search";
+            }
+        } 
+        
+    </script>
+
+    @*<script>
+       
+
+        if (GivenDate > CurrentDate) {
+            alert('Given date is greater than the current date.');
+        } else {
+            alert('Given date is not greater than the current date.');
+        }
+    </script>*@
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@using Rash_Airlines.Models
+    @model IEnumerable<search_flight_Result>
+    @{
+        ViewBag.Title = "Search";
+    }
+
+    <h2>Search</h2>
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-10">
+            @Html.DropDownList("dep", null, "From")
+
+        </div>
+
+
+
+        <div class="col-md-10">
+            @Html.DropDownList("arr",null, "To")
+
+        </div>
+        <div class="col-md-offset-2 col-md-10">
+            <input type="date" value="date" name="date" class="btn btn-default" />
+        </div>
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+
+
+
+
+    }*@
+
+

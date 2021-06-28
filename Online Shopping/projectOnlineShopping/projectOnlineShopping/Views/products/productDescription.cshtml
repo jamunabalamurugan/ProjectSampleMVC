@@ -1,0 +1,304 @@
+﻿
+@if (Convert.ToBoolean(Session["result"]) == true)
+{
+    @Html.Partial("~/Views/Shared/_cart.cshtml")
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <style>
+
+
+        .full {
+            color: red;
+        }
+
+        .rating-love {
+            position: relative;
+            display: inline-block;
+        }
+
+        .rate {
+            white-space: nowrap;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+    <br />
+    <br />
+    <br />
+    
+    <div class="container" style="font-family:Algerian;align-content:center;">
+        <div class="row">
+            <div class="col-md-6">
+                <input class="btn btn-info" type="button" value="Compare with similar items" onclick="@("window.location.href='" + @Url.Action("compare", "products") + "'");" />
+            </div>
+            @{
+                if (Convert.ToBoolean(Session["result"]) == true)
+                {
+
+                    <div class="col-md-6">
+                        <input class="btn btn-info" type="button" value="Add to cart" onclick="@("window.location.href='" + @Url.Action("addCart", "carts") + "'");" />
+                    </div>
+                }
+                else
+                {
+                    bool cartViewLogin = true;
+                    Session["cartViewLogin"] = cartViewLogin;
+                    <div class="col-md-6">
+                        <input class="btn btn-info" type="button" value="Login to add to cart" onclick="@("window.location.href='" + @Url.Action("loginPage", "registrationTables") + "'");" />
+                    </div>
+                }
+
+            }
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @model projectOnlineShopping.Models.productDescription
+
+
+    @{
+        ViewBag.Title = "productDescription";
+    }
+
+   
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.productName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.productName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.productDescription1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.productDescription1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.stock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.stock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.color)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.color)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.backImage)
+            </dt>
+
+            <dd>
+
+                <img src="@Url.Content(Model.backImage)" height="100" width="100" />
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.frontImage)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.frontImage)" height="100" width="100" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sideImage)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.sideImage)" height="100" width="100" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.rating)
+            </dt>
+
+            <dd>
+
+                @*@Html.DisplayFor(model => model.rating)*@
+                @{
+                    int rate = (int)@Model.rating;
+                }
+
+                <div class="rating-love ">
+                    <span class="fa fa-heart"></span>
+                    <span class="fa fa-heart "></span>
+                    <span class="fa fa-heart"></span>
+                    <span class="fa fa-heart"></span>
+                    <span class="fa fa-heart"></span>
+                    <span class="rate" style="width:@rate%;">
+                        <!-- change this value for 0 to 100 -->
+                        <span class="fa fa-heart full"></span>
+                        <span class="fa fa-heart full"></span>
+                        <span class="fa fa-heart full"></span>
+                        <span class="fa fa-heart full"></span>
+                        <span class="fa fa-heart full"></span>
+                    </span>
+                </div>
+
+
+
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.actualCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.actualCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.discount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.discount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.currentCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.currentCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.size)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.size)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.approvalStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.approvalStatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.categoryDetail.categoryName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.categoryDetail.categoryName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.retailer.phoneNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.retailer.phoneNo)
+            </dd>
+
+        </dl>
+    </div>
+
+
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+   
+
+
+
+
+    <div class="container" style="font-family:Algerian;align-content:center;">
+        <div class="row">
+            @{
+                if (Convert.ToBoolean(Session["result"]) == true)
+                {
+
+                    <a href="@Url.Action("order", "orderTables", new { price = Model.currentCost, quantity = Model.quantity })" style="align-content:center">
+                        <input name="submit" type="submit" id="submit" value="Place Order" />
+                    </a>
+                }
+                else
+                {
+                    bool placeOrder = true;
+                    Session["placeOrder"] = placeOrder;
+                    <div class="col-md-6">
+                        <input class="btn btn-info" type="button" value="Login to place order" onclick="@("window.location.href='" + @Url.Action("loginPage", "registrationTables") + "'");" />
+                    </div>
+                }
+
+            }
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

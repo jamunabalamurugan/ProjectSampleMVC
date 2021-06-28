@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Rash_Airlines.Models.Passenger_booking_details>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.booking_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.no_of_seats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.@class)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.booking_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.journey_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flights_Master.flight_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place.place_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place1.place_name)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Passenger_Reg.title)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.booking_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.no_of_seats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.@class)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.booking_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.journey_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flights_Master.flight_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Place.place_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Place1.place_name)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Passenger_Reg.title)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.booking_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.booking_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.booking_id })
+        </td>
+    </tr>
+}
+
+</table>

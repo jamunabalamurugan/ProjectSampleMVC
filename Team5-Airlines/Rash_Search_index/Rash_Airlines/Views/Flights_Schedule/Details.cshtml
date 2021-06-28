@@ -1,0 +1,74 @@
+﻿@model Rash_Airlines.Models.Flights_Schedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Flights_Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.departure_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.departure_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arrival_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arrival_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bc_availability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bc_availability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ec_availability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ec_availability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flights_Master.flight_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flights_Master.flight_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Routes_Master.route_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Routes_Master.route_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

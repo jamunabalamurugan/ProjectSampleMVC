@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onload = function () { null };
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - iRelax</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    <!-- Thumbnail Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Monteserrat font google -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+
+    <style>
+
+        #navigbar {
+            box-shadow: rgba(0,0,0,0.3) 5px 5px 5px 5px;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+            border-radius: 35px;
+            margin-top: 10px;
+            background-color: white;
+            height: 40px;
+        }
+
+        li {
+            margin-right: 20px;
+        }
+
+        .footer {
+            font-size: 20px;
+            height: 40px;
+            box-shadow: rgba(0,0,0,0.1) 3px 3px 3px 3px;
+            border-top-left-radius: 35px;
+            border-top-right-radius: 35px;
+            position: page;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            text-align: center;
+            /*padding-top:10px;*/
+        }
+    </style>
+</head>
+    <body style="width: 100%; height: 600px;background-color:#3b64b2;">
+
+        <div class="navbar  navbar-fixed-top" id="navigbar">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">  <img src="~/Images/iRELAX.png" height="23" /> </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="color:black">
+                        <span class="icon-bar navbar-inverse"></span>
+                        <span class="icon-bar navbar-inverse"></span>
+                        <span class="icon-bar navbar-inverse"></span>
+                    </button>
+                    @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div class="container body-content">
+            @RenderBody()
+
+            <!-- Footer -->
+            <div class="footer bottom" style="font-size:16px">
+                <p align="center" style="padding-top:10px">&copy; iRelax| my<b>IRELAX</b>  @DateTime.Now.Year</p>
+            </div>
+
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

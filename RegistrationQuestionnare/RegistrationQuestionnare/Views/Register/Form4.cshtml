@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Register - SetUp Password";
+    Layout = "~/Views/Shared/_RegisterLoginLayout.cshtml";
+}
+<style>
+    .footer {
+        font-size: 20px;
+        height: 40px;
+        box-shadow: rgba(0,0,0,0.1) 3px 3px 3px 3px;
+        border-top-left-radius: 35px;
+        border-top-right-radius: 35px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        color: black;
+        text-align: center;
+        /*padding-top:10px;*/
+    }
+
+    .Textbox {
+        width: 100%;
+        height: 50px;
+        border-radius: 32px;
+        text-align: center;
+        background-color: white;
+        outline: none;
+        border: none;
+        color: black;
+    }
+
+    #PsNo {
+        padding: 50px;
+        margin-right: 50px;
+        position: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        border-radius: 32px;
+        color: white;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 35px;
+        height: 40px;
+        text-align: center;
+    }
+
+
+        .button:hover {
+            background-color: #3e8e41
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+    #btnConfirm {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 32px;
+        background-color: #efefef;
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        color: black;
+    }
+</style>
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+@*<h2>Form4</h2>*@
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-xs-08 col-sm-08 col-md-12 col-lg-12">
+
+            <div id="PsNo">
+
+                @ViewBag.message
+                <br>
+                @using (Html.BeginForm())
+                {
+                    @Html.Label("Enter Password")
+                    <br>
+                    @Html.Password("password", null, new { @class = "Textbox" })
+                    <br>
+                    @Html.Label("Re-Enter Password")
+                    <br>
+                    @Html.Password("rpassword", null, new { @class = "Textbox" })
+                    <br><br> <br>
+                    <input type="submit" value="Confirm Password" id="btnConfirm" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@ViewBag.exception

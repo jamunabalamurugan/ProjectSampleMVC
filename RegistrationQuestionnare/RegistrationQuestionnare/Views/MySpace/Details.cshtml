@@ -1,0 +1,341 @@
+﻿
+@model RegistrationQuestionnare.Models.EmployeePersonalDetail
+
+<style>
+    ﻿ /* Add a black background color to the top navigation */
+    .topnav {
+        background-color: aliceblue;
+        overflow: hidden;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        float: right;
+    }
+
+        /* Change the color of links on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    h1 {
+        text-align: center;
+    }
+
+    img {
+        height: 80vh;
+        width: 100%;
+        background-repeat: no-repeat;
+        margin-right: -1px;
+        margin-left: -1px;
+        margin-bottom: -1px;
+    }
+
+    .bg-text {
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+    }
+    /*For rounded corner squares*/
+    #rcorners {
+        border-radius: 25px;
+        background-color: gray;
+        padding: 20px;
+        width: 200px;
+        height: 150px;
+        margin: 40px;
+        vertical-align: middle;
+        line-height: 150px;
+        display: inline-block;
+        text-align: center;
+        font-size: 90px;
+        /*Add space between squares*/
+    }
+    /*The size of font*/
+    #Webname {
+        font-size: x-large;
+    }
+    /*Styling of the footer*/
+    #footers {
+        font-size: 23px;
+        background-color: gainsboro;
+    }
+    /*For About Page*/
+    #AboutText {
+        color: maroon;
+        font-size: 50px;
+        font-weight: 500;
+    }
+
+    #rcornersabout {
+        border-radius: 25px;
+        background-color: #f6f6f6;
+        padding: 20px;
+        width: 750px;
+        height: 450px;
+        margin: 40px;
+        vertical-align: middle;
+        line-height: 150px;
+        display: inline-block;
+        font-size: 50px;
+        outline: none;
+        border: none;
+        /*background-image: linear-gradient(#999966, #ffffcc);*/
+    }
+    /*Styling the company logo*/
+    #CompanyLogo {
+        border-radius: 50%;
+        height: 140px;
+        width: 140px;
+        float: left;
+    }
+
+    #emoji, #emoji1, #emoji2, #emoji3, #emoji4 {
+        height: 100px;
+        width: 100px;
+        display: inline-block;
+        justify-content: center;
+    }
+    /*For preference rounded corners*/
+    #prefround {
+        border-radius: 50px;
+        background-color: gray;
+        padding: 20px;
+        width: 250px;
+        height: 40px;
+        margin: 30px;
+        vertical-align: middle;
+        line-height: 50px;
+        display: inline-block;
+        margin-bottom: 0;
+        /*Add space between squares*/
+    }
+    /*For contact rounded corners*/
+    #rcornerscontact {
+        border-radius: 50px;
+        /*background-color: gray;*/
+        padding: 20px;
+        width: 350px;
+        height: 450px;
+        margin: 30px;
+        vertical-align: middle;
+        line-height: 50px;
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 50px;
+        display: inline-block;
+    }
+    /*CSS for image of map*/
+    #mapimg {
+        border-radius: 25px;
+        display: inline-block;
+        width: 40%;
+        height: 50%;
+        position: absolute;
+        bottom: 10px;
+    }
+    /*For styling developers names in about us*/
+    #abtround {
+        color: white;
+        border-radius: 25px;
+        background-color: gray;
+        padding: 20px;
+        width: 100px;
+        height: 15px;
+        /*margin: 30px;*/
+        vertical-align: middle;
+        line-height: 10px;
+        display: inline-block;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        /*margin-right:10px;*/
+        /*margin-top:10px;*/
+        font-size: 25px;
+        display: inline-block;
+        border-style: solid;
+        border-color: white;
+        float: right;
+    }
+    /*#aboutustext{
+            font-size:medium;
+            float:left;
+            column-count:1;
+        }*/
+    .button {
+        margin: 20px;
+        padding: 15px 25px;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: maroon;
+        border: none;
+        border-radius: 35px;
+        position: center;
+        align-content: center;
+        margin-top: 100px;
+    }
+
+        .button:hover {
+            background-color: #3e8e41
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        border-radius: 25px;
+        background: #800000;
+        padding: 20px;
+        width: 50%;
+        height: 50%;
+    }
+
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+</style>
+
+
+<body style="background-image:url('@Url.Content("~/Images/myspace.jpg")');width: 100%; height: 800px">
+    <div id="AboutText">My Space</div>
+    <div id="rcornersabout" style="font-size:medium;display:inline-block">
+
+        <table class="table" border="0">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vEmpID)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.vEmpID)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vEmpName)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.vEmpName)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.dBirthDate)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.dBirthDate)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vEmpGender)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.vEmpGender)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vEmpMobile)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.vEmpMobile)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vEmpMail)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.vEmpMail)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.iCreditPoints)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.iCreditPoints)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vWorkingLocation)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.vWorkingLocation)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vWorkDomain)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.vWorkDomain)
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    @Html.ActionLink("Update", "Update", new { id = Model.vEmpID }, new { @class = "button" })
+                </td>
+            </tr>
+
+        </table>
+
+
+    </div>
+
+    <div class="card" style="color:white;display:inline-block">
+        <img src="@Url.Content(Model.ProfilePhoto)" style="height:200px; width:200px" />
+        <h1>@Html.DisplayName(Model.vEmpName)</h1>
+        <p class="title">Cookie Points : @Html.DisplayFor(model => model.iCreditPoints)</p>
+    </div>
+
+
+
+</body>
+

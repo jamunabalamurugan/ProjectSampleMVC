@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Rash_Airlines.Models.Place>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add New Places", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.place_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.place_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.place_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.place_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit_Places", new { id = item.place_id }) |
+            @Html.ActionLink("Details", "Details_Places", new { id = item.place_id }) |
+            @Html.ActionLink("Delete", "Delete_Places", new { id = item.place_id })
+        </td>
+    </tr>
+}
+
+</table>

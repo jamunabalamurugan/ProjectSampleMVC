@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@if (Session["UserName"] == null)
+{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <h2>Lakshya Home Index</h2>
+    <div>
+
+        <button class="btn">@Html.ActionLink("Register", "User_Register", "User")</button>
+        <button class="btn">@Html.ActionLink("Sign In", "Login", "User")</button>
+    </div>
+}
+else
+{
+     Response.Redirect("~/User/User_Home");
+}

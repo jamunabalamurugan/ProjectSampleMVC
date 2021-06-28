@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FarmerApp.Bidding>
+
+@{
+    ViewBag.Title = "View Marketplace";
+}
+
+<h2>ViewMarketplace</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <label>Crop name</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Crop_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baseprice)
+        </th>
+        <th>
+            <label>Bid Amount</label>
+        </th>
+
+        <th>
+            <label>Bidder Name</label>
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellRequest.Crop_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Crop_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baseprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Current_Bid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BidderReg.Name)
+            </td>
+
+
+
+        </tr>
+    }
+
+</table>
+<td>
+    @Html.ActionLink("Go Back", "Index")
+</td>
+

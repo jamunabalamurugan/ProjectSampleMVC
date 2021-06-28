@@ -1,0 +1,62 @@
+﻿@model IEnumerable<OnlineBankingProject.Models.Beneficiary_Table>
+
+@{
+    ViewBag.Title = "Beneficiary_Table";
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+
+<h2>Beneficiary_Table</h2>
+<html>
+<head>
+    <style>
+        body {
+            background-color: mistyrose;
+        }
+    </style>
+
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Beneficiary_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beneficiary_Account_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nick_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Open_Savings_Account.First_Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Beneficiary_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Beneficiary_Account_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nick_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Open_Savings_Account.First_Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Back", "AdminStatusApproval", "LOR")
+                </td>
+            </tr>
+        }
+
+    </table>
+    </body>
+</html>

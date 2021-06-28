@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "Test_Report";
+}
+
+<center><h2>Test Report</h2></center>
+<head>
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "light1", // "light1", "light2", "dark1", "dark2"
+                exportEnabled: true,
+                animationEnabled: true,
+                title: {
+                    text: "Performance Result"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 25,
+                    toolTipContent: "<b>{label}</b>: {y}%",
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabelFontSize: 16,
+                    indexLabel: "{label} - {y}%",
+                    dataPoints: [
+                        { y: 20.08, label: "Correct" },
+                        { y: 50.34, label: "Incorrect" },
+
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+</head>
+
+
+<body style="background-color:peru">
+    <center>
+        <div class="row">
+            @*card view*@
+            <div class="col-sm-12 ">
+                <div class="panel firstbox" style="margin-top:2px">
+                    <div class="panel-body">
+                        <div id="chartContainer" style="width: 100%; height: 300px;"></div>
+                        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                    </div>
+                </div>
+                <div class="panel firstbox">
+                    <div class="panel-body">
+                        <h4>Test Details</h4>
+                       
+                        <hr />
+                        <table class="table table-hover table-condensed">
+                            <tr>
+                                <th class="col-sm-12">
+                                    Result
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 1:-<br />
+                                    @Session["quest1"]<br />
+                                    Attempted Answer: @Session["attempt1"]<br />
+                                    Correct Answer:   @Session["corr1"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 2:-<br />
+                                    @Session["quest2"]<br />
+                                    Attempted Answer: @Session["attempt2"]<br />
+                                    Correct Answer:   @Session["corr2"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 3:-<br />
+                                    @Session["quest3"]<br />
+                                    Attempted Answer: @Session["attempt3"]<br />
+                                    Correct Answer:   @Session["corr3"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 4:-<br />
+                                    @Session["quest4"]<br />
+                                    Attempted Answer: @Session["attempt4"]<br />
+                                    Correct Answer:   @Session["corr4"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 5:-<br />
+                                    @Session["quest5"]<br />
+                                    Attempted Answer: @Session["attempt5"]<br />
+                                    Correct Answer:   @Session["corr5"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 6:-<br />
+                                    @Session["quest6"]<br />
+                                    Attempted Answer: @Session["attempt6"]<br />
+                                    Correct Answer:   @Session["corr6"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 7:-<br />
+                                    @Session["quest7"]<br />
+                                    Attempted Answer: @Session["attempt7"]<br />
+                                    Correct Answer:   @Session["corr7"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 8:-<br />
+                                    @Session["quest8"]<br />
+                                    Attempted Answer: @Session["attempt8"]<br />
+                                    Correct Answer:   @Session["corr8"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 9:-<br />
+                                    @Session["quest9"]<br />
+                                    Attempted Answer: @Session["attempt9"]<br />
+                                    Correct Answer:   @Session["corr9"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 10:-<br />
+                                    @Session["quest10"]<br />
+                                    Attempted Answer: @Session["attempt10"]<br />
+                                    Correct Answer:   @Session["corr10"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 11:-<br />
+                                    @Session["quest11"]<br />
+                                    Attempted Answer: @Session["attempt11"]<br />
+                                    Correct Answer:   @Session["corr11"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 12:-<br />
+                                    @Session["quest12"]<br />
+                                    Attempted Answer: @Session["attempt12"]<br />
+                                    Correct Answer:   @Session["corr12"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 13:-<br />
+                                    @Session["quest13"]<br />
+                                    Attempted Answer: @Session["attempt13"]<br />
+                                    Correct Answer:   @Session["corr13"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 14:-<br />
+                                    @Session["quest14"]<br />
+                                    Attempted Answer: @Session["attempt14"]<br />
+                                    Correct Answer:   @Session["corr14"]<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Question 15:-<br />
+                                    @Session["quest15"]<br />
+                                    Attempted Answer: @Session["attempt15"]<br />
+                                    Correct Answer:   @Session["corr15"]<br />
+                                </td>
+                            </tr>
+                         
+
+                        </table>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+
+

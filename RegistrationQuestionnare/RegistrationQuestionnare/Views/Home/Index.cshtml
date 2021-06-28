@@ -1,0 +1,121 @@
+﻿<script>
+    var loginflag = '@ViewBag.loginflag';
+    if (loginflag == 2) {
+        alert("You have been Successfully Logged Out!");
+    }
+</script>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
+
+<style>
+
+
+    .btnLogin,#btnLogin {
+        width: 300px;
+        background-color: white;
+        border-radius: 30px;
+        align-content: center;
+        border: none;
+        padding: 10px 50px 10px 50px;
+        opacity: 1;
+        margin-top: 20px;
+        outline: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        margin:10px;
+    }
+
+    #btnSubmit {
+        border-radius: 32px;
+        width: 200px;
+        height: 50px;
+    }
+
+    #homecard {
+        border-radius: 35px;
+        background-color: #f1f1f1;
+        padding: 15px;
+        margin: 10px;
+        height: 350px;
+        width: 100%;
+    }
+
+    h1 {
+        font-family: 'Megrim';
+        text-align: center;
+        font-size: 50px;
+        font-weight: 500;
+    }
+
+    h3 {
+        text-align: center;
+        font-family: 'Livvic';
+    }
+
+    h4, h5 {
+        text-align: right;
+    }
+    #actionlink {
+        background: red;
+        padding: 10px;
+        padding-left: 120px;
+        padding-right: 100px;
+        border-radius: 30px;
+    }
+</style>
+<br />
+<div class="container-fluid" id=" homeBGimg" style="background-image:url('@Url.Content("~/Images/2000a352812969.59eedeac2642a.gif")') ; border-radius: 35px; width: 100%; height: 600px; background-size: 100% 100%;">
+
+    <br /> <br /> <br />  <br /> <br /> <br /><br /> <br /> <br />  <br /> <br /> <br /><br /> <br />
+    <center>
+           @Html.ActionLink("Login", "Page1", "Login", null, new { id = "btnLogin" })
+           @Html.ActionLink("Register", "Form1", "Register",null, new { @class = "btnLogin" })
+    </center>
+
+</div>
+<br /> <br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="homecard" style="background-image:url('@Url.Content("~/Images/Home1.gif")') ; width: 100%; height: 350px; ">
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="homecard">
+                <br /> <br /> <br />
+                <h1>... iRelax<br />iRefresh<br />iRevive ...</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-xs-12 col-sm-12">
+            <div id="homecard">
+                <br /><br /><br /><br /><br />
+                <h3> " This is a commendable application that every employee needs ... "</h3>
+                <h4>- Henrik Henriksson,</h4>
+                <h5><i> President and CEO, Scania AB</i></h5>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12">
+
+            <div id="homecard" style="background-image:url('@Url.Content("~/Images/Home2.gif")') ; width: 100%; height: 350px; background-size:100% ">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<br /><br />

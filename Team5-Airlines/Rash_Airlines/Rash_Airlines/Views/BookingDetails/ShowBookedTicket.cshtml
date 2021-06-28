@@ -1,0 +1,437 @@
+﻿@model Rash_Airlines.Models.Passenger_booking_details
+
+@{
+        ViewBag.Title = "Show Booked Ticket";
+    }
+@{ 
+    @Html.ActionLink("Conver to pdf", "PrintToPdf")
+}
+
+  @*  <h2>ShowBookedTicket</h2>
+
+    <div>
+        <h4>Passenger_booking_details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.no_of_seats)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.no_of_seats)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.@class)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.@class)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.booking_Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.booking_Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.journey_date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.journey_date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Flights_Master.flight_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Flights_Master.flight_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Departure")
+                 @Html.DisplayNameFor(model => model.Place.place_name) 
+            </dt>
+
+            <dd>
+                @TempData["departure"]
+                 @Html.DisplayFor(model => model.Place.place_name) 
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Arrival")
+                @Html.DisplayNameFor(model => model.Place1.place_name)
+            </dt>
+
+            dd>
+                @TempData["arrival"]
+            </dd>
+
+            <dt>
+                @Html.DisplayFor(model => model.Flights_Master.Flights_Schedule.First().departure_time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Passenger_Reg.passenger_id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.booking_id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.booking_id)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayName("Seat Number")
+                @Html.DisplayFor(model => model.Passengers_Details)
+            </dt>*@
+
+            @*<dd>
+                @TempData["seat_no"]
+                @Html.DisplayNameFor(model => model.Passengers_Details)
+            </dd>
+            <dt>
+                @Html.DisplayName("Name")
+                @Html.DisplayFor(model => model.Passengers_Details)
+            </dt>*@
+
+            @*<dd>
+                @TempData["Name"]
+                @Html.DisplayNameFor(model => model.Passengers_Details)
+            </dd>*@
+
+        @*</dl>
+    </div>
+    <p>
+       
+        @Html.ActionLink("Book Again", "DetailedSearch", "Passenger_booking_details");
+    </p> *@
+
+
+
+
+
+@*<style>
+    body {
+        background: whitesmoke;
+    }
+
+    .main {
+        height: 600px;
+        width: 300px;
+        background: whitesmoke;
+        box-shadow: 0px 0px 100px rgba(0,0,0,0.2);
+        display: block;
+        margin: auto;
+        margin-top: 60px;
+        border-radius: 40px;
+        border: 15px solid white;
+    }
+
+    h6 {
+        font-size: 0.7em;
+        font-weight: 800;
+        text-align: center;
+        margin-top: 15px;
+        font-family: sans-serif;
+    }
+
+    .shipping-info-head {
+        column-count: 2;
+        width: 300px;
+        margin-left: 11px;
+    }
+
+        .shipping-info-head h6 {
+            font-size: 12px;
+            font-weight: 200;
+            margin-left: -10px;
+            margin-top: 0px;
+            font-family: 'Teko', sans-serif;
+        }
+
+    .shipping-info-head1 {
+        column-count: 2;
+        margin-left: 55px;
+        width: 280px;
+    }
+
+        .shipping-info-head1 h2 {
+            font-size: 35px;
+            font-weight: 600;
+            margin-left: 0px;
+            margin-top: 0px;
+            font-family: 'Teko', sans-serif;
+        }
+
+        .shipping-info-head1 i {
+            font-size: 25px;
+            margin-left: 20px;
+            margin-top: 0px;
+        }
+
+    .shipping-info-head2 {
+        column-count: 2;
+        width: 280px;
+        margin-top: -15px;
+        margin-left: 50px;
+    }
+
+        .shipping-info-head2 p {
+            font-size: 12px;
+            font-weight: 200;
+            margin-left: 10px;
+            margin-top: 0px;
+            font-family: 'Teko', sans-serif;
+        }
+
+    .circle {
+        height: 250px;
+        width: 250px;
+        background: #ffb600;
+        display: block;
+        margin: auto;
+        margin-top: 80px;
+        border-radius: 50%;
+    }
+
+    h1 {
+        position: absolute;
+        margin-top: -260px;
+        margin-lefT: 30px;
+        color: rgba(0,0,0,0.9);
+        font-family: sans-serif;
+    }
+
+    .shipping-info-head3 {
+        column-count: 2;
+        width: 270px;
+        margin-top: -210px;
+        margin-left: 20px;
+    }
+
+        .shipping-info-head3 p {
+            font-size: 12px;
+            font-weight: 200;
+            color: rgba(0,0,0,0.7);
+            border-top: 1px solid rgba(0,0,0,0.7);
+            margin-left: 10px;
+            margin-top: 0px;
+            font-family: 'Teko', sans-serif;
+        }
+
+    .shipping-info-head4 {
+        column-count: 2;
+        width: 270px;
+        margin-left: 20px;
+    }
+
+        .shipping-info-head4 p {
+            font-size: 17px;
+            font-weight: 600;
+            margin-left: 10px;
+            margin-top: 0px;
+            font-family: 'Teko', sans-serif;
+        }
+
+    .shipping-info-head5 {
+        column-count: 2;
+        width: 270px;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+
+        .shipping-info-head5 p {
+            font-size: 12px;
+            font-weight: 200;
+            color: rgba(0,0,0,0.7);
+            border-top: 1px solid rgba(0,0,0,0.7);
+            margin-left: 10px;
+            margin-top: 0px;
+            font-family: 'Teko', sans-serif;
+        }
+
+    .shipping-info-head6 {
+        column-count: 2;
+        width: 270px;
+        margin-left: 20px;
+    }
+
+        .shipping-info-head6 p {
+            font-size: 17px;
+            font-weight: 600;
+            margin-left: 10px;
+            margin-top: 0px;
+            font-family: 'Teko', sans-serif;
+        }
+
+    .barcode {
+        height: 20px;
+        width: 200px;
+        margin-left: 50px;
+        margin-top: 50px;
+        background-image: url(http://www.pngall.com/wp-content/uploads/2/Barcode-PNG-Photo.png);
+        background-size: cover;
+    }
+
+    .fa-align-left {
+        position: absolute;
+        margin-left: 270px;
+        margin-top: 15px;
+    }
+
+    .fa-arrow-left {
+        position: absolute;
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+</style>
+
+<div class="main">
+    <i class="fa fa-arrow-left"></i>
+    <i class="fa fa-align-left"></i>
+    <h6>Boarding Pass</h6>
+    <div class="pass">
+        <div class="shipping-info-head">
+            <h4>@TempData["departure"]</h4>
+            @*<h6> @Html.DisplayFor(model => model.Place1.place_name)</h6>
+        </div>
+        <i class="fa fa-arrow-down">
+            <div class="shipping-info-head1">
+                <h4> @TempData["Arrival"]	<i class="fa fa-arrow-right"></i></h4>
+                <h2> @Html.DisplayFor(model => model.Place1.place_name)</h2>
+            </div>
+
+            <div class="shipping-info-head2">
+                <p></p>
+                <p></p>
+            </div>
+
+    </div>
+
+    <div class="circle"></div>
+    <h2>    @TempData["Name"] </h2>
+
+    <div class="shipping-info-head4">
+        <p>Seat Number:</p>
+        <p> @TempData["seat_no"]</p>
+    </div>
+
+    <div class="shipping-info-head5">
+        <p> Booking ID</p>
+        <p> @Html.DisplayFor(model => model.booking_id)</p>
+    </div>
+
+    <div class="shipping-info-head6">
+        <p>Journey Date</p>
+        <p>@Html.DisplayFor(model => model.journey_date)</p>
+    </div>
+
+
+    <div class="shipping-info-head5">
+        <p> Class </p>
+        <p>@Html.DisplayFor(model => model.@class)</p>
+    </div>
+
+    <div class="shipping-info-head6">
+        <p></p>
+        <p> </p>
+    </div>
+    <div class="barcode"></div>
+</div>*@
+
+
+
+
+
+<html>
+<head>
+    <link href="~/Content/ShowBookedTicket.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class="box">
+        <ul class="left">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <ul class="right">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="ticket">
+            <span class="airline">RASH AIRLINES</span>
+            @*<span class="airline airlineslip">RASH AIRLINES</span>*@
+            <span class="boarding">Boarding pass</span>
+            <div class="content">
+                <span class="jfk">@TempData["departure"]<br />  @Html.DisplayFor(model => model.Flights_Master.Flights_Schedule.First().departure_time) </span>
+                <span class="plane">
+                    <?xml version="1.0" ?>
+                    <svg clip-rule="evenodd" fill-rule="evenodd" height="60" width="60" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><g stroke="#222"><line fill="none" stroke-linecap="round" stroke-width="30" x1="300" x2="55" y1="390" y2="390" /><path d="M98 325c-9 10 10 16 25 6l311-156c24-17 35-25 42-50 2-15-46-11-78-7-15 1-34 10-42 16l-56 35 1-1-169-31c-14-3-24-5-37-1-10 5-18 10-27 18l122 72c4 3 5 7 1 9l-44 27-75-15c-10-2-18-4-28 0-8 4-14 9-20 15l74 63z" fill="#222" stroke-linejoin="round" stroke-width="10" /></g></svg>
+                </span>
+                <span class="sfo"> @TempData["Arrival"] <br>  @Html.DisplayFor(model => model.Flights_Master.Flights_Schedule.First().arrival_time)</span>
+
+                <span class="jfk jfkslip">@TempData["departure"]<br> @Html.DisplayFor(model => model.Flights_Master.Flights_Schedule.First().departure_time)  </span>
+                <span class="plane planeslip">
+                    <?xml version="1.0" ?>
+                    <svg clip-rule="evenodd" fill-rule="evenodd" height="50" width="50" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><g stroke="#222"><line fill="none" stroke-linecap="round" stroke-width="30" x1="300" x2="55" y1="390" y2="390" /><path d="M98 325c-9 10 10 16 25 6l311-156c24-17 35-25 42-50 2-15-46-11-78-7-15 1-34 10-42 16l-56 35 1-1-169-31c-14-3-24-5-37-1-10 5-18 10-27 18l122 72c4 3 5 7 1 9l-44 27-75-15c-10-2-18-4-28 0-8 4-14 9-20 15l74 63z" fill="#222" stroke-linejoin="round" stroke-width="10" /></g></svg>
+                </span>
+                <span class="sfo sfoslip">
+                    @TempData["Arrival"]<br>
+                    @Html.DisplayFor(model => model.Flights_Master.Flights_Schedule.First().arrival_time)
+                </span>
+                <div class="sub-content">
+                    @*<span class="watermark">Rash Airlines</span>*@
+                    <span class="name">PASSENGER NAME<br><span>@TempData["Name"]</span></span>
+                    <span class="flight">SEAT NO.<br><span>@TempData["seat_no"]</span></span>
+                    <span class="gate">BOOKING ID<br><span>@Html.DisplayFor(model => model.booking_id)</span></span><br />
+                    <span class="boardingtime">CLASS<br><span>@Html.DisplayFor(model => model.@class)</span></span>
+
+                    <span class="seat">JOURNEY DATE<br><span>@Html.DisplayFor(model => model.journey_date)</span></span>
+
+                    <span class="flight flightslip">BOOKING ID<br><span>@Html.DisplayFor(model => model.booking_id)</span></span>
+                    <span class="seat seatslip">SEAT NO.<br><span>@TempData["seat_no"]</span></span>
+                    <span class="name nameslip">PASSENGER NAME<br><span>@TempData["Name"]</span></span>
+                </div>
+            </div>
+            <div class="barcode"></div>
+            <div class="barcode slip"></div>
+        </div>
+    </div>
+
+   
+   
+</body>
+</html>

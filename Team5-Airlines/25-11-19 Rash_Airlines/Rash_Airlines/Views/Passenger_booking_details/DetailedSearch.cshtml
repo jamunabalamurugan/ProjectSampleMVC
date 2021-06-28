@@ -1,0 +1,149 @@
+﻿@model Rash_Airlines.Models.Passenger_booking_details
+@using Rash_Airlines.Models
+@{
+  
+}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<link href="Content/bootstrap.css" rel="stylesheet" />
+<link href="Content/Site.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+        <!-- Website CSS style -->
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+        <!-- Website Font style -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+      @* <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">*@
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link href="~/Content/DetailedSearch.css" rel="stylesheet" />
+ 
+    </head>
+
+    <body>
+        <div class="bg">
+            <div class="container">
+                <div class="row main">
+                    <div class="panel-heading">
+                        <div class="panel-title text-center">
+                        </div>
+                    </div>
+                    <div class="main-login main-center">
+                        <form class="form-horizontal" method="post" action="#">
+
+                            <div class="form-group">
+                                <label for="Departure" class="cols-sm-2 control-label">Departure</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-upload fa" aria-hidden="true"></i></span>
+
+                                        @*<input type="text" class="form-control" name="name" id="name" placeholder="Your Name" />*@
+                                        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.DropDownList("dep", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.departure, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Arrival" class="cols-sm-2 control-label">Arrival</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-download fa" aria-hidden="true"></i></span>
+                                        @*<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />*@
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.DropDownList("arr", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.arrival, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Date" class="cols-sm-2 control-label">Journey Date</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                                        @*<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />*@
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="date" name="date" />
+                                                @*@Html.TextBoxFor(model => model.journey_date,new { type = "date" })*@
+                                                @Html.ValidationMessageFor(model => model.journey_date, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Seats" class="cols-sm-2 control-label">Seats</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-suitcase fa" aria-hidden="true"></i></span>
+                                        @*<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />*@
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.no_of_seats, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.no_of_seats, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Class" class="cols-sm-2 control-label">Class</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        @*<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />*@
+                                        <div class="form-group">
+                                            <div class="col-md-10 cabin">
+                                                @*@Html.DropDownList("@class", new SelectList(Enum.GetValues(typeof(air_class))),"Class",new { htmlAttributes = new { @class = "cabin" } })
+        @Html.ValidationMessageFor(model => model.@class, "", new { @class = "text-danger" })*@
+
+                                                @Html.DropDownListFor(model => model.@class, new SelectList(Enum.GetValues(typeof(air_class))),"Class",new { htmlAttributes = new { @class = "cabin" } })
+        @Html.ValidationMessageFor(model => model.@class, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Search" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+        @Html.ActionLink("Profile", "Details_Passenger","Passenger_Reg",new { id= @Session["passenger_id"] },null)
+    </body>
+</html>
+}
+
+
+
+
+
+

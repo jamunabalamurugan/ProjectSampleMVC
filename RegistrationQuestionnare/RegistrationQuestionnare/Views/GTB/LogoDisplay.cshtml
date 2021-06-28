@@ -1,0 +1,132 @@
+﻿<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+@{
+    ViewBag.Title = "Guess the Brand";
+}
+<head>
+    <style>
+        h1 {
+            text-shadow: 0 0 3px #FF0000;
+        }
+
+        #exitbutton {
+            float: right;
+            padding: 5px 10px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            margin-top: 0px;
+        }
+
+        #submitbutton {
+            padding: 5px 10px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+        }
+
+            #exitbutton:hover, #submitbutton:hover {
+                background-color: #3e8e41
+            }
+
+            #exitbutton:active, #submitbutton:hover {
+                background-color: #3e8e41;
+                transform: translateY(4px);
+            }
+
+        #roundedcorner {
+            background-image: linear-gradient(to bottom right,#3b6d6d,#87ceeb);
+            border-radius: 25px;
+            /*background: #73AD21;*/
+            padding: 20px;
+            width: 65%;
+            height: 65%;
+        }
+
+        #points {
+            font-size: 25px;
+            display: inline-block;
+        }
+
+        #radio {
+            font-size: 20px;
+            font-weight: 100;
+            margin-top: -1px;
+            vertical-align: middle;
+            /*font-family:DFGothic-EB;*/
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("submitbutton").click(function () {
+            var radioValue = $("input[name='Options']:checked").val();
+            if (radioValue) {
+                alert("Please select");
+            }
+        });
+
+    });
+</script>
+
+<center>
+    <h1>Guess The Brand</h1>
+</center>
+
+@using (Html.BeginForm("LogoDisplay", "GTB", FormMethod.Post))
+{
+
+    <div>
+        <div id="points" style="margin-left:20%;">
+            @Html.Label("Score :")
+            @Session["points"]
+        </div>
+
+        <input type="button" value="EXIT" onclick="window.location.href='http://localhost:52768/GTB/ExitGame'" id="exitbutton" style="margin-right:20%;" />
+
+        @*<button type="button" onclick="location.href='Url.Content(" Preference","GTB")'"></button>*@
+        <br />
+        <br />
+        <center>
+            <div id="roundedcorner">
+
+                <img src="@Url.Content(ViewBag.image)" alt="No Image" style="height:150px; width:150px" />
+                <br />
+                <br />
+                <div id="radio">
+                    <b>
+                        @Html.RadioButton("Options", "Option1")
+                        @ViewBag.option1
+                        <br />
+
+                        @Html.RadioButton("Options", "Option2")
+                        @ViewBag.option2
+                        <br />
+
+                        @Html.RadioButton("Options", "Option3")
+                        @ViewBag.option3
+                    </b>
+                </div>
+                <br />
+
+                <input type="submit" value="Submit" id="submitbutton" />
+            </div>
+        </center>
+        <center>
+            @ViewBag.message
+            @ViewBag.message1
+        </center>
+    </div>
+
+}
+@ViewBag.exception
+

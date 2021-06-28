@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineBankingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Beneficiary_Table">
+    <Key>
+      <PropertyRef Name="Beneficiary_Id" />
+    </Key>
+    <Property Name="Beneficiary_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Beneficiary_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Beneficiary_Account_Number" Type="Int64" />
+    <Property Name="Nick_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Account_Number" Type="Int64" />
+    <NavigationProperty Name="Open_Savings_Account" Relationship="Self.FK__Beneficia__Accou__4B7734FF" FromRole="Beneficiary_Table" ToRole="Open_Savings_Account" />
+  </EntityType>
+  <EntityType Name="Open_Savings_Account">
+    <Key>
+      <PropertyRef Name="Account_Number" />
+    </Key>
+    <Property Name="Account_Number" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Father_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mobile_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Id" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="AadharCard_Number" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
+    <Property Name="Residential_Address_Line1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Residential_Address_Line2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Residential_Landmark" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Residential_State" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Residential_City" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Residential_Pincode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Permanent_Address_Line1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Permanent_Address_Line2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Permanent_Landmark" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Permanent_State" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Permanent_City" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Permanent_Pincode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Occupational_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Source_Of_Income" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Gross_Annual_income" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Approve_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Beneficiary_Table" Relationship="Self.FK__Beneficia__Accou__4B7734FF" FromRole="Open_Savings_Account" ToRole="Beneficiary_Table" />
+    <NavigationProperty Name="Registration_table" Relationship="Self.FK__Registrat__Accou__489AC854" FromRole="Open_Savings_Account" ToRole="Registration_table" />
+    <NavigationProperty Name="Transaction_Table" Relationship="Self.FK__Transacti__Accou__4E53A1AA" FromRole="Open_Savings_Account" ToRole="Transaction_Table" />
+  </EntityType>
+  <EntityType Name="Registration_table">
+    <Key>
+      <PropertyRef Name="Ruser_Id" />
+    </Key>
+    <Property Name="Ruser_Id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Account_Number" Type="Int64" />
+    <Property Name="Email_Id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Login_Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Transaction_Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Open_Savings_Account" Relationship="Self.FK__Registrat__Accou__489AC854" FromRole="Registration_table" ToRole="Open_Savings_Account" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Transaction_Table">
+    <Key>
+      <PropertyRef Name="Reference_Id" />
+    </Key>
+    <Property Name="Reference_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account_Number" Type="Int64" />
+    <Property Name="Beneficiary_Account_Number" Type="Int64" />
+    <Property Name="Transaction_Date" Type="DateTime" Precision="0" />
+    <Property Name="Transaction_Amount" Type="Int32" />
+    <Property Name="Transaction_Mode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Open_Savings_Account" Relationship="Self.FK__Transacti__Accou__4E53A1AA" FromRole="Transaction_Table" ToRole="Open_Savings_Account" />
+  </EntityType>
+  <Association Name="FK__Beneficia__Accou__4B7734FF">
+    <End Role="Open_Savings_Account" Type="Self.Open_Savings_Account" Multiplicity="0..1" />
+    <End Role="Beneficiary_Table" Type="Self.Beneficiary_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Open_Savings_Account">
+        <PropertyRef Name="Account_Number" />
+      </Principal>
+      <Dependent Role="Beneficiary_Table">
+        <PropertyRef Name="Account_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__Accou__489AC854">
+    <End Role="Open_Savings_Account" Type="Self.Open_Savings_Account" Multiplicity="0..1" />
+    <End Role="Registration_table" Type="Self.Registration_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Open_Savings_Account">
+        <PropertyRef Name="Account_Number" />
+      </Principal>
+      <Dependent Role="Registration_table">
+        <PropertyRef Name="Account_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__Accou__4E53A1AA">
+    <End Role="Open_Savings_Account" Type="Self.Open_Savings_Account" Multiplicity="0..1" />
+    <End Role="Transaction_Table" Type="Self.Transaction_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Open_Savings_Account">
+        <PropertyRef Name="Account_Number" />
+      </Principal>
+      <Dependent Role="Transaction_Table">
+        <PropertyRef Name="Account_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OnlineBankingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Beneficiary_Table" EntityType="Self.Beneficiary_Table" />
+    <EntitySet Name="Open_Savings_Account" EntityType="Self.Open_Savings_Account" />
+    <EntitySet Name="Registration_table" EntityType="Self.Registration_table" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Transaction_Table" EntityType="Self.Transaction_Table" />
+    <AssociationSet Name="FK__Beneficia__Accou__4B7734FF" Association="Self.FK__Beneficia__Accou__4B7734FF">
+      <End Role="Open_Savings_Account" EntitySet="Open_Savings_Account" />
+      <End Role="Beneficiary_Table" EntitySet="Beneficiary_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__Accou__489AC854" Association="Self.FK__Registrat__Accou__489AC854">
+      <End Role="Open_Savings_Account" EntitySet="Open_Savings_Account" />
+      <End Role="Registration_table" EntitySet="Registration_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__Accou__4E53A1AA" Association="Self.FK__Transacti__Accou__4E53A1AA">
+      <End Role="Open_Savings_Account" EntitySet="Open_Savings_Account" />
+      <End Role="Transaction_Table" EntitySet="Transaction_Table" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OnlineBankingModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OnlineBankingModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Admins" EntityType="OnlineBankingModel.Admin" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminName" />
+    </Key>
+    <Property Name="AdminName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

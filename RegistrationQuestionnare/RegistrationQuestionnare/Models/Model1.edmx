@@ -1,0 +1,1277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IRelaxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DailyActivities">
+          <Key>
+            <PropertyRef Name="iDActivityID" />
+          </Key>
+          <Property Name="iDActivityID" Type="int" Nullable="false" />
+          <Property Name="vDActivityName" Type="varchar" MaxLength="100" />
+          <Property Name="tDDuration" Type="time" Precision="7" />
+          <Property Name="iStressMinLevel" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IRelax.dbo.DailyActivityTrack' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DailyActivityTrack">
+          <Key>
+            <PropertyRef Name="DAT_number" />
+          </Key>
+          <Property Name="DAT_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="iDActivityID" Type="int" />
+          <Property Name="tDStartTime" Type="datetime" />
+          <Property Name="tDStopTime" Type="datetime" />
+          <Property Name="bDActivityStatus" Type="bit" />
+          <Property Name="dDActivityDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IRelax.dbo.DailyEmployeeInterests' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DailyEmployeeInterests">
+          <Key>
+            <PropertyRef Name="DEI_number" />
+          </Key>
+          <Property Name="DEI_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="iDActivityID" Type="int" />
+        </EntityType>
+        <EntityType Name="DailyLoginTime">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="dLoginTime" Type="datetime" />
+          <Property Name="dLogoutTime" Type="datetime" />
+          <Property Name="iMood" Type="int" />
+          <Property Name="dbStressValue" Type="float" />
+        </EntityType>
+        <EntityType Name="EmployeePersonalDetails">
+          <Key>
+            <PropertyRef Name="vEmpID" />
+          </Key>
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="vEmpName" Type="varchar" MaxLength="50" />
+          <Property Name="vWorkDomain" Type="varchar" MaxLength="100" />
+          <Property Name="iWorkingHours" Type="int" />
+          <Property Name="vWorkingLocation" Type="varchar" MaxLength="50" />
+          <Property Name="iEmpAge" Type="int" />
+          <Property Name="vEmpMobile" Type="varchar" MaxLength="15" />
+          <Property Name="vEmpMail" Type="varchar" MaxLength="100" />
+          <Property Name="vEmpGender" Type="varchar" MaxLength="10" />
+          <Property Name="dBirthDate" Type="date" />
+          <Property Name="bMaritialStatus" Type="bit" />
+          <Property Name="iCreditPoints" Type="int" />
+          <Property Name="vPassword" Type="varchar" MaxLength="50" />
+          <Property Name="bAdmin" Type="bit" />
+          <Property Name="ProfilePhoto" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IRelax.dbo.ImageDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ImageDB">
+          <Key>
+            <PropertyRef Name="iImageID" />
+          </Key>
+          <Property Name="iImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vImagePath" Type="varchar" MaxLength="500" />
+          <Property Name="vOption1" Type="varchar" MaxLength="20" />
+          <Property Name="vOption2" Type="varchar" MaxLength="20" />
+          <Property Name="vOption3" Type="varchar" MaxLength="20" />
+          <Property Name="vCorrectOption" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="iPlaceID" />
+          </Key>
+          <Property Name="iPlaceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iWActivityID" Type="int" />
+          <Property Name="vPlaceName" Type="varchar" MaxLength="50" />
+          <Property Name="vDescription" Type="varchar" MaxLength="5000" />
+          <Property Name="vLatitude" Type="varchar" MaxLength="50" />
+          <Property Name="vLongitude" Type="varchar" MaxLength="50" />
+          <Property Name="vCity" Type="varchar" MaxLength="20" />
+          <Property Name="vBestVisitingTime" Type="varchar" MaxLength="100" />
+          <Property Name="vImageLink" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Questionaire">
+          <Key>
+            <PropertyRef Name="iQuestionID" />
+          </Key>
+          <Property Name="iQuestionID" Type="int" Nullable="false" />
+          <Property Name="vQuestionDesc" Type="varchar" MaxLength="300" />
+          <Property Name="bQuestionType" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="iVideoID" />
+          </Key>
+          <Property Name="iVideoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vVideoLink" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="WeekendActivities">
+          <Key>
+            <PropertyRef Name="iWActivityID" />
+          </Key>
+          <Property Name="iWActivityID" Type="int" Nullable="false" />
+          <Property Name="vWActivityName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IRelax.dbo.WeekendActivityTrack' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WeekendActivityTrack">
+          <Key>
+            <PropertyRef Name="iWAT_number" />
+          </Key>
+          <Property Name="iWAT_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="iWActivityID" Type="int" />
+          <Property Name="bWActivityStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="WeekendEmployeeInterests">
+          <Key>
+            <PropertyRef Name="iWEI_number" />
+          </Key>
+          <Property Name="iWEI_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="iWActivityID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IRelax.dbo.LoginTime' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LoginTime">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="dLoginTime" Type="datetime" />
+          <Property Name="dLogoutTime" Type="datetime" />
+          <Property Name="iMood" Type="int" />
+          <Property Name="dbStressValue" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IRelax.dbo.LoginTime1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LoginTime1">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="dLoginTime" Type="datetime" />
+          <Property Name="dLogoutTime" Type="datetime" />
+          <Property Name="iMood" Type="int" />
+          <Property Name="dbStressValue" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IRelax.dbo.LoginTime2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LoginTime2">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="dLoginTime" Type="datetime" />
+          <Property Name="dLogoutTime" Type="datetime" />
+          <Property Name="iMood" Type="int" />
+          <Property Name="dbStressValue" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IRelax.dbo.LoginTime3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LoginTime3">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vEmpID" Type="varchar" MaxLength="10" />
+          <Property Name="dLoginTime" Type="datetime" />
+          <Property Name="dLogoutTime" Type="datetime" />
+          <Property Name="iMood" Type="int" />
+          <Property Name="dbStressValue" Type="float" />
+        </EntityType>
+        <Association Name="FK__DailyActi__iDAct__25869641">
+          <End Role="DailyActivities" Type="Self.DailyActivities" Multiplicity="0..1" />
+          <End Role="DailyActivityTrack" Type="Self.DailyActivityTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyActivities">
+              <PropertyRef Name="iDActivityID" />
+            </Principal>
+            <Dependent Role="DailyActivityTrack">
+              <PropertyRef Name="iDActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailyActi__vEmpI__24927208">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="0..1" />
+          <End Role="DailyActivityTrack" Type="Self.DailyActivityTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="DailyActivityTrack">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailyEmpl__iDAct__1ED998B2">
+          <End Role="DailyActivities" Type="Self.DailyActivities" Multiplicity="0..1" />
+          <End Role="DailyEmployeeInterests" Type="Self.DailyEmployeeInterests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyActivities">
+              <PropertyRef Name="iDActivityID" />
+            </Principal>
+            <Dependent Role="DailyEmployeeInterests">
+              <PropertyRef Name="iDActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailyEmpl__vEmpI__1DE57479">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="0..1" />
+          <End Role="DailyEmployeeInterests" Type="Self.DailyEmployeeInterests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="DailyEmployeeInterests">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailyLogi__vEmpI__5BE2A6F2">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="0..1" />
+          <End Role="DailyLoginTime" Type="Self.DailyLoginTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="DailyLoginTime">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Places__iWActivi__5629CD9C">
+          <End Role="WeekendActivities" Type="Self.WeekendActivities" Multiplicity="0..1" />
+          <End Role="Places" Type="Self.Places" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeekendActivities">
+              <PropertyRef Name="iWActivityID" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="iWActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WeekendAc__iWAct__286302EC">
+          <End Role="WeekendActivities" Type="Self.WeekendActivities" Multiplicity="0..1" />
+          <End Role="WeekendActivityTrack" Type="Self.WeekendActivityTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeekendActivities">
+              <PropertyRef Name="iWActivityID" />
+            </Principal>
+            <Dependent Role="WeekendActivityTrack">
+              <PropertyRef Name="iWActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WeekendAc__vEmpI__276EDEB3">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="0..1" />
+          <End Role="WeekendActivityTrack" Type="Self.WeekendActivityTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="WeekendActivityTrack">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WeekendEm__iWAct__47DBAE45">
+          <End Role="WeekendActivities" Type="Self.WeekendActivities" Multiplicity="0..1" />
+          <End Role="WeekendEmployeeInterests" Type="Self.WeekendEmployeeInterests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeekendActivities">
+              <PropertyRef Name="iWActivityID" />
+            </Principal>
+            <Dependent Role="WeekendEmployeeInterests">
+              <PropertyRef Name="iWActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WeekendEm__vEmpI__46E78A0C">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="0..1" />
+          <End Role="WeekendEmployeeInterests" Type="Self.WeekendEmployeeInterests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="WeekendEmployeeInterests">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="insert_activity_track" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="psno" Type="varchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="starttime" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="insert_login_time" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eid" Type="varchar" Mode="In" />
+          <Parameter Name="mood" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="TaskCompletionListForDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="varchar" Mode="In" />
+          <Parameter Name="TodayDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="update_login_time" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="update_logout_time" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="WeekendSuggestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpID" Type="varchar" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="InOut" />
+          <Parameter Name="desc" Type="varchar" Mode="InOut" />
+          <Parameter Name="city" Type="varchar" Mode="InOut" />
+          <Parameter Name="bestTime" Type="datetime" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="IRelaxModelStoreContainer">
+          <EntitySet Name="DailyActivities" EntityType="Self.DailyActivities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyLoginTime" EntityType="Self.DailyLoginTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeePersonalDetails" EntityType="Self.EmployeePersonalDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Places" EntityType="Self.Places" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questionaire" EntityType="Self.Questionaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeekendActivities" EntityType="Self.WeekendActivities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeekendEmployeeInterests" EntityType="Self.WeekendEmployeeInterests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyActivityTrack" EntityType="Self.DailyActivityTrack" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DailyActivityTrack].[DAT_number] AS [DAT_number], 
+    [DailyActivityTrack].[vEmpID] AS [vEmpID], 
+    [DailyActivityTrack].[iDActivityID] AS [iDActivityID], 
+    [DailyActivityTrack].[tDStartTime] AS [tDStartTime], 
+    [DailyActivityTrack].[tDStopTime] AS [tDStopTime], 
+    [DailyActivityTrack].[bDActivityStatus] AS [bDActivityStatus], 
+    [DailyActivityTrack].[dDActivityDate] AS [dDActivityDate]
+    FROM [dbo].[DailyActivityTrack] AS [DailyActivityTrack]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DailyEmployeeInterests" EntityType="Self.DailyEmployeeInterests" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DailyEmployeeInterests].[DEI_number] AS [DEI_number], 
+    [DailyEmployeeInterests].[vEmpID] AS [vEmpID], 
+    [DailyEmployeeInterests].[iDActivityID] AS [iDActivityID]
+    FROM [dbo].[DailyEmployeeInterests] AS [DailyEmployeeInterests]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImageDB" EntityType="Self.ImageDB" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImageDB].[iImageID] AS [iImageID], 
+    [ImageDB].[vImagePath] AS [vImagePath], 
+    [ImageDB].[vOption1] AS [vOption1], 
+    [ImageDB].[vOption2] AS [vOption2], 
+    [ImageDB].[vOption3] AS [vOption3], 
+    [ImageDB].[vCorrectOption] AS [vCorrectOption]
+    FROM [dbo].[ImageDB] AS [ImageDB]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WeekendActivityTrack" EntityType="Self.WeekendActivityTrack" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WeekendActivityTrack].[iWAT_number] AS [iWAT_number], 
+    [WeekendActivityTrack].[vEmpID] AS [vEmpID], 
+    [WeekendActivityTrack].[iWActivityID] AS [iWActivityID], 
+    [WeekendActivityTrack].[bWActivityStatus] AS [bWActivityStatus]
+    FROM [dbo].[WeekendActivityTrack] AS [WeekendActivityTrack]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LoginTime" EntityType="Self.LoginTime" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LoginTime].[DLT_number] AS [DLT_number], 
+    [LoginTime].[vEmpID] AS [vEmpID], 
+    [LoginTime].[dLoginTime] AS [dLoginTime], 
+    [LoginTime].[dLogoutTime] AS [dLogoutTime], 
+    [LoginTime].[iMood] AS [iMood], 
+    [LoginTime].[dbStressValue] AS [dbStressValue]
+    FROM [dbo].[LoginTime] AS [LoginTime]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LoginTime1" EntityType="Self.LoginTime1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LoginTime1].[DLT_number] AS [DLT_number], 
+    [LoginTime1].[vEmpID] AS [vEmpID], 
+    [LoginTime1].[dLoginTime] AS [dLoginTime], 
+    [LoginTime1].[dLogoutTime] AS [dLogoutTime], 
+    [LoginTime1].[iMood] AS [iMood], 
+    [LoginTime1].[dbStressValue] AS [dbStressValue]
+    FROM [dbo].[LoginTime1] AS [LoginTime1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LoginTime2" EntityType="Self.LoginTime2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LoginTime2].[DLT_number] AS [DLT_number], 
+    [LoginTime2].[vEmpID] AS [vEmpID], 
+    [LoginTime2].[dLoginTime] AS [dLoginTime], 
+    [LoginTime2].[dLogoutTime] AS [dLogoutTime], 
+    [LoginTime2].[iMood] AS [iMood], 
+    [LoginTime2].[dbStressValue] AS [dbStressValue]
+    FROM [dbo].[LoginTime2] AS [LoginTime2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LoginTime3" EntityType="Self.LoginTime3" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LoginTime3].[DLT_number] AS [DLT_number], 
+    [LoginTime3].[vEmpID] AS [vEmpID], 
+    [LoginTime3].[dLoginTime] AS [dLoginTime], 
+    [LoginTime3].[dLogoutTime] AS [dLogoutTime], 
+    [LoginTime3].[iMood] AS [iMood], 
+    [LoginTime3].[dbStressValue] AS [dbStressValue]
+    FROM [dbo].[LoginTime3] AS [LoginTime3]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__DailyActi__iDAct__25869641" Association="Self.FK__DailyActi__iDAct__25869641">
+            <End Role="DailyActivities" EntitySet="DailyActivities" />
+            <End Role="DailyActivityTrack" EntitySet="DailyActivityTrack" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailyActi__vEmpI__24927208" Association="Self.FK__DailyActi__vEmpI__24927208">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="DailyActivityTrack" EntitySet="DailyActivityTrack" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailyEmpl__iDAct__1ED998B2" Association="Self.FK__DailyEmpl__iDAct__1ED998B2">
+            <End Role="DailyActivities" EntitySet="DailyActivities" />
+            <End Role="DailyEmployeeInterests" EntitySet="DailyEmployeeInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailyEmpl__vEmpI__1DE57479" Association="Self.FK__DailyEmpl__vEmpI__1DE57479">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="DailyEmployeeInterests" EntitySet="DailyEmployeeInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailyLogi__vEmpI__5BE2A6F2" Association="Self.FK__DailyLogi__vEmpI__5BE2A6F2">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="DailyLoginTime" EntitySet="DailyLoginTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Places__iWActivi__5629CD9C" Association="Self.FK__Places__iWActivi__5629CD9C">
+            <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WeekendAc__iWAct__286302EC" Association="Self.FK__WeekendAc__iWAct__286302EC">
+            <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+            <End Role="WeekendActivityTrack" EntitySet="WeekendActivityTrack" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WeekendAc__vEmpI__276EDEB3" Association="Self.FK__WeekendAc__vEmpI__276EDEB3">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="WeekendActivityTrack" EntitySet="WeekendActivityTrack" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WeekendEm__iWAct__47DBAE45" Association="Self.FK__WeekendEm__iWAct__47DBAE45">
+            <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+            <End Role="WeekendEmployeeInterests" EntitySet="WeekendEmployeeInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WeekendEm__vEmpI__46E78A0C" Association="Self.FK__WeekendEm__vEmpI__46E78A0C">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="WeekendEmployeeInterests" EntitySet="WeekendEmployeeInterests" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IRelaxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DailyActivity">
+          <Key>
+            <PropertyRef Name="iDActivityID" />
+          </Key>
+          <Property Name="iDActivityID" Type="Int32" Nullable="false" />
+          <Property Name="vDActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tDDuration" Type="Time" Precision="7" />
+          <Property Name="iStressMinLevel" Type="Int32" />
+          <NavigationProperty Name="DailyActivityTracks" Relationship="Self.FK__DailyActi__iDAct__25869641" FromRole="DailyActivities" ToRole="DailyActivityTrack" />
+          <NavigationProperty Name="DailyEmployeeInterests" Relationship="Self.FK__DailyEmpl__iDAct__1ED998B2" FromRole="DailyActivities" ToRole="DailyEmployeeInterests" />
+        </EntityType>
+        <EntityType Name="DailyLoginTime">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+          <Property Name="iMood" Type="Int32" />
+          <Property Name="dbStressValue" Type="Double" />
+          <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__DailyLogi__vEmpI__5BE2A6F2" FromRole="DailyLoginTime" ToRole="EmployeePersonalDetails" />
+        </EntityType>
+        <EntityType Name="EmployeePersonalDetail">
+          <Key>
+            <PropertyRef Name="vEmpID" />
+          </Key>
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vEmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vWorkDomain" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="iWorkingHours" Type="Int32" />
+          <Property Name="vWorkingLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="iEmpAge" Type="Int32" />
+          <Property Name="vEmpMobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="vEmpMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vEmpGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dBirthDate" Type="DateTime" Precision="0" />
+          <Property Name="bMaritialStatus" Type="Boolean" />
+          <Property Name="iCreditPoints" Type="Int32" />
+          <Property Name="vPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bAdmin" Type="Boolean" />
+          <Property Name="ProfilePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DailyLoginTimes" Relationship="Self.FK__DailyLogi__vEmpI__5BE2A6F2" FromRole="EmployeePersonalDetails" ToRole="DailyLoginTime" />
+          <NavigationProperty Name="DailyActivityTracks" Relationship="Self.FK__DailyActi__vEmpI__24927208" FromRole="EmployeePersonalDetails" ToRole="DailyActivityTrack" />
+          <NavigationProperty Name="DailyEmployeeInterests" Relationship="Self.FK__DailyEmpl__vEmpI__1DE57479" FromRole="EmployeePersonalDetails" ToRole="DailyEmployeeInterests" />
+          <NavigationProperty Name="WeekendActivityTracks" Relationship="Self.FK__WeekendAc__vEmpI__276EDEB3" FromRole="EmployeePersonalDetails" ToRole="WeekendActivityTrack" />
+          <NavigationProperty Name="WeekendEmployeeInterests" Relationship="Self.FK__WeekendEm__vEmpI__46E78A0C" FromRole="EmployeePersonalDetails" ToRole="WeekendEmployeeInterests" />
+        </EntityType>
+        <EntityType Name="Place">
+          <Key>
+            <PropertyRef Name="iPlaceID" />
+          </Key>
+          <Property Name="iPlaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iWActivityID" Type="Int32" />
+          <Property Name="vPlaceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vDescription" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="vLatitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vLongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vCity" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vBestVisitingTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vImageLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WeekendActivity" Relationship="Self.FK__Places__iWActivi__5629CD9C" FromRole="Places" ToRole="WeekendActivities" />
+        </EntityType>
+        <EntityType Name="Questionaire">
+          <Key>
+            <PropertyRef Name="iQuestionID" />
+          </Key>
+          <Property Name="iQuestionID" Type="Int32" Nullable="false" />
+          <Property Name="vQuestionDesc" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="bQuestionType" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="iVideoID" />
+          </Key>
+          <Property Name="iVideoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vVideoLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WeekendActivity">
+          <Key>
+            <PropertyRef Name="iWActivityID" />
+          </Key>
+          <Property Name="iWActivityID" Type="Int32" Nullable="false" />
+          <Property Name="vWActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Places" Relationship="Self.FK__Places__iWActivi__5629CD9C" FromRole="WeekendActivities" ToRole="Places" />
+          <NavigationProperty Name="WeekendActivityTracks" Relationship="Self.FK__WeekendAc__iWAct__286302EC" FromRole="WeekendActivities" ToRole="WeekendActivityTrack" />
+          <NavigationProperty Name="WeekendEmployeeInterests" Relationship="Self.FK__WeekendEm__iWAct__47DBAE45" FromRole="WeekendActivities" ToRole="WeekendEmployeeInterests" />
+        </EntityType>
+        <EntityType Name="WeekendEmployeeInterest">
+          <Key>
+            <PropertyRef Name="iWEI_number" />
+          </Key>
+          <Property Name="iWEI_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="iWActivityID" Type="Int32" />
+          <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__WeekendEm__vEmpI__46E78A0C" FromRole="WeekendEmployeeInterests" ToRole="EmployeePersonalDetails" />
+          <NavigationProperty Name="WeekendActivity" Relationship="Self.FK__WeekendEm__iWAct__47DBAE45" FromRole="WeekendEmployeeInterests" ToRole="WeekendActivities" />
+        </EntityType>
+        <EntityType Name="DailyActivityTrack">
+          <Key>
+            <PropertyRef Name="DAT_number" />
+          </Key>
+          <Property Name="DAT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="iDActivityID" Type="Int32" />
+          <Property Name="tDStartTime" Type="DateTime" Precision="3" />
+          <Property Name="tDStopTime" Type="DateTime" Precision="3" />
+          <Property Name="bDActivityStatus" Type="Boolean" />
+          <Property Name="dDActivityDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="DailyActivity" Relationship="Self.FK__DailyActi__iDAct__25869641" FromRole="DailyActivityTrack" ToRole="DailyActivities" />
+          <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__DailyActi__vEmpI__24927208" FromRole="DailyActivityTrack" ToRole="EmployeePersonalDetails" />
+        </EntityType>
+        <EntityType Name="DailyEmployeeInterest">
+          <Key>
+            <PropertyRef Name="DEI_number" />
+          </Key>
+          <Property Name="DEI_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="iDActivityID" Type="Int32" />
+          <NavigationProperty Name="DailyActivity" Relationship="Self.FK__DailyEmpl__iDAct__1ED998B2" FromRole="DailyEmployeeInterests" ToRole="DailyActivities" />
+          <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__DailyEmpl__vEmpI__1DE57479" FromRole="DailyEmployeeInterests" ToRole="EmployeePersonalDetails" />
+        </EntityType>
+        <EntityType Name="ImageDB">
+          <Key>
+            <PropertyRef Name="iImageID" />
+          </Key>
+          <Property Name="iImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="vOption1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vOption2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vOption3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="vCorrectOption" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WeekendActivityTrack">
+          <Key>
+            <PropertyRef Name="iWAT_number" />
+          </Key>
+          <Property Name="iWAT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="iWActivityID" Type="Int32" />
+          <Property Name="bWActivityStatus" Type="Boolean" />
+          <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__WeekendAc__vEmpI__276EDEB3" FromRole="WeekendActivityTrack" ToRole="EmployeePersonalDetails" />
+          <NavigationProperty Name="WeekendActivity" Relationship="Self.FK__WeekendAc__iWAct__286302EC" FromRole="WeekendActivityTrack" ToRole="WeekendActivities" />
+        </EntityType>
+        <EntityType Name="LoginTime">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+          <Property Name="iMood" Type="Int32" />
+          <Property Name="dbStressValue" Type="Double" />
+        </EntityType>
+        <EntityType Name="LoginTime1">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+          <Property Name="iMood" Type="Int32" />
+          <Property Name="dbStressValue" Type="Double" />
+        </EntityType>
+        <EntityType Name="LoginTime2">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+          <Property Name="iMood" Type="Int32" />
+          <Property Name="dbStressValue" Type="Double" />
+        </EntityType>
+        <EntityType Name="LoginTime3">
+          <Key>
+            <PropertyRef Name="DLT_number" />
+          </Key>
+          <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+          <Property Name="iMood" Type="Int32" />
+          <Property Name="dbStressValue" Type="Double" />
+        </EntityType>
+        <Association Name="FK__DailyActi__iDAct__25869641">
+          <End Role="DailyActivities" Type="Self.DailyActivity" Multiplicity="0..1" />
+          <End Role="DailyActivityTrack" Type="Self.DailyActivityTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyActivities">
+              <PropertyRef Name="iDActivityID" />
+            </Principal>
+            <Dependent Role="DailyActivityTrack">
+              <PropertyRef Name="iDActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailyEmpl__iDAct__1ED998B2">
+          <End Role="DailyActivities" Type="Self.DailyActivity" Multiplicity="0..1" />
+          <End Role="DailyEmployeeInterests" Type="Self.DailyEmployeeInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyActivities">
+              <PropertyRef Name="iDActivityID" />
+            </Principal>
+            <Dependent Role="DailyEmployeeInterests">
+              <PropertyRef Name="iDActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailyLogi__vEmpI__5BE2A6F2">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+          <End Role="DailyLoginTime" Type="Self.DailyLoginTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="DailyLoginTime">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailyActi__vEmpI__24927208">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+          <End Role="DailyActivityTrack" Type="Self.DailyActivityTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="DailyActivityTrack">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DailyEmpl__vEmpI__1DE57479">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+          <End Role="DailyEmployeeInterests" Type="Self.DailyEmployeeInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="DailyEmployeeInterests">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WeekendAc__vEmpI__276EDEB3">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+          <End Role="WeekendActivityTrack" Type="Self.WeekendActivityTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="WeekendActivityTrack">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WeekendEm__vEmpI__46E78A0C">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+          <End Role="WeekendEmployeeInterests" Type="Self.WeekendEmployeeInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="vEmpID" />
+            </Principal>
+            <Dependent Role="WeekendEmployeeInterests">
+              <PropertyRef Name="vEmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Places__iWActivi__5629CD9C">
+          <End Role="WeekendActivities" Type="Self.WeekendActivity" Multiplicity="0..1" />
+          <End Role="Places" Type="Self.Place" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeekendActivities">
+              <PropertyRef Name="iWActivityID" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="iWActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WeekendAc__iWAct__286302EC">
+          <End Role="WeekendActivities" Type="Self.WeekendActivity" Multiplicity="0..1" />
+          <End Role="WeekendActivityTrack" Type="Self.WeekendActivityTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeekendActivities">
+              <PropertyRef Name="iWActivityID" />
+            </Principal>
+            <Dependent Role="WeekendActivityTrack">
+              <PropertyRef Name="iWActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WeekendEm__iWAct__47DBAE45">
+          <End Role="WeekendActivities" Type="Self.WeekendActivity" Multiplicity="0..1" />
+          <End Role="WeekendEmployeeInterests" Type="Self.WeekendEmployeeInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeekendActivities">
+              <PropertyRef Name="iWActivityID" />
+            </Principal>
+            <Dependent Role="WeekendEmployeeInterests">
+              <PropertyRef Name="iWActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IRelaxEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DailyActivities" EntityType="Self.DailyActivity" />
+          <EntitySet Name="DailyLoginTimes" EntityType="Self.DailyLoginTime" />
+          <EntitySet Name="EmployeePersonalDetails" EntityType="Self.EmployeePersonalDetail" />
+          <EntitySet Name="Places" EntityType="Self.Place" />
+          <EntitySet Name="Questionaires" EntityType="Self.Questionaire" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Videos" EntityType="Self.Video" />
+          <EntitySet Name="WeekendActivities" EntityType="Self.WeekendActivity" />
+          <EntitySet Name="WeekendEmployeeInterests" EntityType="Self.WeekendEmployeeInterest" />
+          <EntitySet Name="DailyActivityTracks" EntityType="Self.DailyActivityTrack" />
+          <EntitySet Name="DailyEmployeeInterests" EntityType="Self.DailyEmployeeInterest" />
+          <EntitySet Name="ImageDBs" EntityType="Self.ImageDB" />
+          <EntitySet Name="WeekendActivityTracks" EntityType="Self.WeekendActivityTrack" />
+          <EntitySet Name="LoginTimes" EntityType="Self.LoginTime" />
+          <EntitySet Name="LoginTime1" EntityType="Self.LoginTime1" />
+          <EntitySet Name="LoginTime2" EntityType="Self.LoginTime2" />
+          <EntitySet Name="LoginTime3" EntityType="Self.LoginTime3" />
+          <AssociationSet Name="FK__DailyActi__iDAct__25869641" Association="Self.FK__DailyActi__iDAct__25869641">
+            <End Role="DailyActivities" EntitySet="DailyActivities" />
+            <End Role="DailyActivityTrack" EntitySet="DailyActivityTracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailyEmpl__iDAct__1ED998B2" Association="Self.FK__DailyEmpl__iDAct__1ED998B2">
+            <End Role="DailyActivities" EntitySet="DailyActivities" />
+            <End Role="DailyEmployeeInterests" EntitySet="DailyEmployeeInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailyLogi__vEmpI__5BE2A6F2" Association="Self.FK__DailyLogi__vEmpI__5BE2A6F2">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="DailyLoginTime" EntitySet="DailyLoginTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailyActi__vEmpI__24927208" Association="Self.FK__DailyActi__vEmpI__24927208">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="DailyActivityTrack" EntitySet="DailyActivityTracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DailyEmpl__vEmpI__1DE57479" Association="Self.FK__DailyEmpl__vEmpI__1DE57479">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="DailyEmployeeInterests" EntitySet="DailyEmployeeInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WeekendAc__vEmpI__276EDEB3" Association="Self.FK__WeekendAc__vEmpI__276EDEB3">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="WeekendActivityTrack" EntitySet="WeekendActivityTracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WeekendEm__vEmpI__46E78A0C" Association="Self.FK__WeekendEm__vEmpI__46E78A0C">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="WeekendEmployeeInterests" EntitySet="WeekendEmployeeInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Places__iWActivi__5629CD9C" Association="Self.FK__Places__iWActivi__5629CD9C">
+            <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WeekendAc__iWAct__286302EC" Association="Self.FK__WeekendAc__iWAct__286302EC">
+            <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+            <End Role="WeekendActivityTrack" EntitySet="WeekendActivityTracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WeekendEm__iWAct__47DBAE45" Association="Self.FK__WeekendEm__iWAct__47DBAE45">
+            <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+            <End Role="WeekendEmployeeInterests" EntitySet="WeekendEmployeeInterests" />
+          </AssociationSet>
+          <FunctionImport Name="insert_activity_track">
+            <Parameter Name="psno" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="starttime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="insert_login_time">
+            <Parameter Name="eid" Mode="In" Type="String" />
+            <Parameter Name="mood" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(IRelaxModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(IRelaxModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="TaskCompletionListForDay" ReturnType="Collection(IRelaxModel.TaskCompletionListForDay_Result)">
+            <Parameter Name="EmpId" Mode="In" Type="String" />
+            <Parameter Name="TodayDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="update_login_time" ReturnType="Collection(IRelaxModel.update_login_time_Result)">
+            <Parameter Name="eid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="update_logout_time" ReturnType="Collection(IRelaxModel.update_logout_time_Result)">
+            <Parameter Name="eid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WeekendSuggestion" ReturnType="Collection(IRelaxModel.WeekendSuggestion_Result)">
+            <Parameter Name="EmpID" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="InOut" Type="String" />
+            <Parameter Name="desc" Mode="InOut" Type="String" />
+            <Parameter Name="city" Mode="InOut" Type="String" />
+            <Parameter Name="bestTime" Mode="InOut" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="TaskCompletionListForDay_Result">
+          <Property Type="Int32" Name="iDActivityID" Nullable="true" />
+          <Property Type="String" Name="vDActivityName" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="tDStartTime" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="tDStopTime" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="update_login_time_Result">
+          <Property Type="Int32" Name="DLT_number" Nullable="false" />
+          <Property Type="String" Name="vEmpID" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="dLoginTime" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="dLogoutTime" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="iMood" Nullable="true" />
+          <Property Type="Double" Name="dbStressValue" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="update_logout_time_Result">
+          <Property Type="Int32" Name="DLT_number" Nullable="false" />
+          <Property Type="String" Name="vEmpID" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="dLoginTime" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="dLogoutTime" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="iMood" Nullable="true" />
+          <Property Type="Double" Name="dbStressValue" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WeekendSuggestion_Result">
+          <Property Type="String" Name="vPlaceName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vBestVisitingTime" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vCity" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vDescription" Nullable="true" MaxLength="5000" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IRelaxModelStoreContainer" CdmEntityContainer="IRelaxEntities5">
+          <EntitySetMapping Name="DailyActivities">
+            <EntityTypeMapping TypeName="IRelaxModel.DailyActivity">
+              <MappingFragment StoreEntitySet="DailyActivities">
+                <ScalarProperty Name="iDActivityID" ColumnName="iDActivityID" />
+                <ScalarProperty Name="vDActivityName" ColumnName="vDActivityName" />
+                <ScalarProperty Name="tDDuration" ColumnName="tDDuration" />
+                <ScalarProperty Name="iStressMinLevel" ColumnName="iStressMinLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyLoginTimes">
+            <EntityTypeMapping TypeName="IRelaxModel.DailyLoginTime">
+              <MappingFragment StoreEntitySet="DailyLoginTime">
+                <ScalarProperty Name="DLT_number" ColumnName="DLT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="dLoginTime" ColumnName="dLoginTime" />
+                <ScalarProperty Name="dLogoutTime" ColumnName="dLogoutTime" />
+                <ScalarProperty Name="iMood" ColumnName="iMood" />
+                <ScalarProperty Name="dbStressValue" ColumnName="dbStressValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeePersonalDetails">
+            <EntityTypeMapping TypeName="IRelaxModel.EmployeePersonalDetail">
+              <MappingFragment StoreEntitySet="EmployeePersonalDetails">
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="vEmpName" ColumnName="vEmpName" />
+                <ScalarProperty Name="vWorkDomain" ColumnName="vWorkDomain" />
+                <ScalarProperty Name="iWorkingHours" ColumnName="iWorkingHours" />
+                <ScalarProperty Name="vWorkingLocation" ColumnName="vWorkingLocation" />
+                <ScalarProperty Name="iEmpAge" ColumnName="iEmpAge" />
+                <ScalarProperty Name="vEmpMobile" ColumnName="vEmpMobile" />
+                <ScalarProperty Name="vEmpMail" ColumnName="vEmpMail" />
+                <ScalarProperty Name="vEmpGender" ColumnName="vEmpGender" />
+                <ScalarProperty Name="dBirthDate" ColumnName="dBirthDate" />
+                <ScalarProperty Name="bMaritialStatus" ColumnName="bMaritialStatus" />
+                <ScalarProperty Name="iCreditPoints" ColumnName="iCreditPoints" />
+                <ScalarProperty Name="vPassword" ColumnName="vPassword" />
+                <ScalarProperty Name="bAdmin" ColumnName="bAdmin" />
+                <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Places">
+            <EntityTypeMapping TypeName="IRelaxModel.Place">
+              <MappingFragment StoreEntitySet="Places">
+                <ScalarProperty Name="iPlaceID" ColumnName="iPlaceID" />
+                <ScalarProperty Name="iWActivityID" ColumnName="iWActivityID" />
+                <ScalarProperty Name="vPlaceName" ColumnName="vPlaceName" />
+                <ScalarProperty Name="vDescription" ColumnName="vDescription" />
+                <ScalarProperty Name="vLatitude" ColumnName="vLatitude" />
+                <ScalarProperty Name="vLongitude" ColumnName="vLongitude" />
+                <ScalarProperty Name="vCity" ColumnName="vCity" />
+                <ScalarProperty Name="vBestVisitingTime" ColumnName="vBestVisitingTime" />
+                <ScalarProperty Name="vImageLink" ColumnName="vImageLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questionaires">
+            <EntityTypeMapping TypeName="IRelaxModel.Questionaire">
+              <MappingFragment StoreEntitySet="Questionaire">
+                <ScalarProperty Name="iQuestionID" ColumnName="iQuestionID" />
+                <ScalarProperty Name="vQuestionDesc" ColumnName="vQuestionDesc" />
+                <ScalarProperty Name="bQuestionType" ColumnName="bQuestionType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IRelaxModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="IRelaxModel.Video">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="iVideoID" ColumnName="iVideoID" />
+                <ScalarProperty Name="vVideoLink" ColumnName="vVideoLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeekendActivities">
+            <EntityTypeMapping TypeName="IRelaxModel.WeekendActivity">
+              <MappingFragment StoreEntitySet="WeekendActivities">
+                <ScalarProperty Name="iWActivityID" ColumnName="iWActivityID" />
+                <ScalarProperty Name="vWActivityName" ColumnName="vWActivityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeekendEmployeeInterests">
+            <EntityTypeMapping TypeName="IRelaxModel.WeekendEmployeeInterest">
+              <MappingFragment StoreEntitySet="WeekendEmployeeInterests">
+                <ScalarProperty Name="iWEI_number" ColumnName="iWEI_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="iWActivityID" ColumnName="iWActivityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyActivityTracks">
+            <EntityTypeMapping TypeName="IRelaxModel.DailyActivityTrack">
+              <MappingFragment StoreEntitySet="DailyActivityTrack">
+                <ScalarProperty Name="DAT_number" ColumnName="DAT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="iDActivityID" ColumnName="iDActivityID" />
+                <ScalarProperty Name="tDStartTime" ColumnName="tDStartTime" />
+                <ScalarProperty Name="tDStopTime" ColumnName="tDStopTime" />
+                <ScalarProperty Name="bDActivityStatus" ColumnName="bDActivityStatus" />
+                <ScalarProperty Name="dDActivityDate" ColumnName="dDActivityDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyEmployeeInterests">
+            <EntityTypeMapping TypeName="IRelaxModel.DailyEmployeeInterest">
+              <MappingFragment StoreEntitySet="DailyEmployeeInterests">
+                <ScalarProperty Name="DEI_number" ColumnName="DEI_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="iDActivityID" ColumnName="iDActivityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageDBs">
+            <EntityTypeMapping TypeName="IRelaxModel.ImageDB">
+              <MappingFragment StoreEntitySet="ImageDB">
+                <ScalarProperty Name="iImageID" ColumnName="iImageID" />
+                <ScalarProperty Name="vImagePath" ColumnName="vImagePath" />
+                <ScalarProperty Name="vOption1" ColumnName="vOption1" />
+                <ScalarProperty Name="vOption2" ColumnName="vOption2" />
+                <ScalarProperty Name="vOption3" ColumnName="vOption3" />
+                <ScalarProperty Name="vCorrectOption" ColumnName="vCorrectOption" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeekendActivityTracks">
+            <EntityTypeMapping TypeName="IRelaxModel.WeekendActivityTrack">
+              <MappingFragment StoreEntitySet="WeekendActivityTrack">
+                <ScalarProperty Name="iWAT_number" ColumnName="iWAT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="iWActivityID" ColumnName="iWActivityID" />
+                <ScalarProperty Name="bWActivityStatus" ColumnName="bWActivityStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginTimes">
+            <EntityTypeMapping TypeName="IRelaxModel.LoginTime">
+              <MappingFragment StoreEntitySet="LoginTime">
+                <ScalarProperty Name="DLT_number" ColumnName="DLT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="dLoginTime" ColumnName="dLoginTime" />
+                <ScalarProperty Name="dLogoutTime" ColumnName="dLogoutTime" />
+                <ScalarProperty Name="iMood" ColumnName="iMood" />
+                <ScalarProperty Name="dbStressValue" ColumnName="dbStressValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginTime1">
+            <EntityTypeMapping TypeName="IRelaxModel.LoginTime1">
+              <MappingFragment StoreEntitySet="LoginTime1">
+                <ScalarProperty Name="DLT_number" ColumnName="DLT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="dLoginTime" ColumnName="dLoginTime" />
+                <ScalarProperty Name="dLogoutTime" ColumnName="dLogoutTime" />
+                <ScalarProperty Name="iMood" ColumnName="iMood" />
+                <ScalarProperty Name="dbStressValue" ColumnName="dbStressValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginTime2">
+            <EntityTypeMapping TypeName="IRelaxModel.LoginTime2">
+              <MappingFragment StoreEntitySet="LoginTime2">
+                <ScalarProperty Name="DLT_number" ColumnName="DLT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="dLoginTime" ColumnName="dLoginTime" />
+                <ScalarProperty Name="dLogoutTime" ColumnName="dLogoutTime" />
+                <ScalarProperty Name="iMood" ColumnName="iMood" />
+                <ScalarProperty Name="dbStressValue" ColumnName="dbStressValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginTime3">
+            <EntityTypeMapping TypeName="IRelaxModel.LoginTime3">
+              <MappingFragment StoreEntitySet="LoginTime3">
+                <ScalarProperty Name="DLT_number" ColumnName="DLT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="dLoginTime" ColumnName="dLoginTime" />
+                <ScalarProperty Name="dLogoutTime" ColumnName="dLogoutTime" />
+                <ScalarProperty Name="iMood" ColumnName="iMood" />
+                <ScalarProperty Name="dbStressValue" ColumnName="dbStressValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="insert_activity_track" FunctionName="IRelaxModel.Store.insert_activity_track" />
+          <FunctionImportMapping FunctionImportName="insert_login_time" FunctionName="IRelaxModel.Store.insert_login_time" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="IRelaxModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="IRelaxModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="IRelaxModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="IRelaxModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IRelaxModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="IRelaxModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IRelaxModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="IRelaxModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="IRelaxModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="TaskCompletionListForDay" FunctionName="IRelaxModel.Store.TaskCompletionListForDay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IRelaxModel.TaskCompletionListForDay_Result">
+                <ScalarProperty Name="iDActivityID" ColumnName="iDActivityID" />
+                <ScalarProperty Name="vDActivityName" ColumnName="vDActivityName" />
+                <ScalarProperty Name="tDStartTime" ColumnName="tDStartTime" />
+                <ScalarProperty Name="tDStopTime" ColumnName="tDStopTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="update_login_time" FunctionName="IRelaxModel.Store.update_login_time">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IRelaxModel.update_login_time_Result">
+                <ScalarProperty Name="DLT_number" ColumnName="DLT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="dLoginTime" ColumnName="dLoginTime" />
+                <ScalarProperty Name="dLogoutTime" ColumnName="dLogoutTime" />
+                <ScalarProperty Name="iMood" ColumnName="iMood" />
+                <ScalarProperty Name="dbStressValue" ColumnName="dbStressValue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="update_logout_time" FunctionName="IRelaxModel.Store.update_logout_time">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IRelaxModel.update_logout_time_Result">
+                <ScalarProperty Name="DLT_number" ColumnName="DLT_number" />
+                <ScalarProperty Name="vEmpID" ColumnName="vEmpID" />
+                <ScalarProperty Name="dLoginTime" ColumnName="dLoginTime" />
+                <ScalarProperty Name="dLogoutTime" ColumnName="dLogoutTime" />
+                <ScalarProperty Name="iMood" ColumnName="iMood" />
+                <ScalarProperty Name="dbStressValue" ColumnName="dbStressValue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WeekendSuggestion" FunctionName="IRelaxModel.Store.WeekendSuggestion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IRelaxModel.WeekendSuggestion_Result">
+                <ScalarProperty Name="vPlaceName" ColumnName="vPlaceName" />
+                <ScalarProperty Name="vBestVisitingTime" ColumnName="vBestVisitingTime" />
+                <ScalarProperty Name="vCity" ColumnName="vCity" />
+                <ScalarProperty Name="vDescription" ColumnName="vDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

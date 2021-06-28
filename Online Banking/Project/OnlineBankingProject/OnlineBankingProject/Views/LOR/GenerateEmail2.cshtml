@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GenerateEmail</title>
+</head>
+<body>
+    <h3>Are you sure you want to Reject the Open Savings Account ? Then Click on Submit</h3>
+    <div>
+
+        <form method="post"
+              action="GenerateEmail2">
+
+            <input class="btn btn-primary"
+                   type="submit"
+                   value="Submit" />
+
+        </form>
+
+    </div>
+    <hr />
+    <footer>
+        <p>Terms of Use| &copy; @DateTime.Now.Year -SNK Bank Copyright Reserved </p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "TestInstructions";
+}
+<head>
+    <script>
+        //function preventBack() { window.history.forward(); }
+        //setTimeout("preventBack()", 0);
+        //window.onunload = function () { null };
+        function noBack() { window.history.forward() }
+        noBack();
+        window.onload = noBack;
+        window.onpageshow = function (evt) { if (evt.persisted) noBack() }
+        window.onunload = function () { void (0) }
+    </script>
+</head>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <title>Instructions</title>
+    <br />
+    <h2 style="text-align:center">Instructions</h2>
+    <br />
+    <br />
+    <div style="width: 100%; padding:5%">
+        <style>
+            ul.star-shaped-bullet {
+                margin: 0;
+                list-style: none;
+                text-align: left
+            }
+
+                ul.star-shaped-bullet li:before {
+                    content: "\223E"
+                }
+        </style>
+        <ul class="star-shaped-bullet">
+            <li> There will be 10 questions and 1 mark for each question.</li>
+            <li> Click 'Submit' after finishing the test.</li>
+            <li> Time limit is 5 minutes and after that test will be automatically submitted.</li>
+            <li> There is no negative marking.</li>
+            <li> Do not navigate to other tabs after starting the test.</li>
+            <li> Use only mouse after the test begins</li>
+        </ul>
+        <div style="text-align:center">
+            <br />
+            <br />
+            <input class="btn-info" type="button" value="Start Test" onclick="@("window.location.href='" + @Url.Action("Questions", "User") + "'");" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+}

@@ -1,0 +1,215 @@
+ <div class="row">
+                  <h2>Info Card Flip</h2>
+                  <!-- Info Card with social icons -->
+                  <div class="info-card">
+                      <div class="front">
+
+                          <img class="card-image" src="~/images/bangalore.jpg">
+                      </div>
+                      <div class="back">
+                          <h2>Bangalore</h2>
+                          <p>
+                          Bangalore officially known as Bengaluru is the capital of Indian state  of Karnataka.It is a Mega city also called "The Silicon City of India" and "Garden city"   
+                          </p>
+                          <p style="text-shadow:5px 5px;font-family:Algerian;font-size:25px">
+                          <div class="social">
+                              <a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span>Home</a>
+                              <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span>twitter</a>
+                              <a href="https://github.com" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span>Login</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-card">
+                      <div class="front">
+
+                          <img class="card-image" src="~/images/delhi.jpg">
+                      </div>
+                      <div class="back">
+                          <h2>Gentlesir</h2>
+                          <p>
+                              Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                          </p>
+                          <div class="social">
+                              <a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span></a>
+                              <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span></a>
+                              <a href="https://github.com" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-card">
+                      <div class="front">
+
+                          <img class="card-image" src="~/images/chennai.jpg">
+                      </div>
+                      <div class="back">
+                          <h2>Gentlesir</h2>
+                          <p>
+                              Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                          </p>
+                          <div class="social">
+                              <a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span></a>
+                              <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span></a>
+                              <a href="https://github.com" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-card">
+                      <div class="front">
+
+                          <img class="card-image" src="~/images/mumbai.jpg">
+                      </div>
+                      <div class="back">
+                          <h2>Gentlesir</h2>
+                          <p>
+                              Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                          </p>
+                          <div class="social">
+                              <a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span></a>
+                              <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span></a>
+                              <a href="https://github.com" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-card">
+                      <div class="front">
+
+                          <img class="card-image" src="~/images/pune.jpg">
+                      </div>
+                      <div class="back">
+                          <h2>Gentlesir</h2>
+                          <p>
+                              Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                          </p>
+                          <div class="social">
+                              <a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span></a>
+                              <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span></a>
+                              <a href="https://github.com" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-card">
+                      <div class="front">
+
+                          <img class="card-image" src="~/images/andaman.jpg">
+                      </div>
+                      <div class="back">
+                          <h2>Gentlesir</h2>
+                          <p>
+                              Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                          </p>
+                          <div class="social">
+                              <a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span></a>
+                              <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span></a>
+                              <a href="https://github.com" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-card">
+                      <div class="front">
+
+                          <img class="card-image" src="~/images/kolkata.jpg">
+                      </div>
+                      <div class="back">
+                          <h2>Gentlesir</h2>
+                          <p>
+                              Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                          </p>
+                          <div class="social">
+                              <a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span></a>
+                              <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span></a>
+                              <a href="https://github.com" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-card">
+                      <div class="front">
+
+                          <img class="card-image" src="~/images/jaipur.jpg">
+                      </div>
+                      <div class="back">
+                          <h2>Gentlesir</h2>
+                          <p>
+                              Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                          </p>
+                          <div class="social">
+                              <a href="#" class="social-icon facebook  animate"><span class="fa fa-facebook"></span></a>
+                              <a href="https://twitter.com" target="_blank" class=" social-icon twitter  animate"><span class="fa fa-twitter"></span></a>
+                              <a href="https://github.com" target="_blank" class=" social-icon github  animate"><span class="fa fa-github-alt"></span></a>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+              </div>
+
+
+
+-----------------------------------------------------------------------
+
+<style>
+.info-card {
+    float: left;
+	margin: 10px;
+	-webkit-perspective: 600px;
+}
+
+.front, .back {
+	background: #FFF;
+	border-radius: 10px;
+	transition: -webkit-transform 1s;
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	border: 1px solid black;
+}
+
+.front {
+	overflow: hidden;
+	width: 300px;
+	height: 330px;
+	position: absolute;
+	z-index: 1;
+}
+
+.back {
+	padding: 20px;
+	padding-top: 0px;
+	width: 250px;
+	height: 330px;
+	-webkit-transform: rotateY(-180deg);
+	overflow: scroll;
+}
+
+.info-card:hover .back {
+	-webkit-transform: rotateY(0);
+}
+
+.info-card:hover .front {
+	-webkit-transform: rotateY(180deg);
+}
+
+.card-image {
+width: 100%;
+height: 100%;
+}
+
+
+/* Social buttons */
+.social {
+	list-style: none;
+	padding: 0px;
+	margin-top: 25px;
+	text-align: center;
+}
+
+.social a {
+		position: relative;
+		display: inline-block;
+		min-width: 40px;
+		padding: 10px 0px;
+		margin: 0px 5px;
+		overflow: hidden;
+		text-align: center;
+		background-color: rgb(215, 215, 215);
+		border-radius: 40px;
+	}
+    </style>

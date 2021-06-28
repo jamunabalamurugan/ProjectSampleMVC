@@ -1,0 +1,74 @@
+﻿@model IEnumerable<OnlineBankingProject.Models.Transaction_Table>
+
+@{
+    ViewBag.Title = "AccountStatement";
+    Layout = "~/Views/Shared/HomePageAfterLogin.cshtml";
+}
+<html>
+<head>
+    <style>
+        body {
+            background-color: lemonchiffon
+        }
+    </style>
+
+</head>
+<body>
+
+    <h2>AccountStatement</h2>
+    @using (Html.BeginForm("Statement", "DashBoard", FormMethod.Get, new { novalidate = "novalidate" }))
+    {
+        <div>
+            From Date:  @Html.TextBox("FromDate")
+            To Date: @Html.TextBox("ToDate")
+            <input type='submit' id='search' value='Search' />
+        </div>
+        <div id='search-results'>
+
+        </div>
+    }
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Beneficiary_Account_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction_Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction_Mode)
+            </th>
+       
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Beneficiary_Account_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transaction_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transaction_Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transaction_Mode)
+                </td>
+            
+            </tr>
+        }
+
+        <div> @Html.ActionLink("Back", "HomeAfterLogin", "LOR")</div>
+
+    </table>
+
+    </body>
+</html>

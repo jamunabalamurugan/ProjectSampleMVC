@@ -1,0 +1,163 @@
+﻿@model OnlineExamSystem.Models.ViewModel1
+
+@{
+    ViewBag.Title = "SearchStudents";
+}
+
+@{
+    List<SelectListItem> states = new List<SelectListItem>();
+    states.Add(new SelectListItem
+    {
+        Text = "Tamilnadu",
+        Value = "Tamilnadu"
+    });
+    states.Add(new SelectListItem
+    {
+        Text = "Maharashtra",
+        Value = "Maharashtra",
+    });
+    states.Add(new SelectListItem
+    {
+        Text = "Karnataka",
+        Value = "Karnataka"
+    });
+    states.Add(new SelectListItem
+    {
+        Text = "Telangana",
+        Value = "Telangana",
+    });
+    states.Add(new SelectListItem
+    {
+        Text = "Kerala",
+        Value = "Kerala",
+    });
+    states.Add(new SelectListItem
+    {
+        Text = "Uttar Pradesh",
+        Value = "Uttar Pradesh",
+    });
+    states.Add(new SelectListItem
+    {
+        Text = "Andhra Pradesh",
+        Value = "Andhra Pradesh",
+    });
+}
+
+@{
+    List<SelectListItem> technologies = new List<SelectListItem>();
+    technologies.Add(new SelectListItem
+    {
+        Text = "JAVA",
+        Value = "JAVA"
+    });
+    technologies.Add(new SelectListItem
+    {
+        Text = "SQL",
+        Value = "SQL",
+    });
+    technologies.Add(new SelectListItem
+    {
+        Text = "C#",
+        Value = "C#"
+    });
+    technologies.Add(new SelectListItem
+    {
+        Text = "PHP",
+        Value = "PHP",
+    });
+    technologies.Add(new SelectListItem
+    {
+        Text = "PYTHON",
+        Value = "PYTHON",
+    });
+    technologies.Add(new SelectListItem
+    {
+        Text = "C/C++",
+        Value = "C/C++",
+    });
+}
+
+@{
+    List<SelectListItem> levels = new List<SelectListItem>();
+    levels.Add(new SelectListItem
+    {
+        Text = "1",
+        Value = "1"
+    });
+    levels.Add(new SelectListItem
+    {
+        Text = "2",
+        Value = "2",
+    });
+    levels.Add(new SelectListItem
+    {
+        Text = "3",
+        Value = "3"
+    });
+}
+
+
+<h2 style="text-align:center">Search Students</h2>
+<br />
+<input class="btn-info" type="button" value="Go to Dashboard" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Admin") + "'");" />
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TECHNOLOGY_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TECHNOLOGY_NAME, technologies, "-- Select State --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TECHNOLOGY_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.STATE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.STATE, states, "-- Select State --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.STATE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TEST_LEVEL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TEST_LEVEL, levels, "-- Select Level --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TEST_LEVEL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SCORE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SCORE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SCORE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search Students" class="btn-info" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

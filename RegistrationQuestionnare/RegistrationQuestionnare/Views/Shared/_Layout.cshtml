@@ -1,0 +1,194 @@
+﻿@model IEnumerable<RegistrationQuestionnare.Models.TaskCompletionListForDay_Result>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - iRelax</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    <!-- Thumbnail Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Monteserrat font google -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+
+    <style>
+        #navigbar {
+            box-shadow: rgba(0,0,0,0.3) 5px 5px 5px 5px;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+            border-radius: 35px;
+            margin-top: 10px;
+            background-color: white;
+            height: 40px;
+        }
+
+        li {
+            margin-right: 20px;
+        }
+
+        .footer {
+            font-size: 20px;
+            height: 40px;
+            box-shadow: rgba(0,0,0,0.1) 3px 3px 3px 3px;
+            border-top-left-radius: 35px;
+            border-top-right-radius: 35px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            text-align: center;
+            /*padding-top:10px;*/
+        }
+
+        .dropbtn {
+            /*background-color: #4CAF50;*/
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: solid;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            /*background-color: #3e8e41;*/
+        }
+    </style>
+    <script>
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onload = function () { null };
+    </script>
+</head>
+
+<body style="background-image:url('@Url.Content("~/Images/1213.jpg")'); background-size:cover;">
+
+    <div class="navbar  navbar-fixed-top" id="navigbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img src="~/Images/iRELAX.png" height="23" id="Logo" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="color:black">
+                    <span class="icon-bar navbar-inverse"></span>
+                    <span class="icon-bar navbar-inverse"></span>
+                    <span class="icon-bar navbar-inverse"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse navbar-right dropdown">
+                <ul class="nav navbar-nav" style="text-align:right;background-color:#efefef;border-radius:32px;height:100%;margin:0px">
+                    <li>@Html.ActionLink("DashBoard", "Dashboard", "Main")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("My Space", "Space", "MySpace")</li>
+                    <li>
+                        @Html.ActionLink(" ", "Dashboard", "Main", new { @class = "glyphicon glyphicon-bell dropbtn" })
+                        @*<button >Notification</button>*@
+                        <div class="dropdown-content">
+                            @{
+                                var md = Session["model"];
+                                foreach (var item in (dynamic)(md))
+                                {
+                                    DateTime start = Convert.ToDateTime(Convert.ToString(item.tDStartTime));
+                                    string starttime = Convert.ToString(start.TimeOfDay);
+                                    DateTime end = Convert.ToDateTime(Convert.ToString(item.tDStopTime));
+                                    string endtime = Convert.ToString(end.TimeOfDay);
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                @*<a href="#">@item.vDActivityName &nbsp; @item.tDStartTime &nbsp; @item.tDStopTime</a>*@
+                                                <a href="#"> @item.vDActivityName <br />StartTime: @starttime <br />EndTime: @endtime</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                }
+                            }
+                        </div>
+                    </li>
+
+                    <li>@Html.ActionLink("Logout", "Logout", "Main")</li>
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <!-- Footer -->
+
+        <div class="footer bottom" style="font-size:16px">
+            <p align="center" style="padding-top:10px">&copy; iRelax| my<b>LTI</b>  @DateTime.Now.Year</p>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @*<div class="dropdown">
+            <button >Notification</button>
+            <div class="dropdown-content">
+                @{
+                    foreach (var item in Model)
+                    {
+                        DateTime start = Convert.ToDateTime(Convert.ToString(item.tDStartTime));
+                        string starttime = Convert.ToString(start.TimeOfDay);
+                        DateTime end = Convert.ToDateTime(Convert.ToString(item.tDStopTime));
+                        string endtime = Convert.ToString(end.TimeOfDay);
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="#">@item.vDActivityName &nbsp; @item.tDStartTime &nbsp; @item.tDStopTime</a>
+                                    <a href="#"> @item.vDActivityName <br />StartTime: @starttime <br />EndTime: @endtime</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    }
+                }
+            </div>
+        </div>*@
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "placeCartOrder";
+}
+
+<h2>placeCartOrder</h2>
+
+@{ 
+    Session["date"] = DateTime.Now.ToString();
+}
+<p>Your phone no : @Session["UserId"]</p>
+<p>
+    Order date : @Session["date"]
+</p>
+<h4> Total Cost is : @Session["TC"] </h4>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-12">
+        <input type="submit" value="Confirm order" class="btn btn-default" />
+    </div>
+
+}
+
+

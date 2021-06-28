@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "AdminDashboard";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2 style="text-align:center">Admin Dashboard</h2>
+    <br />
+    <br />
+    <div style="text-align:center">
+        <input class="btn-info" type="button" value="Add Questions" onclick="@("window.location.href='" + @Url.Action("AddQuestions", "Admin") + "'");" />
+
+        <br />
+        <br />
+        <br />
+        <input class="btn-info" type="button" value="Remove Questions" onclick="@("window.location.href='" + @Url.Action("ViewQuestions", "Admin") + "'");" />
+        <br />
+        <br />
+        <br />
+        <input class="btn-info" type="button" value="View Report" onclick="@("window.location.href='" + @Url.Action("SearchStudents", "Admin") + "'");" />
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+}

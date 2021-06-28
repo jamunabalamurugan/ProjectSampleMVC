@@ -1,0 +1,67 @@
+﻿@model IEnumerable<OnlineBankingProject.Models.Transaction_Table>
+
+@{
+    ViewBag.Title = "Statement";
+    Layout = "~/Views/Shared/HomePageAfterLogin.cshtml";
+}
+<html>
+<head>
+    <style>
+        body {
+            background-color:aliceblue;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Statement</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Beneficiary_Account_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction_Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction_Mode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Open_Savings_Account.First_Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Beneficiary_Account_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transaction_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transaction_Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transaction_Mode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Open_Savings_Account.First_Name)
+                </td>
+
+                <td>
+                    <div> @Html.ActionLink("Back", "AccountStatement", "DashBoard")</div>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </body>
+</html>

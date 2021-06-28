@@ -1,0 +1,265 @@
+﻿@model Rash_Airlines.Models.Passenger_booking_details
+@using Rash_Airlines.Models
+@{
+    ViewBag.Title = "DetailSearch";
+}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<link href="Content/bootstrap.css" rel="stylesheet" />
+<link href="Content/Site.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+        <!-- Website CSS style -->
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+        <!-- Website Font style -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <style>
+
+
+            body, html {
+                height: 100%;
+                
+                background-position: center;
+                background-image:linear-gradient(white,darkslategrey)/*#d3d3d3*/;
+                font-family: 'Oxygen', sans-serif;
+                font-size: 12px;
+            }
+
+            .main {
+                margin-top: 20px;
+                margin-left:20px;
+            }
+
+            h2.title {
+                font-size: 50px;
+                font-family: 'Passion One', cursive;
+                font-weight: 400;
+                color: white;
+            }
+
+            hr {
+                width: 10%;
+                color: #fff;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            label {
+                margin-bottom: 14px;
+            }
+
+            input,
+            input::-webkit-input-placeholder {
+                font-size: 9px;
+                padding-top: 3px;
+            }
+
+            .main-login {
+                background-color: rgba(234, 231, 231, 0.56);
+                /* shadows and rounded borders */
+                -moz-border-radius: 10px 10px;
+                -webkit-border-radius: 10px 10px;
+                border-radius: 10px 10px;
+                -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            }
+
+            .main-center {
+                
+                margin-top: 10px;
+                margin: 20px;
+                max-width: 300px;
+                padding: 50px 40px;
+            }
+
+            .login-button {
+                margin-top: 3px;
+            }
+
+            .login-register {
+                font-size: 8px;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container">
+                    <div class="row main col-sm-4">
+                        <div class="panel-heading">
+                            <div class="panel-title text-center">
+                            </div>
+                        </div>
+                        <div class="main-login main-center">
+                            <form class="form-horizontal" method="post" action="#">
+
+
+                                <div class="form-group">
+                                    <label for="dep" class="cols-sm-2 control-label">Departure</label>
+                                    <div class="cols-sm-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-upload fa" aria-hidden="true"></i></span>
+
+                                            @*<input type="text" class="form-control" name="name" id="name" placeholder="Your Name" />*@
+                                            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+
+                                                    @Html.DropDownList("dep", null, htmlAttributes: new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.departure, "", new { @class = "text-danger" })
+
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="arr" class="cols-sm-2 control-label">Arrival</label>
+                                    <div class="cols-sm-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-download fa" aria-hidden="true"></i></span>
+                                            @*<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />*@
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.DropDownList("arr", null, htmlAttributes: new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.arrival, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="date" class="cols-sm-2 control-label">Journey Date</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                                            @*<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />*@
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    <input class="form-control" type="date" name="date" />
+                                                    @*@Html.TextBoxFor(model => model.journey_date,new { type = "date" })*@
+                                                    @Html.ValidationMessageFor(model => model.journey_date, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="seats" class="cols-sm-2 control-label">Seats</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-suitcase" aria-hidden="true"></i></span>
+                                            @*<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />*@
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.no_of_seats, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.no_of_seats, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="class" class="cols-sm-2 control-label">Class</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                            @*<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" />*@
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.DropDownList("@class", new SelectList(Enum.GetValues(typeof(air_class))), new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.@class, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Search" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="~/images/index.jpg" style="margin-top:20px; width:700px;height:615px;">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+            <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    </body>
+</html>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9">
+                <img src="\images\r2.jpg" style="width:1000px;height:415px;">
+            </div>
+            <div class="col-sm-3 container-fluid" id="login">
+                <form>
+                    <p><h3 style="text-align:center">LOGIN</h3></p><br><br><br>
+                    <p class="glyphicon glyphicon-user"> <input style="color:black" type="text" placeholder="UserName" a /></p><br>
+                    <p class="glyphicon glyphicon-asterisk"><input style="color:black" type="password" placeholder="Password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></p>
+
+                    <p>
+
+                        <br><br><br><br><br>
+                        Are you a new customer? <button style="color:black" onclick="myFunction()">Click Here!</button>
+                    </p>
+
+                    <script>
+                        function myFunction() {
+                            alert("Website in progess.\nTo Continue...!");
+                        }
+                    </script>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>*@

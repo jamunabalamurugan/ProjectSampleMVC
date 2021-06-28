@@ -1,0 +1,83 @@
+﻿
+@model IEnumerable<Rash_Airlines.Models.display_ticket_Result>
+@{
+    ViewBag.Title = "Show Tickets";
+    Layout = "~/Views/Shared/_Logged_layout.cshtml";
+
+}
+
+<h2 style="text-align:center;padding:20px;">Show Tickets</h2>
+<style>
+    body{
+        background-color:lightskyblue;
+    }
+</style>
+
+
+<div class="container" style="background-color:white;">
+    <table class="table table-responsive table-hover">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.first_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.journey_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrival)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.@class)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.seat_no)
+                </th>*@
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.booking_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.journey_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.booking_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Arrival)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.@class)
+                </td>
+
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.seat_no)
+                    </td>*@
+
+            </tr>
+
+        }
+    </table>
+</div>
+  

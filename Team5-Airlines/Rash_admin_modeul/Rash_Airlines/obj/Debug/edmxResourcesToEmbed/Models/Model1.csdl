@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Rash_AirlinesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="admin_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="feedback_id" />
+    </Key>
+    <Property Name="feedback_id" Type="Int32" Nullable="false" />
+    <Property Name="feedback1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="passenger_id" Type="Int32" />
+    <NavigationProperty Name="Passenger_Reg" Relationship="Self.fb_pid_Fk" FromRole="feedback" ToRole="Passenger_Reg" />
+  </EntityType>
+  <EntityType Name="Flights_Master">
+    <Key>
+      <PropertyRef Name="flight_id" />
+    </Key>
+    <Property Name="flight_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="flight_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="business_capacity" Type="Int32" />
+    <Property Name="economy_capacity" Type="Int32" />
+    <Property Name="route_id" Type="Int32" />
+    <Property Name="flight_status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Flights_Schedule" Relationship="Self.f_idFk" FromRole="Flights_Master" ToRole="Flights_Schedule" />
+    <NavigationProperty Name="Passenger_booking_details" Relationship="Self.fid_Fk" FromRole="Flights_Master" ToRole="Passenger_booking_details" />
+    <NavigationProperty Name="Routes_Master" Relationship="Self.fm_rid_fk" FromRole="Flights_Master" ToRole="Routes_Master" />
+  </EntityType>
+  <EntityType Name="Flights_Schedule">
+    <Key>
+      <PropertyRef Name="flight_id" />
+      <PropertyRef Name="journey_date" />
+    </Key>
+    <Property Name="route_id" Type="Int32" />
+    <Property Name="departure_time" Type="Time" Precision="7" />
+    <Property Name="arrival_time" Type="Time" Precision="7" />
+    <Property Name="duration" Type="Time" Precision="7" />
+    <Property Name="flight_id" Type="Int32" Nullable="false" />
+    <Property Name="journey_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="bc_availability" Type="Int32" />
+    <Property Name="ec_availability" Type="Int32" />
+    <NavigationProperty Name="Flights_Master" Relationship="Self.f_idFk" FromRole="Flights_Schedule" ToRole="Flights_Master" />
+    <NavigationProperty Name="Routes_Master" Relationship="Self.route_idFk" FromRole="Flights_Schedule" ToRole="Routes_Master" />
+  </EntityType>
+  <EntityType Name="Passenger_booking_details">
+    <Key>
+      <PropertyRef Name="booking_id" />
+    </Key>
+    <Property Name="booking_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="no_of_seats" Type="Int32" Nullable="false" />
+    <Property Name="class" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="departure" Type="Int32" />
+    <Property Name="arrival" Type="Int32" />
+    <Property Name="flight_id" Type="Int32" />
+    <Property Name="passenger_id" Type="Int32" />
+    <Property Name="booking_Date" Type="DateTime" Precision="3" />
+    <Property Name="journey_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Flights_Master" Relationship="Self.fid_Fk" FromRole="Passenger_booking_details" ToRole="Flights_Master" />
+    <NavigationProperty Name="Place" Relationship="Self.pass_arrFk" FromRole="Passenger_booking_details" ToRole="Places" />
+    <NavigationProperty Name="Place1" Relationship="Self.pass_deptFk" FromRole="Passenger_booking_details" ToRole="Places" />
+    <NavigationProperty Name="Payments" Relationship="Self.payment_bid_Fk" FromRole="Passenger_booking_details" ToRole="Payments" />
+    <NavigationProperty Name="Passengers_Details" Relationship="Self.pdet_bid_Fk" FromRole="Passenger_booking_details" ToRole="Passengers_Details" />
+    <NavigationProperty Name="Passenger_Reg" Relationship="Self.pid_Fk" FromRole="Passenger_booking_details" ToRole="Passenger_Reg" />
+  </EntityType>
+  <EntityType Name="Passenger_Reg">
+    <Key>
+      <PropertyRef Name="passenger_id" />
+    </Key>
+    <Property Name="passenger_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pwd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="confirm_pwd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="feedbacks" Relationship="Self.fb_pid_Fk" FromRole="Passenger_Reg" ToRole="feedback" />
+    <NavigationProperty Name="Passenger_booking_details" Relationship="Self.pid_Fk" FromRole="Passenger_Reg" ToRole="Passenger_booking_details" />
+    <NavigationProperty Name="Passengers_Details" Relationship="Self.passDet_pid_Fk" FromRole="Passenger_Reg" ToRole="Passengers_Details" />
+  </EntityType>
+  <EntityType Name="Passengers_Details">
+    <Key>
+      <PropertyRef Name="seat_no" />
+    </Key>
+    <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="Int32" Nullable="false" />
+    <Property Name="seat_no" Type="Int32" Nullable="false" />
+    <Property Name="passenger_id" Type="Int32" />
+    <Property Name="booking_id" Type="Int64" />
+    <Property Name="perhead_cost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="status" Type="Binary" MaxLength="1" FixedLength="true" />
+    <NavigationProperty Name="Passenger_booking_details" Relationship="Self.pdet_bid_Fk" FromRole="Passengers_Details" ToRole="Passenger_booking_details" />
+    <NavigationProperty Name="Passenger_Reg" Relationship="Self.passDet_pid_Fk" FromRole="Passengers_Details" ToRole="Passenger_Reg" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="payment_id" />
+    </Key>
+    <Property Name="payment_id" Type="Int32" Nullable="false" />
+    <Property Name="payment_status" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="booking_id" Type="Int64" />
+    <Property Name="total_cost" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Passenger_booking_details" Relationship="Self.payment_bid_Fk" FromRole="Payments" ToRole="Passenger_booking_details" />
+  </EntityType>
+  <EntityType Name="Place">
+    <Key>
+      <PropertyRef Name="place_id" />
+    </Key>
+    <Property Name="place_id" Type="Int32" Nullable="false" />
+    <Property Name="place_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Passenger_booking_details" Relationship="Self.pass_arrFk" FromRole="Places" ToRole="Passenger_booking_details" />
+    <NavigationProperty Name="Passenger_booking_details1" Relationship="Self.pass_deptFk" FromRole="Places" ToRole="Passenger_booking_details" />
+    <NavigationProperty Name="Routes_Master" Relationship="Self.rm_arr_fk" FromRole="Places" ToRole="Routes_Master" />
+    <NavigationProperty Name="Routes_Master1" Relationship="Self.rm_dep_fk" FromRole="Places" ToRole="Routes_Master" />
+  </EntityType>
+  <EntityType Name="Routes_Master">
+    <Key>
+      <PropertyRef Name="route_id" />
+    </Key>
+    <Property Name="route_id" Type="Int32" Nullable="false" />
+    <Property Name="departure" Type="Int32" />
+    <Property Name="arrival" Type="Int32" />
+    <Property Name="economy_cost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="business_cost" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Flights_Master" Relationship="Self.fm_rid_fk" FromRole="Routes_Master" ToRole="Flights_Master" />
+    <NavigationProperty Name="Flights_Schedule" Relationship="Self.route_idFk" FromRole="Routes_Master" ToRole="Flights_Schedule" />
+    <NavigationProperty Name="Place" Relationship="Self.rm_arr_fk" FromRole="Routes_Master" ToRole="Places" />
+    <NavigationProperty Name="Place1" Relationship="Self.rm_dep_fk" FromRole="Routes_Master" ToRole="Places" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="fb_pid_Fk">
+    <End Role="Passenger_Reg" Type="Self.Passenger_Reg" Multiplicity="0..1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger_Reg">
+        <PropertyRef Name="passenger_id" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="passenger_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="f_idFk">
+    <End Role="Flights_Master" Type="Self.Flights_Master" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Flights_Schedule" Type="Self.Flights_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flights_Master">
+        <PropertyRef Name="flight_id" />
+      </Principal>
+      <Dependent Role="Flights_Schedule">
+        <PropertyRef Name="flight_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fid_Fk">
+    <End Role="Flights_Master" Type="Self.Flights_Master" Multiplicity="0..1" />
+    <End Role="Passenger_booking_details" Type="Self.Passenger_booking_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flights_Master">
+        <PropertyRef Name="flight_id" />
+      </Principal>
+      <Dependent Role="Passenger_booking_details">
+        <PropertyRef Name="flight_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fm_rid_fk">
+    <End Role="Routes_Master" Type="Self.Routes_Master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Flights_Master" Type="Self.Flights_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routes_Master">
+        <PropertyRef Name="route_id" />
+      </Principal>
+      <Dependent Role="Flights_Master">
+        <PropertyRef Name="route_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="route_idFk">
+    <End Role="Routes_Master" Type="Self.Routes_Master" Multiplicity="0..1" />
+    <End Role="Flights_Schedule" Type="Self.Flights_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routes_Master">
+        <PropertyRef Name="route_id" />
+      </Principal>
+      <Dependent Role="Flights_Schedule">
+        <PropertyRef Name="route_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pass_arrFk">
+    <End Role="Places" Type="Self.Place" Multiplicity="0..1" />
+    <End Role="Passenger_booking_details" Type="Self.Passenger_booking_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Places">
+        <PropertyRef Name="place_id" />
+      </Principal>
+      <Dependent Role="Passenger_booking_details">
+        <PropertyRef Name="arrival" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pass_deptFk">
+    <End Role="Places" Type="Self.Place" Multiplicity="0..1" />
+    <End Role="Passenger_booking_details" Type="Self.Passenger_booking_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Places">
+        <PropertyRef Name="place_id" />
+      </Principal>
+      <Dependent Role="Passenger_booking_details">
+        <PropertyRef Name="departure" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="payment_bid_Fk">
+    <End Role="Passenger_booking_details" Type="Self.Passenger_booking_details" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger_booking_details">
+        <PropertyRef Name="booking_id" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="booking_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pdet_bid_Fk">
+    <End Role="Passenger_booking_details" Type="Self.Passenger_booking_details" Multiplicity="0..1" />
+    <End Role="Passengers_Details" Type="Self.Passengers_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger_booking_details">
+        <PropertyRef Name="booking_id" />
+      </Principal>
+      <Dependent Role="Passengers_Details">
+        <PropertyRef Name="booking_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pid_Fk">
+    <End Role="Passenger_Reg" Type="Self.Passenger_Reg" Multiplicity="0..1" />
+    <End Role="Passenger_booking_details" Type="Self.Passenger_booking_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger_Reg">
+        <PropertyRef Name="passenger_id" />
+      </Principal>
+      <Dependent Role="Passenger_booking_details">
+        <PropertyRef Name="passenger_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="passDet_pid_Fk">
+    <End Role="Passenger_Reg" Type="Self.Passenger_Reg" Multiplicity="0..1" />
+    <End Role="Passengers_Details" Type="Self.Passengers_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger_Reg">
+        <PropertyRef Name="passenger_id" />
+      </Principal>
+      <Dependent Role="Passengers_Details">
+        <PropertyRef Name="passenger_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rm_arr_fk">
+    <End Role="Places" Type="Self.Place" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Routes_Master" Type="Self.Routes_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Places">
+        <PropertyRef Name="place_id" />
+      </Principal>
+      <Dependent Role="Routes_Master">
+        <PropertyRef Name="arrival" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rm_dep_fk">
+    <End Role="Places" Type="Self.Place" Multiplicity="0..1" />
+    <End Role="Routes_Master" Type="Self.Routes_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Places">
+        <PropertyRef Name="place_id" />
+      </Principal>
+      <Dependent Role="Routes_Master">
+        <PropertyRef Name="departure" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Rash_AirlinesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="feedbacks" EntityType="Self.feedback" />
+    <EntitySet Name="Flights_Master" EntityType="Self.Flights_Master" />
+    <EntitySet Name="Flights_Schedule" EntityType="Self.Flights_Schedule" />
+    <EntitySet Name="Passenger_booking_details" EntityType="Self.Passenger_booking_details" />
+    <EntitySet Name="Passenger_Reg" EntityType="Self.Passenger_Reg" />
+    <EntitySet Name="Passengers_Details" EntityType="Self.Passengers_Details" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Places" EntityType="Self.Place" />
+    <EntitySet Name="Routes_Master" EntityType="Self.Routes_Master" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="fb_pid_Fk" Association="Self.fb_pid_Fk">
+      <End Role="Passenger_Reg" EntitySet="Passenger_Reg" />
+      <End Role="feedback" EntitySet="feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="f_idFk" Association="Self.f_idFk">
+      <End Role="Flights_Master" EntitySet="Flights_Master" />
+      <End Role="Flights_Schedule" EntitySet="Flights_Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="fid_Fk" Association="Self.fid_Fk">
+      <End Role="Flights_Master" EntitySet="Flights_Master" />
+      <End Role="Passenger_booking_details" EntitySet="Passenger_booking_details" />
+    </AssociationSet>
+    <AssociationSet Name="fm_rid_fk" Association="Self.fm_rid_fk">
+      <End Role="Routes_Master" EntitySet="Routes_Master" />
+      <End Role="Flights_Master" EntitySet="Flights_Master" />
+    </AssociationSet>
+    <AssociationSet Name="route_idFk" Association="Self.route_idFk">
+      <End Role="Routes_Master" EntitySet="Routes_Master" />
+      <End Role="Flights_Schedule" EntitySet="Flights_Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="pass_arrFk" Association="Self.pass_arrFk">
+      <End Role="Places" EntitySet="Places" />
+      <End Role="Passenger_booking_details" EntitySet="Passenger_booking_details" />
+    </AssociationSet>
+    <AssociationSet Name="pass_deptFk" Association="Self.pass_deptFk">
+      <End Role="Places" EntitySet="Places" />
+      <End Role="Passenger_booking_details" EntitySet="Passenger_booking_details" />
+    </AssociationSet>
+    <AssociationSet Name="payment_bid_Fk" Association="Self.payment_bid_Fk">
+      <End Role="Passenger_booking_details" EntitySet="Passenger_booking_details" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="pdet_bid_Fk" Association="Self.pdet_bid_Fk">
+      <End Role="Passenger_booking_details" EntitySet="Passenger_booking_details" />
+      <End Role="Passengers_Details" EntitySet="Passengers_Details" />
+    </AssociationSet>
+    <AssociationSet Name="pid_Fk" Association="Self.pid_Fk">
+      <End Role="Passenger_Reg" EntitySet="Passenger_Reg" />
+      <End Role="Passenger_booking_details" EntitySet="Passenger_booking_details" />
+    </AssociationSet>
+    <AssociationSet Name="passDet_pid_Fk" Association="Self.passDet_pid_Fk">
+      <End Role="Passenger_Reg" EntitySet="Passenger_Reg" />
+      <End Role="Passengers_Details" EntitySet="Passengers_Details" />
+    </AssociationSet>
+    <AssociationSet Name="rm_arr_fk" Association="Self.rm_arr_fk">
+      <End Role="Places" EntitySet="Places" />
+      <End Role="Routes_Master" EntitySet="Routes_Master" />
+    </AssociationSet>
+    <AssociationSet Name="rm_dep_fk" Association="Self.rm_dep_fk">
+      <End Role="Places" EntitySet="Places" />
+      <End Role="Routes_Master" EntitySet="Routes_Master" />
+    </AssociationSet>
+    <FunctionImport Name="display_ticket" ReturnType="Collection(Rash_AirlinesModel.display_ticket_Result)">
+      <Parameter Name="booking_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Passenger_ticket_check" ReturnType="Collection(Rash_AirlinesModel.Passenger_ticket_check_Result)">
+      <Parameter Name="passenger_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="search_flight" ReturnType="Collection(Rash_AirlinesModel.search_flight_Result)">
+      <Parameter Name="dept" Mode="In" Type="Int32" />
+      <Parameter Name="arr" Mode="In" Type="Int32" />
+      <Parameter Name="journey_date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Rash_AirlinesModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Rash_AirlinesModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="display_ticket_Result">
+    <Property Type="String" Name="first_name" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="booking_date" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="journey_date" Nullable="false" />
+    <Property Type="Int64" Name="booking_id" Nullable="false" />
+    <Property Type="Int32" Name="seat_no" Nullable="false" />
+    <Property Type="Time" Name="duration" Nullable="true" />
+    <Property Type="String" Name="class" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Departure" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Arrival" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="Passenger_ticket_check_Result">
+    <Property Type="Int64" Name="booking_id" Nullable="false" />
+    <Property Type="Int32" Name="no_of_seats" Nullable="false" />
+    <Property Type="String" Name="class" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Departure" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Arrival" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="journey_date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="search_flight_Result">
+    <Property Type="String" Name="flight_name" Nullable="true" MaxLength="10" />
+    <Property Type="Time" Name="departure_time" Nullable="true" />
+    <Property Type="Time" Name="arrival_time" Nullable="true" />
+    <Property Type="String" Name="Departure" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Arrival" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

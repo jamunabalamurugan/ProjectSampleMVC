@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "User_Home";
+}
+
+@if (Session["UserName"] != null)
+{
+@*<center>
+    <div>
+        <h2>User Home</h2>
+    </div>
+    <div>
+        <h3>Welcome @ViewBag.FullName</h3>
+    </div>
+</center>*@
+    <hr />
+    <head>
+        <link href="~/Content/userfirst.css" rel="stylesheet" />
+        <script>
+ window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Percentage obtained by User"
+	},
+	axisY: {
+        title: "Percentage"
+
+	},
+	data: [{
+		type: "column",
+		dataPoints: @Html.Raw(ViewBag.DataPoints)
+        }]
+        });
+        chart.render();
+
+        }
+        </script>
+
+    </head>
+        <body style="background-color:peru">
+            
+            <div class="container">
+                <div class="row">
+                    @*card view*@
+                    <div class="card col-sm-3" style="background-color:whitesmoke">
+                        <center><img src="~/Content/images/img_avatar.png" class="img-circle" style="width:160px ; " /></center>
+                        <hr />
+                         
+                            <br />
+                            <p><span class="glyphicon glyphicon-user">@ViewBag.UserName</span></p><br />
+                            <p><span class="glyphicon glyphicon-pencil">@ViewBag.email</span></p><br />
+                            <p><span class="glyphicon glyphicon-home">@ViewBag.contact</span></p><br />
+                            <p><span class="glyphicon glyphicon-calendar">@ViewBag.dob</span></p><br />
+                            <p><button class="btn btn-danger">@Html.ActionLink("Logout", "Logout", "User")</button></p>
+                        
+                    </div>
+
+                    @*welccome panel*@
+                    <div class="col-sm-9 ">
+                        <div class="panel firstbox" style="margin-top:20px">
+                            <div class="panel-body"><span class="glyphicon glyphicon-arrow-up "> Hi<b> @ViewBag.FullName</b> !! Lets learn something new today</span></div>
+                        </div>
+
+
+                        @*progress panel*@
+                        <div class="panel firstbox">
+                            <div class="panel-body">
+                                <h4>Progress Chart</h4>
+                                <hr />
+                                @*<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                    PROGRAMMING
+                                    <br />
+                                </div>*@
+
+                            </div>
+                        </div>
+
+                        @*subject panel*@
+                        <div class="panel firstbox">
+                            <div class="panel-body">
+                                <h4>Avaliable Subjects</h4>
+                                <hr />
+                                @*Programming panel*@
+                                <div class="panel col-xs-4 secondbox">
+                                    <div class=" panel-body">
+                                        <p> Programming</p>
+                                        <hr />
+                                        <p> Provide with coded instructions for the automatic performance of a task</p>
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myProglist">Explore</button>
+                                    </div>
+                                </div>
+                                @*Aptitude panel*@
+                                <div class="panel col-xs-4 secondbox">
+                                    <div class=" panel-body">
+                                        <p> Aptitude</p>
+                                        <hr />
+                                        <p> Provide with coded instructions for the automatic performance of a task</p>
+                                        <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myAptilist">Explore</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*test history panel*@
+                        @*<div class="panel firstbox">
+                            <div class="panel-body">
+                                <h4>Test History</h4>
+                                <hr />
+                                <table class="table table-hover table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>Test id</th>
+                                            <th>Date of Assestment</th>
+                                            <th>Time taken </th>
+                                            <th>Test Name</th>
+                                            <th> Report </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1  </td>
+                                            <td>  </td>
+                                            <td>  </td>
+                                            <td>   </td>
+                                            <td><button class="btn-primary" type="button"><span class="glyphicon glyphicon-eye-open"></span>View </button></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+                <div class="modal fade" id="myProglist" role="dialog">
+
+
+                    <div class="modal-dialog modal-lg ">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Choose the subject</h4>
+                            </div>
+                            <div class="modal-body">
+                                @*first language*@
+                                @Html.Action("GetSubjects_Prog", "OnlineTest")
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*Aptitude model*@
+
+                <div class="modal fade" id="myAptilist" role="dialog">
+                    <div class="modal-dialog modal-lg ">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Choose the subject</h4>
+                            </div>
+                            <div class="modal-body">
+                                @*first language*@
+                                @Html.Action("GetSubjects_Apt", "OnlineTest")
+
+                                <div class="modal-footer"></div>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+</div>
+                    </div>
+                </div>
+        </body>
+}
+else
+{
+    Response.Redirect("~/LakshyaHome/Index");
+}
+
+
+
+
+

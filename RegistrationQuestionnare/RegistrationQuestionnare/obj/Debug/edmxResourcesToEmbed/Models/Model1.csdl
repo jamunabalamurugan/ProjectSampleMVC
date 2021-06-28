@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IRelaxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DailyActivity">
+    <Key>
+      <PropertyRef Name="iDActivityID" />
+    </Key>
+    <Property Name="iDActivityID" Type="Int32" Nullable="false" />
+    <Property Name="vDActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tDDuration" Type="Time" Precision="7" />
+    <Property Name="iStressMinLevel" Type="Int32" />
+    <NavigationProperty Name="DailyActivityTracks" Relationship="Self.FK__DailyActi__iDAct__25869641" FromRole="DailyActivities" ToRole="DailyActivityTrack" />
+    <NavigationProperty Name="DailyEmployeeInterests" Relationship="Self.FK__DailyEmpl__iDAct__1ED998B2" FromRole="DailyActivities" ToRole="DailyEmployeeInterests" />
+  </EntityType>
+  <EntityType Name="DailyLoginTime">
+    <Key>
+      <PropertyRef Name="DLT_number" />
+    </Key>
+    <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+    <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+    <Property Name="iMood" Type="Int32" />
+    <Property Name="dbStressValue" Type="Double" />
+    <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__DailyLogi__vEmpI__5BE2A6F2" FromRole="DailyLoginTime" ToRole="EmployeePersonalDetails" />
+  </EntityType>
+  <EntityType Name="EmployeePersonalDetail">
+    <Key>
+      <PropertyRef Name="vEmpID" />
+    </Key>
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vEmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vWorkDomain" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="iWorkingHours" Type="Int32" />
+    <Property Name="vWorkingLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="iEmpAge" Type="Int32" />
+    <Property Name="vEmpMobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="vEmpMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="vEmpGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="dBirthDate" Type="DateTime" Precision="0" />
+    <Property Name="bMaritialStatus" Type="Boolean" />
+    <Property Name="iCreditPoints" Type="Int32" />
+    <Property Name="vPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bAdmin" Type="Boolean" />
+    <Property Name="ProfilePhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DailyLoginTimes" Relationship="Self.FK__DailyLogi__vEmpI__5BE2A6F2" FromRole="EmployeePersonalDetails" ToRole="DailyLoginTime" />
+    <NavigationProperty Name="DailyActivityTracks" Relationship="Self.FK__DailyActi__vEmpI__24927208" FromRole="EmployeePersonalDetails" ToRole="DailyActivityTrack" />
+    <NavigationProperty Name="DailyEmployeeInterests" Relationship="Self.FK__DailyEmpl__vEmpI__1DE57479" FromRole="EmployeePersonalDetails" ToRole="DailyEmployeeInterests" />
+    <NavigationProperty Name="WeekendActivityTracks" Relationship="Self.FK__WeekendAc__vEmpI__276EDEB3" FromRole="EmployeePersonalDetails" ToRole="WeekendActivityTrack" />
+    <NavigationProperty Name="WeekendEmployeeInterests" Relationship="Self.FK__WeekendEm__vEmpI__46E78A0C" FromRole="EmployeePersonalDetails" ToRole="WeekendEmployeeInterests" />
+  </EntityType>
+  <EntityType Name="Place">
+    <Key>
+      <PropertyRef Name="iPlaceID" />
+    </Key>
+    <Property Name="iPlaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iWActivityID" Type="Int32" />
+    <Property Name="vPlaceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vDescription" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="vLatitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vLongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vCity" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="vBestVisitingTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="vImageLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="WeekendActivity" Relationship="Self.FK__Places__iWActivi__5629CD9C" FromRole="Places" ToRole="WeekendActivities" />
+  </EntityType>
+  <EntityType Name="Questionaire">
+    <Key>
+      <PropertyRef Name="iQuestionID" />
+    </Key>
+    <Property Name="iQuestionID" Type="Int32" Nullable="false" />
+    <Property Name="vQuestionDesc" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="bQuestionType" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="iVideoID" />
+    </Key>
+    <Property Name="iVideoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vVideoLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="WeekendActivity">
+    <Key>
+      <PropertyRef Name="iWActivityID" />
+    </Key>
+    <Property Name="iWActivityID" Type="Int32" Nullable="false" />
+    <Property Name="vWActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Places" Relationship="Self.FK__Places__iWActivi__5629CD9C" FromRole="WeekendActivities" ToRole="Places" />
+    <NavigationProperty Name="WeekendActivityTracks" Relationship="Self.FK__WeekendAc__iWAct__286302EC" FromRole="WeekendActivities" ToRole="WeekendActivityTrack" />
+    <NavigationProperty Name="WeekendEmployeeInterests" Relationship="Self.FK__WeekendEm__iWAct__47DBAE45" FromRole="WeekendActivities" ToRole="WeekendEmployeeInterests" />
+  </EntityType>
+  <EntityType Name="WeekendEmployeeInterest">
+    <Key>
+      <PropertyRef Name="iWEI_number" />
+    </Key>
+    <Property Name="iWEI_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="iWActivityID" Type="Int32" />
+    <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__WeekendEm__vEmpI__46E78A0C" FromRole="WeekendEmployeeInterests" ToRole="EmployeePersonalDetails" />
+    <NavigationProperty Name="WeekendActivity" Relationship="Self.FK__WeekendEm__iWAct__47DBAE45" FromRole="WeekendEmployeeInterests" ToRole="WeekendActivities" />
+  </EntityType>
+  <EntityType Name="DailyActivityTrack">
+    <Key>
+      <PropertyRef Name="DAT_number" />
+    </Key>
+    <Property Name="DAT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="iDActivityID" Type="Int32" />
+    <Property Name="tDStartTime" Type="DateTime" Precision="3" />
+    <Property Name="tDStopTime" Type="DateTime" Precision="3" />
+    <Property Name="bDActivityStatus" Type="Boolean" />
+    <Property Name="dDActivityDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DailyActivity" Relationship="Self.FK__DailyActi__iDAct__25869641" FromRole="DailyActivityTrack" ToRole="DailyActivities" />
+    <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__DailyActi__vEmpI__24927208" FromRole="DailyActivityTrack" ToRole="EmployeePersonalDetails" />
+  </EntityType>
+  <EntityType Name="DailyEmployeeInterest">
+    <Key>
+      <PropertyRef Name="DEI_number" />
+    </Key>
+    <Property Name="DEI_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="iDActivityID" Type="Int32" />
+    <NavigationProperty Name="DailyActivity" Relationship="Self.FK__DailyEmpl__iDAct__1ED998B2" FromRole="DailyEmployeeInterests" ToRole="DailyActivities" />
+    <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__DailyEmpl__vEmpI__1DE57479" FromRole="DailyEmployeeInterests" ToRole="EmployeePersonalDetails" />
+  </EntityType>
+  <EntityType Name="ImageDB">
+    <Key>
+      <PropertyRef Name="iImageID" />
+    </Key>
+    <Property Name="iImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="vOption1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="vOption2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="vOption3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="vCorrectOption" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="WeekendActivityTrack">
+    <Key>
+      <PropertyRef Name="iWAT_number" />
+    </Key>
+    <Property Name="iWAT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="iWActivityID" Type="Int32" />
+    <Property Name="bWActivityStatus" Type="Boolean" />
+    <NavigationProperty Name="EmployeePersonalDetail" Relationship="Self.FK__WeekendAc__vEmpI__276EDEB3" FromRole="WeekendActivityTrack" ToRole="EmployeePersonalDetails" />
+    <NavigationProperty Name="WeekendActivity" Relationship="Self.FK__WeekendAc__iWAct__286302EC" FromRole="WeekendActivityTrack" ToRole="WeekendActivities" />
+  </EntityType>
+  <EntityType Name="LoginTime">
+    <Key>
+      <PropertyRef Name="DLT_number" />
+    </Key>
+    <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+    <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+    <Property Name="iMood" Type="Int32" />
+    <Property Name="dbStressValue" Type="Double" />
+  </EntityType>
+  <EntityType Name="LoginTime1">
+    <Key>
+      <PropertyRef Name="DLT_number" />
+    </Key>
+    <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+    <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+    <Property Name="iMood" Type="Int32" />
+    <Property Name="dbStressValue" Type="Double" />
+  </EntityType>
+  <EntityType Name="LoginTime2">
+    <Key>
+      <PropertyRef Name="DLT_number" />
+    </Key>
+    <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+    <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+    <Property Name="iMood" Type="Int32" />
+    <Property Name="dbStressValue" Type="Double" />
+  </EntityType>
+  <EntityType Name="LoginTime3">
+    <Key>
+      <PropertyRef Name="DLT_number" />
+    </Key>
+    <Property Name="DLT_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vEmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="dLoginTime" Type="DateTime" Precision="3" />
+    <Property Name="dLogoutTime" Type="DateTime" Precision="3" />
+    <Property Name="iMood" Type="Int32" />
+    <Property Name="dbStressValue" Type="Double" />
+  </EntityType>
+  <Association Name="FK__DailyActi__iDAct__25869641">
+    <End Role="DailyActivities" Type="Self.DailyActivity" Multiplicity="0..1" />
+    <End Role="DailyActivityTrack" Type="Self.DailyActivityTrack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DailyActivities">
+        <PropertyRef Name="iDActivityID" />
+      </Principal>
+      <Dependent Role="DailyActivityTrack">
+        <PropertyRef Name="iDActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DailyEmpl__iDAct__1ED998B2">
+    <End Role="DailyActivities" Type="Self.DailyActivity" Multiplicity="0..1" />
+    <End Role="DailyEmployeeInterests" Type="Self.DailyEmployeeInterest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DailyActivities">
+        <PropertyRef Name="iDActivityID" />
+      </Principal>
+      <Dependent Role="DailyEmployeeInterests">
+        <PropertyRef Name="iDActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DailyLogi__vEmpI__5BE2A6F2">
+    <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+    <End Role="DailyLoginTime" Type="Self.DailyLoginTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeePersonalDetails">
+        <PropertyRef Name="vEmpID" />
+      </Principal>
+      <Dependent Role="DailyLoginTime">
+        <PropertyRef Name="vEmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DailyActi__vEmpI__24927208">
+    <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+    <End Role="DailyActivityTrack" Type="Self.DailyActivityTrack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeePersonalDetails">
+        <PropertyRef Name="vEmpID" />
+      </Principal>
+      <Dependent Role="DailyActivityTrack">
+        <PropertyRef Name="vEmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DailyEmpl__vEmpI__1DE57479">
+    <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+    <End Role="DailyEmployeeInterests" Type="Self.DailyEmployeeInterest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeePersonalDetails">
+        <PropertyRef Name="vEmpID" />
+      </Principal>
+      <Dependent Role="DailyEmployeeInterests">
+        <PropertyRef Name="vEmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WeekendAc__vEmpI__276EDEB3">
+    <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+    <End Role="WeekendActivityTrack" Type="Self.WeekendActivityTrack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeePersonalDetails">
+        <PropertyRef Name="vEmpID" />
+      </Principal>
+      <Dependent Role="WeekendActivityTrack">
+        <PropertyRef Name="vEmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WeekendEm__vEmpI__46E78A0C">
+    <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetail" Multiplicity="0..1" />
+    <End Role="WeekendEmployeeInterests" Type="Self.WeekendEmployeeInterest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeePersonalDetails">
+        <PropertyRef Name="vEmpID" />
+      </Principal>
+      <Dependent Role="WeekendEmployeeInterests">
+        <PropertyRef Name="vEmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Places__iWActivi__5629CD9C">
+    <End Role="WeekendActivities" Type="Self.WeekendActivity" Multiplicity="0..1" />
+    <End Role="Places" Type="Self.Place" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WeekendActivities">
+        <PropertyRef Name="iWActivityID" />
+      </Principal>
+      <Dependent Role="Places">
+        <PropertyRef Name="iWActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WeekendAc__iWAct__286302EC">
+    <End Role="WeekendActivities" Type="Self.WeekendActivity" Multiplicity="0..1" />
+    <End Role="WeekendActivityTrack" Type="Self.WeekendActivityTrack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WeekendActivities">
+        <PropertyRef Name="iWActivityID" />
+      </Principal>
+      <Dependent Role="WeekendActivityTrack">
+        <PropertyRef Name="iWActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WeekendEm__iWAct__47DBAE45">
+    <End Role="WeekendActivities" Type="Self.WeekendActivity" Multiplicity="0..1" />
+    <End Role="WeekendEmployeeInterests" Type="Self.WeekendEmployeeInterest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WeekendActivities">
+        <PropertyRef Name="iWActivityID" />
+      </Principal>
+      <Dependent Role="WeekendEmployeeInterests">
+        <PropertyRef Name="iWActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IRelaxEntities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DailyActivities" EntityType="Self.DailyActivity" />
+    <EntitySet Name="DailyLoginTimes" EntityType="Self.DailyLoginTime" />
+    <EntitySet Name="EmployeePersonalDetails" EntityType="Self.EmployeePersonalDetail" />
+    <EntitySet Name="Places" EntityType="Self.Place" />
+    <EntitySet Name="Questionaires" EntityType="Self.Questionaire" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Videos" EntityType="Self.Video" />
+    <EntitySet Name="WeekendActivities" EntityType="Self.WeekendActivity" />
+    <EntitySet Name="WeekendEmployeeInterests" EntityType="Self.WeekendEmployeeInterest" />
+    <EntitySet Name="DailyActivityTracks" EntityType="Self.DailyActivityTrack" />
+    <EntitySet Name="DailyEmployeeInterests" EntityType="Self.DailyEmployeeInterest" />
+    <EntitySet Name="ImageDBs" EntityType="Self.ImageDB" />
+    <EntitySet Name="WeekendActivityTracks" EntityType="Self.WeekendActivityTrack" />
+    <EntitySet Name="LoginTimes" EntityType="Self.LoginTime" />
+    <EntitySet Name="LoginTime1" EntityType="Self.LoginTime1" />
+    <EntitySet Name="LoginTime2" EntityType="Self.LoginTime2" />
+    <EntitySet Name="LoginTime3" EntityType="Self.LoginTime3" />
+    <AssociationSet Name="FK__DailyActi__iDAct__25869641" Association="Self.FK__DailyActi__iDAct__25869641">
+      <End Role="DailyActivities" EntitySet="DailyActivities" />
+      <End Role="DailyActivityTrack" EntitySet="DailyActivityTracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DailyEmpl__iDAct__1ED998B2" Association="Self.FK__DailyEmpl__iDAct__1ED998B2">
+      <End Role="DailyActivities" EntitySet="DailyActivities" />
+      <End Role="DailyEmployeeInterests" EntitySet="DailyEmployeeInterests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DailyLogi__vEmpI__5BE2A6F2" Association="Self.FK__DailyLogi__vEmpI__5BE2A6F2">
+      <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+      <End Role="DailyLoginTime" EntitySet="DailyLoginTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DailyActi__vEmpI__24927208" Association="Self.FK__DailyActi__vEmpI__24927208">
+      <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+      <End Role="DailyActivityTrack" EntitySet="DailyActivityTracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DailyEmpl__vEmpI__1DE57479" Association="Self.FK__DailyEmpl__vEmpI__1DE57479">
+      <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+      <End Role="DailyEmployeeInterests" EntitySet="DailyEmployeeInterests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WeekendAc__vEmpI__276EDEB3" Association="Self.FK__WeekendAc__vEmpI__276EDEB3">
+      <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+      <End Role="WeekendActivityTrack" EntitySet="WeekendActivityTracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WeekendEm__vEmpI__46E78A0C" Association="Self.FK__WeekendEm__vEmpI__46E78A0C">
+      <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+      <End Role="WeekendEmployeeInterests" EntitySet="WeekendEmployeeInterests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Places__iWActivi__5629CD9C" Association="Self.FK__Places__iWActivi__5629CD9C">
+      <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+      <End Role="Places" EntitySet="Places" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WeekendAc__iWAct__286302EC" Association="Self.FK__WeekendAc__iWAct__286302EC">
+      <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+      <End Role="WeekendActivityTrack" EntitySet="WeekendActivityTracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WeekendEm__iWAct__47DBAE45" Association="Self.FK__WeekendEm__iWAct__47DBAE45">
+      <End Role="WeekendActivities" EntitySet="WeekendActivities" />
+      <End Role="WeekendEmployeeInterests" EntitySet="WeekendEmployeeInterests" />
+    </AssociationSet>
+    <FunctionImport Name="insert_activity_track">
+      <Parameter Name="psno" Mode="In" Type="String" />
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="starttime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="insert_login_time">
+      <Parameter Name="eid" Mode="In" Type="String" />
+      <Parameter Name="mood" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(IRelaxModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(IRelaxModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="TaskCompletionListForDay" ReturnType="Collection(IRelaxModel.TaskCompletionListForDay_Result)">
+      <Parameter Name="EmpId" Mode="In" Type="String" />
+      <Parameter Name="TodayDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="update_login_time" ReturnType="Collection(IRelaxModel.update_login_time_Result)">
+      <Parameter Name="eid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="update_logout_time" ReturnType="Collection(IRelaxModel.update_logout_time_Result)">
+      <Parameter Name="eid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="WeekendSuggestion" ReturnType="Collection(IRelaxModel.WeekendSuggestion_Result)">
+      <Parameter Name="EmpID" Mode="In" Type="String" />
+      <Parameter Name="name" Mode="InOut" Type="String" />
+      <Parameter Name="desc" Mode="InOut" Type="String" />
+      <Parameter Name="city" Mode="InOut" Type="String" />
+      <Parameter Name="bestTime" Mode="InOut" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="TaskCompletionListForDay_Result">
+    <Property Type="Int32" Name="iDActivityID" Nullable="true" />
+    <Property Type="String" Name="vDActivityName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="tDStartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="tDStopTime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="update_login_time_Result">
+    <Property Type="Int32" Name="DLT_number" Nullable="false" />
+    <Property Type="String" Name="vEmpID" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="dLoginTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dLogoutTime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="iMood" Nullable="true" />
+    <Property Type="Double" Name="dbStressValue" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="update_logout_time_Result">
+    <Property Type="Int32" Name="DLT_number" Nullable="false" />
+    <Property Type="String" Name="vEmpID" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="dLoginTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dLogoutTime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="iMood" Nullable="true" />
+    <Property Type="Double" Name="dbStressValue" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="WeekendSuggestion_Result">
+    <Property Type="String" Name="vPlaceName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="vBestVisitingTime" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="vCity" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="vDescription" Nullable="true" MaxLength="5000" />
+  </ComplexType>
+</Schema>

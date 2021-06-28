@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "Register - Confirm Details";
+    Layout = "~/Views/Shared/_RegisterLoginLayout.cshtml";
+}
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<style>
+    .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 35px;
+        height: 40px;
+        text-align: center;
+    }
+
+
+        .button:hover {
+            background-color: #3e8e41
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+    #ConfirmDetails {
+        align-content: center;
+        padding: 10px;
+        /*margin-right: 50px;*/
+        position: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        border-radius: 32px;
+        color: white;
+        font-family: 'Montserrat';
+        font-size: 10px;
+    }
+
+    table {
+        align-content: center;
+        color: white;
+        margin-top: 20px;
+        position: center;
+        text-align: center;
+        width: 25%;
+        height: 100%;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-column-gap: 20px;
+        grid-row-gap: 10px;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+    }
+
+    #grid-item {
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+
+
+
+    #btnConfirm {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 32px;
+        background-color: #efefef;
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        color: black;
+    }
+
+    label {
+        font-family: 'Segoe UI';
+        font-size: 30px;
+        color: white;
+    }
+
+    #content {
+        font-family: 'Segoe UI';
+        font-size: 20px;
+        color: white;
+    }
+</style>
+
+
+<br /><br /><br /><br /><br /><br /><br />
+
+<center>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12" id="ConfirmDetails">
+                @using (Html.BeginForm())
+                {
+                <div id="grid-item">
+
+                    <div class="col-3">
+                        @Html.Label("Name")
+                    </div>
+                    <div class="col-3" id="content">
+
+                        @ViewBag.name
+                    </div>
+                    <div class="col-3">
+                        @Html.Label("Domain")
+                    </div>
+                    <div class="col-3">
+                        @ViewBag.domain
+                    </div>
+                    <div class="col-3">
+                        @Html.Label("Location")
+                    </div>
+
+                    <div class="col-3">
+                        @ViewBag.location
+                    </div>
+                    <div class="col-3">
+                        @Html.Label("Mobile")
+                    </div>
+                    <div class="col-3">
+                        @ViewBag.mobile
+                    </div>
+                    <div class="col-3">
+                        @Html.Label("EMail")
+                    </div>
+                    <div class="col-3">
+                        @ViewBag.mail
+                    </div>
+
+                </div>
+                    <input type="submit" value="Confirm Details" id="btnConfirm" class="button" />
+
+
+
+                }
+            </div>
+        </div>
+    </div>
+    @ViewBag.exception
+</center>

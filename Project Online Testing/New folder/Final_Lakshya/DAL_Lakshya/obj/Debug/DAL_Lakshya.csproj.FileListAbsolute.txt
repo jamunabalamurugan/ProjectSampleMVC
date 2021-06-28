@@ -1,0 +1,12 @@
+c:\users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\bin\Debug\DAL_Lakshya.dll
+c:\users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\bin\Debug\DAL_Lakshya.pdb
+c:\users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\obj\Debug\DAL_Lakshya.csproj.CoreCompileInputs.cache
+c:\users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\obj\Debug\DAL_Lakshya.dll
+c:\users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\obj\Debug\DAL_Lakshya.pdb
+C:\Users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\bin\Debug\DAL_Lakshya.dll.config
+C:\Users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\bin\Debug\EntityFramework.dll
+C:\Users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\bin\Debug\EntityFramework.xml
+C:\Users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\obj\Debug\DAL_Lakshya.csproj.CopyComplete
+C:\Users\pcuser\source\repos\Final_Lakshya\DAL_Lakshya\obj\Debug\DAL_Lakshya.csprojAssemblyReference.cache

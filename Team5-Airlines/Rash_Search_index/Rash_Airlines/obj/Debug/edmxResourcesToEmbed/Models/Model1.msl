@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Rash_AirlinesModelStoreContainer" CdmEntityContainer="Rash_AirlinesEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="feedback_id" ColumnName="feedback_id" />
+          <ScalarProperty Name="feedback1" ColumnName="feedback" />
+          <ScalarProperty Name="passenger_id" ColumnName="passenger_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flights_Master">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Flights_Master">
+        <MappingFragment StoreEntitySet="Flights_Master">
+          <ScalarProperty Name="flight_id" ColumnName="flight_id" />
+          <ScalarProperty Name="flight_name" ColumnName="flight_name" />
+          <ScalarProperty Name="business_capacity" ColumnName="business_capacity" />
+          <ScalarProperty Name="economy_capacity" ColumnName="economy_capacity" />
+          <ScalarProperty Name="route_id" ColumnName="route_id" />
+          <ScalarProperty Name="flight_status" ColumnName="flight_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flights_Schedule">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Flights_Schedule">
+        <MappingFragment StoreEntitySet="Flights_Schedule">
+          <ScalarProperty Name="route_id" ColumnName="route_id" />
+          <ScalarProperty Name="departure_time" ColumnName="departure_time" />
+          <ScalarProperty Name="arrival_time" ColumnName="arrival_time" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="flight_id" ColumnName="flight_id" />
+          <ScalarProperty Name="journey_date" ColumnName="journey_date" />
+          <ScalarProperty Name="bc_availability" ColumnName="bc_availability" />
+          <ScalarProperty Name="ec_availability" ColumnName="ec_availability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passenger_booking_details">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Passenger_booking_details">
+        <MappingFragment StoreEntitySet="Passenger_booking_details">
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+          <ScalarProperty Name="no_of_seats" ColumnName="no_of_seats" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="departure" ColumnName="departure" />
+          <ScalarProperty Name="arrival" ColumnName="arrival" />
+          <ScalarProperty Name="flight_id" ColumnName="flight_id" />
+          <ScalarProperty Name="passenger_id" ColumnName="passenger_id" />
+          <ScalarProperty Name="booking_Date" ColumnName="booking_Date" />
+          <ScalarProperty Name="journey_date" ColumnName="journey_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passenger_Reg">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Passenger_Reg">
+        <MappingFragment StoreEntitySet="Passenger_Reg">
+          <ScalarProperty Name="passenger_id" ColumnName="passenger_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="confirm_pwd" ColumnName="confirm_pwd" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passengers_Details">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Passengers_Details">
+        <MappingFragment StoreEntitySet="Passengers_Details">
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="seat_no" ColumnName="seat_no" />
+          <ScalarProperty Name="passenger_id" ColumnName="passenger_id" />
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+          <ScalarProperty Name="perhead_cost" ColumnName="perhead_cost" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Payment">
+        <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+          <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Places">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Place">
+        <MappingFragment StoreEntitySet="Places">
+          <ScalarProperty Name="place_id" ColumnName="place_id" />
+          <ScalarProperty Name="place_name" ColumnName="place_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes_Master">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.Routes_Master">
+        <MappingFragment StoreEntitySet="Routes_Master">
+          <ScalarProperty Name="route_id" ColumnName="route_id" />
+          <ScalarProperty Name="departure" ColumnName="departure" />
+          <ScalarProperty Name="arrival" ColumnName="arrival" />
+          <ScalarProperty Name="economy_cost" ColumnName="economy_cost" />
+          <ScalarProperty Name="business_cost" ColumnName="business_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Rash_AirlinesModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="display_ticket" FunctionName="Rash_AirlinesModel.Store.display_ticket">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Rash_AirlinesModel.display_ticket_Result">
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="booking_date" ColumnName="booking_date" />
+          <ScalarProperty Name="journey_date" ColumnName="journey_date" />
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+          <ScalarProperty Name="seat_no" ColumnName="seat_no" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="Departure" ColumnName="Departure" />
+          <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Passenger_ticket_check" FunctionName="Rash_AirlinesModel.Store.Passenger_ticket_check">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Rash_AirlinesModel.Passenger_ticket_check_Result">
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+          <ScalarProperty Name="no_of_seats" ColumnName="no_of_seats" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="Departure" ColumnName="Departure" />
+          <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+          <ScalarProperty Name="journey_date" ColumnName="journey_date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="search_flight" FunctionName="Rash_AirlinesModel.Store.search_flight">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Rash_AirlinesModel.search_flight_Result">
+          <ScalarProperty Name="flight_name" ColumnName="flight_name" />
+          <ScalarProperty Name="departure_time" ColumnName="departure_time" />
+          <ScalarProperty Name="arrival_time" ColumnName="arrival_time" />
+          <ScalarProperty Name="Departure" ColumnName="Departure" />
+          <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Rash_AirlinesModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Rash_AirlinesModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Rash_AirlinesModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Rash_AirlinesModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Rash_AirlinesModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Rash_AirlinesModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Rash_AirlinesModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Rash_AirlinesModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Rash_AirlinesModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

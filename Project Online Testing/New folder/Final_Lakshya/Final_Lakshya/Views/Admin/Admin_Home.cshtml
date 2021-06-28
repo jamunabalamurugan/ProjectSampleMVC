@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Admin_Home";
+}
+
+@if (Session["UserName"] != null)
+{
+   <head>
+        <link href="~/Content/adminfirst.css" rel="stylesheet" />
+        <script>
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        </script>
+    </head>
+    
+        @*@*<@*div class="row">
+                <div class="col-md-4" style="margin-left:-100px;margin-top:20px">
+                    <div class="vertical-menu">
+                        <a href="#" class="active">Home</a>
+                        <a href="#">Mail users</a>
+                        <a href="#">Users Detail</a>
+                        <a href="#">Question Details</a>
+                        <a href="#">User performance</a>
+                    </div>
+                </div>
+            </div>*@
+        <div class="sidenav" style="margin-top:40px">
+            <a href="@Url.Action("Userdetails","Admin")">User Details</a><hr />
+            <a href="@Url.Action("Login_Activation","Admin")">Login Activation </a><hr />
+            <a href="@Url.Action("Logout","User")">Logout</a><hr />
+            @*<a href="#clients">User Performance</a><hr />*@
+
+            <button class="dropdown-btn">
+                Question Section
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">Insert</a>
+                <a href="#">Update</a>
+                <a href="#">Delete</a>
+            </div><hr />
+            @*<a href="#contact">Contact</a><hr />*@
+            @*<a href="#contact">About</a>*@
+        </div>
+    
+}
+else
+{
+    Response.Redirect("~/LakshyaHome/Index");
+}
+
+@*<body>
+    <div class="panel firstbox">
+        <div class="panel-body">
+            <h4>Login Activation</h4>
+            <hr />
+            <table class="table table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>User_id</th>
+                        <th>Name</th>
+                        <th>Email id </th>
+                        <th>Phone number</th>
+                        <th> Password</th>
+                        <th>DOB</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10652521 </td>
+                        <td>Aarthi</td>
+                        <td>aarthi@abcd.com</td>
+                        <td>122345678 </td>
+                        <td>10652521</td>
+                        <td>09-03-1996</td>
+                        <td><button class="btn-primary btn-group-lg" type="button">Activate Login</button></td>
+                    </tr>
+
+
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</body>*@
+
+

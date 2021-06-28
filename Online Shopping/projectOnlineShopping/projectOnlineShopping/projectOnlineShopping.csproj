@@ -1,0 +1,1248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56CA4768-350D-4558-A2E4-703F2EE24033}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>projectOnlineShopping</RootNamespace>
+    <AssemblyName>projectOnlineShopping</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\cartsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\orderTablesController.cs" />
+    <Compile Include="Controllers\productDescriptionsController.cs" />
+    <Compile Include="Controllers\productsController.cs" />
+    <Compile Include="Controllers\registrationTablesController.cs" />
+    <Compile Include="Controllers\retailersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\adminTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\adminVM.cs" />
+    <Compile Include="Models\cart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\categoryDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginVM.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\orderDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\orderTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\productDescription.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\quantityvm.cs" />
+    <Compile Include="Models\registrationTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\retailer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Security.cs" />
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="image\1001a.jpeg" />
+    <Content Include="image\1001b.jpeg" />
+    <Content Include="image\1001c.jpeg" />
+    <Content Include="image\1002a.jpeg" />
+    <Content Include="image\1002b.jpeg" />
+    <Content Include="image\1002c.jpeg" />
+    <Content Include="image\1003a.jpeg" />
+    <Content Include="image\1003b.jpeg" />
+    <Content Include="image\1003c.jpeg" />
+    <Content Include="image\1004a.jpeg" />
+    <Content Include="image\1004b.jpeg" />
+    <Content Include="image\1004c.jpeg" />
+    <Content Include="image\1005a.jpeg" />
+    <Content Include="image\1005b.jpeg" />
+    <Content Include="image\1005c.jpeg" />
+    <Content Include="image\1006a.jpeg" />
+    <Content Include="image\1006b.jpeg" />
+    <Content Include="image\1006c.jpeg" />
+    <Content Include="image\1007a.jpeg" />
+    <Content Include="image\1007b.jpeg" />
+    <Content Include="image\1007c.jpeg" />
+    <Content Include="image\1008a.jpeg" />
+    <Content Include="image\1008b.jpeg" />
+    <Content Include="image\1008c.jpeg" />
+    <Content Include="image\1009a.jpeg" />
+    <Content Include="image\1009b.jpeg" />
+    <Content Include="image\1009c.jpeg" />
+    <Content Include="image\1010a.jpeg" />
+    <Content Include="image\1010b.jpeg" />
+    <Content Include="image\1010c.jpeg" />
+    <Content Include="image\1011a.jpeg" />
+    <Content Include="image\1011b.jpeg" />
+    <Content Include="image\1011c.jpeg" />
+    <Content Include="image\1012a.jpeg" />
+    <Content Include="image\1012b.jpeg" />
+    <Content Include="image\1012c.jpeg" />
+    <Content Include="image\1013a.jpeg" />
+    <Content Include="image\1013b.jpeg" />
+    <Content Include="image\1013c.jpeg" />
+    <Content Include="image\1014a.jpeg" />
+    <Content Include="image\1014b.jpeg" />
+    <Content Include="image\1014c.jpeg" />
+    <Content Include="image\1015a.jpeg" />
+    <Content Include="image\1015b.jpeg" />
+    <Content Include="image\1015c.jpeg" />
+    <Content Include="image\1016a.jpeg" />
+    <Content Include="image\1016b.jpeg" />
+    <Content Include="image\1016c.jpeg" />
+    <Content Include="image\1017a.jpeg" />
+    <Content Include="image\1017b.jpeg" />
+    <Content Include="image\1017c.jpeg" />
+    <Content Include="image\1018a.jpeg" />
+    <Content Include="image\1018b.jpeg" />
+    <Content Include="image\1018c.jpeg" />
+    <Content Include="image\1019a.jpeg" />
+    <Content Include="image\1019b.jpeg" />
+    <Content Include="image\1019c.jpeg" />
+    <Content Include="image\1020a.jpeg" />
+    <Content Include="image\1020b.jpeg" />
+    <Content Include="image\1020c.jpeg" />
+    <Content Include="image\1021a.jpeg" />
+    <Content Include="image\1021b.jpeg" />
+    <Content Include="image\1021c.jpeg" />
+    <Content Include="image\1022a.jpeg" />
+    <Content Include="image\1022b.jpeg" />
+    <Content Include="image\1022c.jpeg" />
+    <Content Include="image\1023a.jpeg" />
+    <Content Include="image\1023b.jpeg" />
+    <Content Include="image\1023c.jpeg" />
+    <Content Include="image\1024a.jpeg" />
+    <Content Include="image\1024b.jpeg" />
+    <Content Include="image\1024c.jpeg" />
+    <Content Include="image\1025a.jpeg" />
+    <Content Include="image\1025b.jpeg" />
+    <Content Include="image\1025c.jpeg" />
+    <Content Include="image\1026a.jpeg" />
+    <Content Include="image\1026b.jpeg" />
+    <Content Include="image\1026c.jpeg" />
+    <Content Include="image\1027a.jpeg" />
+    <Content Include="image\1027b.jpeg" />
+    <Content Include="image\1027c.jpeg" />
+    <Content Include="image\1028a.jpeg" />
+    <Content Include="image\1028b.jpeg" />
+    <Content Include="image\1028c.jpeg" />
+    <Content Include="image\1029a.jpeg" />
+    <Content Include="image\1029b.jpeg" />
+    <Content Include="image\1029c.jpeg" />
+    <Content Include="image\1030a.jpeg" />
+    <Content Include="image\1030b.jpeg" />
+    <Content Include="image\1030c.jpeg" />
+    <Content Include="image\1031a.jpeg" />
+    <Content Include="image\1031b.jpeg" />
+    <Content Include="image\1031c.jpeg" />
+    <Content Include="image\1032a.jpeg" />
+    <Content Include="image\1032b.jpeg" />
+    <Content Include="image\1032c.jpeg" />
+    <Content Include="image\1033a.jpeg" />
+    <Content Include="image\1033b.jpeg" />
+    <Content Include="image\1033c.jpeg" />
+    <Content Include="image\1034a.jpeg" />
+    <Content Include="image\1034b.jpeg" />
+    <Content Include="image\1034c.jpeg" />
+    <Content Include="image\1035a.jpeg" />
+    <Content Include="image\1035b.jpeg" />
+    <Content Include="image\1035c.jpeg" />
+    <Content Include="image\1036a.jpeg" />
+    <Content Include="image\1036b.jpeg" />
+    <Content Include="image\1036c.jpeg" />
+    <Content Include="image\1037a.jpeg" />
+    <Content Include="image\1037b.jpeg" />
+    <Content Include="image\1037c.jpeg" />
+    <Content Include="image\1038a.jpeg" />
+    <Content Include="image\1038b.jpeg" />
+    <Content Include="image\1038c.jpeg" />
+    <Content Include="image\1039a.jpeg" />
+    <Content Include="image\1039b.jpeg" />
+    <Content Include="image\1039c.jpeg" />
+    <Content Include="image\1040a.jpeg" />
+    <Content Include="image\1040b.jpeg" />
+    <Content Include="image\1040c.jpeg" />
+    <Content Include="image\1041a.jpeg" />
+    <Content Include="image\1041b.jpeg" />
+    <Content Include="image\1041c.jpeg" />
+    <Content Include="image\1042a.jpeg" />
+    <Content Include="image\1042b.jpeg" />
+    <Content Include="image\1042c.jpeg" />
+    <Content Include="image\1043a.jpeg" />
+    <Content Include="image\1043b.jpeg" />
+    <Content Include="image\1043c.jpeg" />
+    <Content Include="image\1044a.jpeg" />
+    <Content Include="image\1044b.jpeg" />
+    <Content Include="image\1044c.jpeg" />
+    <Content Include="image\1045a.jpeg" />
+    <Content Include="image\1045b.jpeg" />
+    <Content Include="image\1045c.jpeg" />
+    <Content Include="image\1046a.jpeg" />
+    <Content Include="image\1046b.jpeg" />
+    <Content Include="image\1046c.jpeg" />
+    <Content Include="image\1047a.jpeg" />
+    <Content Include="image\1047b.jpeg" />
+    <Content Include="image\1047c.jpeg" />
+    <Content Include="image\10a.jpeg" />
+    <Content Include="image\10b.jpeg" />
+    <Content Include="image\10c.jpeg" />
+    <Content Include="image\11a.jpeg" />
+    <Content Include="image\11b.jpeg" />
+    <Content Include="image\11c.jpeg" />
+    <Content Include="image\12a.jpeg" />
+    <Content Include="image\12b.jpeg" />
+    <Content Include="image\12c.jpeg" />
+    <Content Include="image\13a.jpeg" />
+    <Content Include="image\13b.jpeg" />
+    <Content Include="image\13c.jpeg" />
+    <Content Include="image\14a.jpeg" />
+    <Content Include="image\14b.jpeg" />
+    <Content Include="image\14c.jpeg" />
+    <Content Include="image\15a.jpeg" />
+    <Content Include="image\15b.jpeg" />
+    <Content Include="image\15c.jpeg" />
+    <Content Include="image\16a.jpeg" />
+    <Content Include="image\16b.jpeg" />
+    <Content Include="image\16c.jpeg" />
+    <Content Include="image\17a.jpeg" />
+    <Content Include="image\17b.jpeg" />
+    <Content Include="image\17c.jpeg" />
+    <Content Include="image\18a.jpeg" />
+    <Content Include="image\18b.jpeg" />
+    <Content Include="image\18c.jpeg" />
+    <Content Include="image\19a.jpeg" />
+    <Content Include="image\19b.jpeg" />
+    <Content Include="image\19c.jpeg" />
+    <Content Include="image\1a.jpeg" />
+    <Content Include="image\1b.jpeg" />
+    <Content Include="image\1c.jpeg" />
+    <Content Include="image\2001a.jpeg" />
+    <Content Include="image\2001b.jpeg" />
+    <Content Include="image\2001c.jpeg" />
+    <Content Include="image\2002a.jpeg" />
+    <Content Include="image\2002b.jpeg" />
+    <Content Include="image\2002c.jpeg" />
+    <Content Include="image\2003a.jpeg" />
+    <Content Include="image\2003b.jpeg" />
+    <Content Include="image\2003c.jpeg" />
+    <Content Include="image\2004a.jpeg" />
+    <Content Include="image\2004b.jpeg" />
+    <Content Include="image\2004c.jpeg" />
+    <Content Include="image\2005a.jpeg" />
+    <Content Include="image\2005b.jpeg" />
+    <Content Include="image\2005c.jpeg" />
+    <Content Include="image\2006a.jpeg" />
+    <Content Include="image\2006b.jpeg" />
+    <Content Include="image\2006c.jpeg" />
+    <Content Include="image\2007a.jpeg" />
+    <Content Include="image\2007b.jpeg" />
+    <Content Include="image\2007c.jpeg" />
+    <Content Include="image\2008a.jpeg" />
+    <Content Include="image\2008b.jpeg" />
+    <Content Include="image\2008c.jpeg" />
+    <Content Include="image\2009a.jpeg" />
+    <Content Include="image\2009b.jpeg" />
+    <Content Include="image\2009c.jpeg" />
+    <Content Include="image\2010a.jpeg" />
+    <Content Include="image\2010b.jpeg" />
+    <Content Include="image\2010c.jpeg" />
+    <Content Include="image\2011a.jpeg" />
+    <Content Include="image\2011b.jpeg" />
+    <Content Include="image\2011c.jpeg" />
+    <Content Include="image\2012a.jpeg" />
+    <Content Include="image\2012b.jpeg" />
+    <Content Include="image\2012c.jpeg" />
+    <Content Include="image\2013a.jpeg" />
+    <Content Include="image\2013b.jpeg" />
+    <Content Include="image\2013c.jpeg" />
+    <Content Include="image\2014a.jpeg" />
+    <Content Include="image\2014b.jpeg" />
+    <Content Include="image\2014c.jpeg" />
+    <Content Include="image\2015a.jpeg" />
+    <Content Include="image\2015b.jpeg" />
+    <Content Include="image\2015c.jpeg" />
+    <Content Include="image\2016a.jpeg" />
+    <Content Include="image\2016b.jpeg" />
+    <Content Include="image\2016c.jpeg" />
+    <Content Include="image\2017a.jpeg" />
+    <Content Include="image\2017b.jpeg" />
+    <Content Include="image\2017c.jpeg" />
+    <Content Include="image\2018a.jpeg" />
+    <Content Include="image\2018b.jpeg" />
+    <Content Include="image\2018c.jpeg" />
+    <Content Include="image\2019a.jpeg" />
+    <Content Include="image\2019b.jpeg" />
+    <Content Include="image\2019c.jpeg" />
+    <Content Include="image\2020a.jpeg" />
+    <Content Include="image\2020b.jpeg" />
+    <Content Include="image\2020c.jpeg" />
+    <Content Include="image\2021a.jpeg" />
+    <Content Include="image\2021b.jpeg" />
+    <Content Include="image\2021c.jpeg" />
+    <Content Include="image\2022a.jpeg" />
+    <Content Include="image\2022b.jpeg" />
+    <Content Include="image\2022c.jpeg" />
+    <Content Include="image\2023a.jpeg" />
+    <Content Include="image\2023b.jpeg" />
+    <Content Include="image\2023c.jpeg" />
+    <Content Include="image\2024a.jpeg" />
+    <Content Include="image\2024b.jpeg" />
+    <Content Include="image\2024c.jpeg" />
+    <Content Include="image\2025a.jpeg" />
+    <Content Include="image\2025b.jpeg" />
+    <Content Include="image\2025c.jpeg" />
+    <Content Include="image\2026a.jpeg" />
+    <Content Include="image\2026b.jpeg" />
+    <Content Include="image\2026c.jpeg" />
+    <Content Include="image\2027a.jpeg" />
+    <Content Include="image\2027b.jpeg" />
+    <Content Include="image\2027c.jpeg" />
+    <Content Include="image\2028a.jpeg" />
+    <Content Include="image\2028b.jpeg" />
+    <Content Include="image\2028c.jpeg" />
+    <Content Include="image\2029a.jpeg" />
+    <Content Include="image\2029b.jpeg" />
+    <Content Include="image\2029c.jpeg" />
+    <Content Include="image\2030a.jpeg" />
+    <Content Include="image\2030b.jpeg" />
+    <Content Include="image\2030c.jpeg" />
+    <Content Include="image\2031a.jpeg" />
+    <Content Include="image\2031b.jpeg" />
+    <Content Include="image\2031c.jpeg" />
+    <Content Include="image\2032a.jpeg" />
+    <Content Include="image\2032b.jpeg" />
+    <Content Include="image\2032c.jpeg" />
+    <Content Include="image\2033a.jpeg" />
+    <Content Include="image\2033b.jpeg" />
+    <Content Include="image\2033c.jpeg" />
+    <Content Include="image\2034a.jpeg" />
+    <Content Include="image\2034b.jpeg" />
+    <Content Include="image\2034c.jpeg" />
+    <Content Include="image\2035a.jpeg" />
+    <Content Include="image\2035b.jpeg" />
+    <Content Include="image\2035c.jpeg" />
+    <Content Include="image\2036a.jpeg" />
+    <Content Include="image\2036b.jpeg" />
+    <Content Include="image\2036c.jpeg" />
+    <Content Include="image\2037a.jpeg" />
+    <Content Include="image\2037b.jpeg" />
+    <Content Include="image\2037c.jpeg" />
+    <Content Include="image\2038a.jpeg" />
+    <Content Include="image\2038b.jpeg" />
+    <Content Include="image\2038c.jpeg" />
+    <Content Include="image\2039a.jpeg" />
+    <Content Include="image\2039b.jpeg" />
+    <Content Include="image\2039c.jpeg" />
+    <Content Include="image\2040a.jpeg" />
+    <Content Include="image\2040b.jpeg" />
+    <Content Include="image\2040c.jpeg" />
+    <Content Include="image\2041a.jpeg" />
+    <Content Include="image\2041b.jpeg" />
+    <Content Include="image\2041c.jpeg" />
+    <Content Include="image\2042a.jpeg" />
+    <Content Include="image\2042b.jpeg" />
+    <Content Include="image\2042c.jpeg" />
+    <Content Include="image\2043a.jpeg" />
+    <Content Include="image\2043b.jpeg" />
+    <Content Include="image\2043c.jpeg" />
+    <Content Include="image\2044a.jpeg" />
+    <Content Include="image\2044b.jpeg" />
+    <Content Include="image\2044c.jpeg" />
+    <Content Include="image\2045a.jpeg" />
+    <Content Include="image\2045b.jpeg" />
+    <Content Include="image\2045c.jpeg" />
+    <Content Include="image\2046a.jpeg" />
+    <Content Include="image\2047b.jpeg" />
+    <Content Include="image\2046c.jpeg" />
+    <Content Include="image\2047a.jpeg" />
+    <Content Include="image\2046b.jpeg" />
+    <Content Include="image\2047c.jpeg" />
+    <Content Include="image\2048a.jpeg" />
+    <Content Include="image\2048b.jpeg" />
+    <Content Include="image\2048c.jpeg" />
+    <Content Include="image\2049a.jpeg" />
+    <Content Include="image\2049b.jpeg" />
+    <Content Include="image\2049c.jpeg" />
+    <Content Include="image\2050a.jpeg" />
+    <Content Include="image\2050b.jpeg" />
+    <Content Include="image\2050c.jpeg" />
+    <Content Include="image\2051a.jpeg" />
+    <Content Include="image\2051b.jpeg" />
+    <Content Include="image\2051c.jpeg" />
+    <Content Include="image\2052a.jpeg" />
+    <Content Include="image\2052b.jpeg" />
+    <Content Include="image\2052c.jpeg" />
+    <Content Include="image\2053a.jpeg" />
+    <Content Include="image\2053b.jpeg" />
+    <Content Include="image\2053c.jpeg" />
+    <Content Include="image\2054a.jpeg" />
+    <Content Include="image\2054b.jpeg" />
+    <Content Include="image\2054c.jpeg" />
+    <Content Include="image\2055a.jpeg" />
+    <Content Include="image\2055b.jpeg" />
+    <Content Include="image\2055c.jpeg" />
+    <Content Include="image\2056a.jpeg" />
+    <Content Include="image\2056b.jpeg" />
+    <Content Include="image\2056c.jpeg" />
+    <Content Include="image\2057a.jpeg" />
+    <Content Include="image\2057b.jpeg" />
+    <Content Include="image\2057c.jpeg" />
+    <Content Include="image\2058a.jpeg" />
+    <Content Include="image\2058b.jpeg" />
+    <Content Include="image\2058c.jpeg" />
+    <Content Include="image\2059a.jpeg" />
+    <Content Include="image\2059b.jpeg" />
+    <Content Include="image\2059c.jpeg" />
+    <Content Include="image\2060a.jpeg" />
+    <Content Include="image\2060b.jpeg" />
+    <Content Include="image\2060c.jpeg" />
+    <Content Include="image\2061a.jpeg" />
+    <Content Include="image\2061b.jpeg" />
+    <Content Include="image\2061c.jpeg" />
+    <Content Include="image\2062a.jpeg" />
+    <Content Include="image\2062b.jpeg" />
+    <Content Include="image\2062c.jpeg" />
+    <Content Include="image\2063a.jpeg" />
+    <Content Include="image\2063b.jpeg" />
+    <Content Include="image\2063c.jpeg" />
+    <Content Include="image\2064a.jpeg" />
+    <Content Include="image\2064b.jpeg" />
+    <Content Include="image\2064c.jpeg" />
+    <Content Include="image\2065a.jpeg" />
+    <Content Include="image\2065b.jpeg" />
+    <Content Include="image\2065c.jpeg" />
+    <Content Include="image\2066a.jpeg" />
+    <Content Include="image\2066b.jpeg" />
+    <Content Include="image\2066c.jpeg" />
+    <Content Include="image\2067a.jpeg" />
+    <Content Include="image\2067b.jpeg" />
+    <Content Include="image\2067c.jpeg" />
+    <Content Include="image\2068a.jpeg" />
+    <Content Include="image\2068b.jpeg" />
+    <Content Include="image\2068c.jpeg" />
+    <Content Include="image\2069a.jpeg" />
+    <Content Include="image\2069b.jpeg" />
+    <Content Include="image\2069c.jpeg" />
+    <Content Include="image\2070a.jpeg" />
+    <Content Include="image\2070b.jpeg" />
+    <Content Include="image\2070c.jpeg" />
+    <Content Include="image\2071a.jpg" />
+    <Content Include="image\2071b.jpg" />
+    <Content Include="image\2071c.jpg" />
+    <Content Include="image\2072a.jpg" />
+    <Content Include="image\2072b.jpg" />
+    <Content Include="image\2072c.jpg" />
+    <Content Include="image\2073a.jpg" />
+    <Content Include="image\2073b.jpg" />
+    <Content Include="image\2073c.jpg" />
+    <Content Include="image\2074a.jpg" />
+    <Content Include="image\2074b.jpg" />
+    <Content Include="image\2074c.jpg" />
+    <Content Include="image\2075a.jpg" />
+    <Content Include="image\2075b.jpg" />
+    <Content Include="image\2075c.jpg" />
+    <Content Include="image\2076a.jpg" />
+    <Content Include="image\2076b.jpg" />
+    <Content Include="image\2076c.jpg" />
+    <Content Include="image\2077a.jpg" />
+    <Content Include="image\2077b.jpg" />
+    <Content Include="image\2077c.jpg" />
+    <Content Include="image\2078a.jpg" />
+    <Content Include="image\2078b.jpg" />
+    <Content Include="image\2078c.jpg" />
+    <Content Include="image\2079a.jpg" />
+    <Content Include="image\2079b.jpg" />
+    <Content Include="image\2079c.jpg" />
+    <Content Include="image\2080a.jpg" />
+    <Content Include="image\2080b.jpg" />
+    <Content Include="image\2080c.jpg" />
+    <Content Include="image\2081a.jpg" />
+    <Content Include="image\2081b.jpg" />
+    <Content Include="image\2081c.jpg" />
+    <Content Include="image\2082a.jpg" />
+    <Content Include="image\2082b.jpg" />
+    <Content Include="image\2082c.jpg" />
+    <Content Include="image\2083a.jpg" />
+    <Content Include="image\2083b.jpg" />
+    <Content Include="image\2083c.jpg" />
+    <Content Include="image\2084a.jpg" />
+    <Content Include="image\2084b.jpg" />
+    <Content Include="image\2084c.jpg" />
+    <Content Include="image\2085a.jpg" />
+    <Content Include="image\2085b.jpg" />
+    <Content Include="image\2085c.jpg" />
+    <Content Include="image\2086a.jpg" />
+    <Content Include="image\2086b.jpg" />
+    <Content Include="image\2086c.jpg" />
+    <Content Include="image\2087a.jpg" />
+    <Content Include="image\2087b.jpg" />
+    <Content Include="image\2087c.png" />
+    <Content Include="image\2088a.jpg" />
+    <Content Include="image\2088b.jpg" />
+    <Content Include="image\2088c.jpg" />
+    <Content Include="image\20a.jpeg" />
+    <Content Include="image\20b.jpeg" />
+    <Content Include="image\20c.jpeg" />
+    <Content Include="image\21a.jpeg" />
+    <Content Include="image\21b.jpeg" />
+    <Content Include="image\21c.jpeg" />
+    <Content Include="image\22a.jpeg" />
+    <Content Include="image\22b.jpeg" />
+    <Content Include="image\22c.jpeg" />
+    <Content Include="image\23a.jpeg" />
+    <Content Include="image\23b.jpeg" />
+    <Content Include="image\23c.jpeg" />
+    <Content Include="image\24a.jpeg" />
+    <Content Include="image\24b.jpeg" />
+    <Content Include="image\24c.jpeg" />
+    <Content Include="image\25a.jpeg" />
+    <Content Include="image\25b.jpeg" />
+    <Content Include="image\25c.jpeg" />
+    <Content Include="image\26a.jpeg" />
+    <Content Include="image\26b.jpeg" />
+    <Content Include="image\26c.jpeg" />
+    <Content Include="image\27a.jpeg" />
+    <Content Include="image\27b.jpeg" />
+    <Content Include="image\27c.jpeg" />
+    <Content Include="image\28a.jpeg" />
+    <Content Include="image\28b.jpeg" />
+    <Content Include="image\28c.jpeg" />
+    <Content Include="image\29a.jpeg" />
+    <Content Include="image\29b.jpeg" />
+    <Content Include="image\29c.jpeg" />
+    <Content Include="image\2a.jpeg" />
+    <Content Include="image\2b.jpeg" />
+    <Content Include="image\2c.jpeg" />
+    <Content Include="image\3001a.jpg" />
+    <Content Include="image\3001b.jpg" />
+    <Content Include="image\3001c.jpg" />
+    <Content Include="image\3002a.jpg" />
+    <Content Include="image\3002b.jpg" />
+    <Content Include="image\3003a.jpg" />
+    <Content Include="image\3003b.jpg" />
+    <Content Include="image\3004a.jpg" />
+    <Content Include="image\3004b.jpg" />
+    <Content Include="image\3005a.jpg" />
+    <Content Include="image\3005b.jpg" />
+    <Content Include="image\3006a.jpg" />
+    <Content Include="image\3006b.jpg" />
+    <Content Include="image\3007a.jpg" />
+    <Content Include="image\3007b.jpg" />
+    <Content Include="image\3008a.jpg" />
+    <Content Include="image\3008b.jpg" />
+    <Content Include="image\3009a.jpg" />
+    <Content Include="image\3009b.jpg" />
+    <Content Include="image\3010a.jpg" />
+    <Content Include="image\3010b.jpg" />
+    <Content Include="image\3011a.jpg" />
+    <Content Include="image\3011b.jpg" />
+    <Content Include="image\3012a.jpg" />
+    <Content Include="image\3012b.jpg" />
+    <Content Include="image\3013a.jpg" />
+    <Content Include="image\3013b.jpg" />
+    <Content Include="image\3014a.jpg" />
+    <Content Include="image\3014b.jpg" />
+    <Content Include="image\3015a.jpg" />
+    <Content Include="image\3015b.jpg" />
+    <Content Include="image\3016a.jpg" />
+    <Content Include="image\3016b.jpg" />
+    <Content Include="image\3017a.jpg" />
+    <Content Include="image\3017b.jpg" />
+    <Content Include="image\3018a.jpg" />
+    <Content Include="image\3018b.jpg" />
+    <Content Include="image\3019a.jpg" />
+    <Content Include="image\3019b.jpg" />
+    <Content Include="image\3020a.jpg" />
+    <Content Include="image\3020b.jpg" />
+    <Content Include="image\3021a.jpg" />
+    <Content Include="image\3021b.jpg" />
+    <Content Include="image\3022a.jpg" />
+    <Content Include="image\3022b.jpg" />
+    <Content Include="image\3023a.jpg" />
+    <Content Include="image\3023b.jpg" />
+    <Content Include="image\3024a.jpg" />
+    <Content Include="image\3024b.jpg" />
+    <Content Include="image\3025a.jpg" />
+    <Content Include="image\3025b.jpg" />
+    <Content Include="image\3026a.jpg" />
+    <Content Include="image\3026b.jpg" />
+    <Content Include="image\3027a.jpg" />
+    <Content Include="image\3027b.jpg" />
+    <Content Include="image\3028a.jpg" />
+    <Content Include="image\3028b.jpg" />
+    <Content Include="image\3029a.jpg" />
+    <Content Include="image\3029b.jpg" />
+    <Content Include="image\3030a.jpg" />
+    <Content Include="image\3030b.jpg" />
+    <Content Include="image\3031a.jpg" />
+    <Content Include="image\3031b.jpg" />
+    <Content Include="image\3032a.jpg" />
+    <Content Include="image\3032b.jpg" />
+    <Content Include="image\3033a.jpg" />
+    <Content Include="image\3033b.jpg" />
+    <Content Include="image\3034a.jpg" />
+    <Content Include="image\3034b.jpg" />
+    <Content Include="image\3035a.jpg" />
+    <Content Include="image\3035b.jpg" />
+    <Content Include="image\3036a.jpg" />
+    <Content Include="image\3036b.jpg" />
+    <Content Include="image\3037a.jpg" />
+    <Content Include="image\3037b.jpg" />
+    <Content Include="image\3038a.jpg" />
+    <Content Include="image\3038b.jpg" />
+    <Content Include="image\3039a.jpg" />
+    <Content Include="image\3039b.jpg" />
+    <Content Include="image\3040a.jpg" />
+    <Content Include="image\3040b.jpg" />
+    <Content Include="image\3041a.jpg" />
+    <Content Include="image\3041b.jpg" />
+    <Content Include="image\3042a.jpg" />
+    <Content Include="image\3042b.jpg" />
+    <Content Include="image\3043a.jpg" />
+    <Content Include="image\3043b.jpg" />
+    <Content Include="image\3044a.jpg" />
+    <Content Include="image\3044b.jpg" />
+    <Content Include="image\3045a.jpg" />
+    <Content Include="image\3045b.jpg" />
+    <Content Include="image\3046a.jpg" />
+    <Content Include="image\3046b.jpg" />
+    <Content Include="image\3047a.jpg" />
+    <Content Include="image\3047b.jpg" />
+    <Content Include="image\3048a.jpg" />
+    <Content Include="image\3048b.jpg" />
+    <Content Include="image\3049a.jpg" />
+    <Content Include="image\3049b.jpg" />
+    <Content Include="image\3050a.jpg" />
+    <Content Include="image\3050b.jpg" />
+    <Content Include="image\30a.jpeg" />
+    <Content Include="image\30b.jpeg" />
+    <Content Include="image\30c.jpeg" />
+    <Content Include="image\31a.jpeg" />
+    <Content Include="image\31b.jpeg" />
+    <Content Include="image\31c.jpeg" />
+    <Content Include="image\32a.jpeg" />
+    <Content Include="image\32b.jpeg" />
+    <Content Include="image\32c.jpeg" />
+    <Content Include="image\33a.jpeg" />
+    <Content Include="image\33b.jpeg" />
+    <Content Include="image\33c.jpeg" />
+    <Content Include="image\34a.jpeg" />
+    <Content Include="image\34b.jpeg" />
+    <Content Include="image\34c.jpeg" />
+    <Content Include="image\35a.jpeg" />
+    <Content Include="image\35b.jpeg" />
+    <Content Include="image\35c.jpeg" />
+    <Content Include="image\36a.jpeg" />
+    <Content Include="image\36b.jpeg" />
+    <Content Include="image\36c.jpeg" />
+    <Content Include="image\37a.jpeg" />
+    <Content Include="image\37b.jpeg" />
+    <Content Include="image\37c.jpeg" />
+    <Content Include="image\38a.jpeg" />
+    <Content Include="image\38b.jpeg" />
+    <Content Include="image\38c.jpeg" />
+    <Content Include="image\39a.jpeg" />
+    <Content Include="image\39b.jpeg" />
+    <Content Include="image\39c.jpeg" />
+    <Content Include="image\3a.jpeg" />
+    <Content Include="image\3b.jpeg" />
+    <Content Include="image\3c.jpeg" />
+    <Content Include="image\40a.jpeg" />
+    <Content Include="image\40b.jpeg" />
+    <Content Include="image\40c.jpeg" />
+    <Content Include="image\41a.jpeg" />
+    <Content Include="image\41b.jpeg" />
+    <Content Include="image\41c.jpeg" />
+    <Content Include="image\42a.jpeg" />
+    <Content Include="image\42b.jpeg" />
+    <Content Include="image\42c.jpeg" />
+    <Content Include="image\43a.jpeg" />
+    <Content Include="image\43b.jpeg" />
+    <Content Include="image\43c.jpeg" />
+    <Content Include="image\44a.jpeg" />
+    <Content Include="image\44b.jpeg" />
+    <Content Include="image\44c.jpeg" />
+    <Content Include="image\45a.jpeg" />
+    <Content Include="image\45b.jpeg" />
+    <Content Include="image\45c.jpeg" />
+    <Content Include="image\46a.jpeg" />
+    <Content Include="image\46b.jpeg" />
+    <Content Include="image\46c.jpeg" />
+    <Content Include="image\47a.jpeg" />
+    <Content Include="image\47b.jpeg" />
+    <Content Include="image\47c.jpeg" />
+    <Content Include="image\48a.jpeg" />
+    <Content Include="image\48b.jpeg" />
+    <Content Include="image\48c.jpeg" />
+    <Content Include="image\49a.jpeg" />
+    <Content Include="image\49b.jpeg" />
+    <Content Include="image\49c.jpeg" />
+    <Content Include="image\4a.jpeg" />
+    <Content Include="image\4b.jpeg" />
+    <Content Include="image\4c.jpeg" />
+    <Content Include="image\50a.jpeg" />
+    <Content Include="image\50b.jpeg" />
+    <Content Include="image\50c.jpeg" />
+    <Content Include="image\51a.jpeg" />
+    <Content Include="image\51b.jpeg" />
+    <Content Include="image\51c.jpeg" />
+    <Content Include="image\52a.jpeg" />
+    <Content Include="image\52b.jpeg" />
+    <Content Include="image\52c.jpeg" />
+    <Content Include="image\53a.jpeg" />
+    <Content Include="image\53b.jpeg" />
+    <Content Include="image\53c.jpeg" />
+    <Content Include="image\54a.jpeg" />
+    <Content Include="image\54b.jpeg" />
+    <Content Include="image\54c.jpeg" />
+    <Content Include="image\55a.jpeg" />
+    <Content Include="image\55b.jpeg" />
+    <Content Include="image\55c.jpeg" />
+    <Content Include="image\56a.jpeg" />
+    <Content Include="image\56b.jpeg" />
+    <Content Include="image\56c.jpeg" />
+    <Content Include="image\57a.jpeg" />
+    <Content Include="image\57b.jpeg" />
+    <Content Include="image\57c.jpeg" />
+    <Content Include="image\58a.jpeg" />
+    <Content Include="image\58b.jpeg" />
+    <Content Include="image\58c.jpeg" />
+    <Content Include="image\59a.jpeg" />
+    <Content Include="image\59b.jpeg" />
+    <Content Include="image\59c.jpeg" />
+    <Content Include="image\5a.jpeg" />
+    <Content Include="image\5b.jpeg" />
+    <Content Include="image\5c.jpeg" />
+    <Content Include="image\60a.jpeg" />
+    <Content Include="image\60b.jpeg" />
+    <Content Include="image\60c.jpeg" />
+    <Content Include="image\61a.jpeg" />
+    <Content Include="image\61b.jpeg" />
+    <Content Include="image\61c.jpeg" />
+    <Content Include="image\62a.jpeg" />
+    <Content Include="image\62b.jpeg" />
+    <Content Include="image\62c.jpeg" />
+    <Content Include="image\63a.jpeg" />
+    <Content Include="image\63b.jpeg" />
+    <Content Include="image\63c.jpeg" />
+    <Content Include="image\64a.jpeg" />
+    <Content Include="image\64b.jpeg" />
+    <Content Include="image\64c.jpeg" />
+    <Content Include="image\65a.jpeg" />
+    <Content Include="image\65b.jpeg" />
+    <Content Include="image\65c.jpeg" />
+    <Content Include="image\66a.jpeg" />
+    <Content Include="image\66b.jpeg" />
+    <Content Include="image\66c.jpeg" />
+    <Content Include="image\67a.jpeg" />
+    <Content Include="image\67b.jpeg" />
+    <Content Include="image\67c.jpeg" />
+    <Content Include="image\68a.jpeg" />
+    <Content Include="image\68b.jpeg" />
+    <Content Include="image\68c.jpeg" />
+    <Content Include="image\69a.jpeg" />
+    <Content Include="image\69b.jpeg" />
+    <Content Include="image\69c.jpeg" />
+    <Content Include="image\6a.jpeg" />
+    <Content Include="image\6b.jpeg" />
+    <Content Include="image\6c.jpeg" />
+    <Content Include="image\6de41c41-0a38-4a2c-be72-c9525ed5c58c_full.jpg" />
+    <Content Include="image\70a.jpeg" />
+    <Content Include="image\70b.jpeg" />
+    <Content Include="image\70c.jpeg" />
+    <Content Include="image\71a.jpeg" />
+    <Content Include="image\71b.jpeg" />
+    <Content Include="image\71c.jpeg" />
+    <Content Include="image\72a.jpeg" />
+    <Content Include="image\72b.jpeg" />
+    <Content Include="image\72c.jpeg" />
+    <Content Include="image\73a.jpeg" />
+    <Content Include="image\73b.jpeg" />
+    <Content Include="image\73c.jpeg" />
+    <Content Include="image\74a.jpeg" />
+    <Content Include="image\74b.jpeg" />
+    <Content Include="image\74c.jpeg" />
+    <Content Include="image\75a.jpeg" />
+    <Content Include="image\75b.jpeg" />
+    <Content Include="image\75c.jpeg" />
+    <Content Include="image\76a.jpeg" />
+    <Content Include="image\76b.jpeg" />
+    <Content Include="image\76c.jpeg" />
+    <Content Include="image\77a.jpeg" />
+    <Content Include="image\77b.jpeg" />
+    <Content Include="image\77c.jpeg" />
+    <Content Include="image\78a.jpeg" />
+    <Content Include="image\78b.jpeg" />
+    <Content Include="image\78c.jpeg" />
+    <Content Include="image\79a.jpeg" />
+    <Content Include="image\79b.jpeg" />
+    <Content Include="image\79c.jpeg" />
+    <Content Include="image\7a.jpeg" />
+    <Content Include="image\7b.jpeg" />
+    <Content Include="image\7c.jpeg" />
+    <Content Include="image\80a.jpeg" />
+    <Content Include="image\80b.jpeg" />
+    <Content Include="image\80c.jpeg" />
+    <Content Include="image\81a.jpeg" />
+    <Content Include="image\81b.jpeg" />
+    <Content Include="image\81c.jpeg" />
+    <Content Include="image\82a.jpeg" />
+    <Content Include="image\82b.jpeg" />
+    <Content Include="image\82c.jpeg" />
+    <Content Include="image\83a.jpeg" />
+    <Content Include="image\83b.jpeg" />
+    <Content Include="image\83c.jpeg" />
+    <Content Include="image\84a.jpeg" />
+    <Content Include="image\84b.jpeg" />
+    <Content Include="image\84c.jpeg" />
+    <Content Include="image\85a.jpeg" />
+    <Content Include="image\85b.jpeg" />
+    <Content Include="image\85c.jpeg" />
+    <Content Include="image\86a.jpeg" />
+    <Content Include="image\86b.jpeg" />
+    <Content Include="image\86c.jpeg" />
+    <Content Include="image\87a.jpeg" />
+    <Content Include="image\87b.jpeg" />
+    <Content Include="image\87c.jpeg" />
+    <Content Include="image\88a.jpeg" />
+    <Content Include="image\88b.jpeg" />
+    <Content Include="image\88c.jpeg" />
+    <Content Include="image\8a.jpeg" />
+    <Content Include="image\8b.jpeg" />
+    <Content Include="image\8c.jpeg" />
+    <Content Include="image\9a.jpeg" />
+    <Content Include="image\9b.jpeg" />
+    <Content Include="image\9c.jpeg" />
+    <Content Include="image\backgndimg.jpg" />
+    <Content Include="image\bg1.jpg" />
+    <Content Include="image\bgclrfnl.jpg" />
+    <Content Include="image\book.jpg" />
+    <Content Include="image\book1.jpg" />
+    <Content Include="image\book2.jpg" />
+    <Content Include="image\book3.jpg" />
+    <Content Include="image\cartlogo.jpg" />
+    <Content Include="image\chart2.png" />
+    <Content Include="image\dress2.jpg" />
+    <Content Include="image\dress4.jpg" />
+    <Content Include="image\giphy.gif" />
+    <Content Include="image\header.png" />
+    <Content Include="image\header1.png" />
+    <Content Include="image\kids1.jpg" />
+    <Content Include="image\phone1.jpg" />
+    <Content Include="image\phone2.jpg" />
+    <Content Include="image\phone3.png" />
+    <Content Include="image\PicsArt_11-25-03.07.59.jpg" />
+    <Content Include="image\saree.jpg" />
+    <Content Include="image\sareeblck.jpg" />
+    <Content Include="image\shirt.jpg" />
+    <Content Include="image\shopcart2.jpg" />
+    <Content Include="image\tv.jpg" />
+    <Content Include="image\vj shirt.jpg" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\basicLayout.cshtml" />
+    <Content Include="Views\registrationTables\Create.cshtml" />
+    <Content Include="Views\productDescriptions\Create.cshtml" />
+    <Content Include="Views\productDescriptions\Delete.cshtml" />
+    <Content Include="Views\productDescriptions\Details.cshtml" />
+    <Content Include="Views\productDescriptions\Edit.cshtml" />
+    <Content Include="Views\productDescriptions\Index.cshtml" />
+    <Content Include="Views\products\shirts.cshtml" />
+    <Content Include="Views\products\kidsWear.cshtml" />
+    <Content Include="Views\products\kurthis.cshtml" />
+    <Content Include="Views\products\pants.cshtml" />
+    <Content Include="Views\products\sarees.cshtml" />
+    <Content Include="Views\products\kidsBook.cshtml" />
+    <Content Include="Views\products\fantacyFiction.cshtml" />
+    <Content Include="Views\products\indianFiction.cshtml" />
+    <Content Include="Views\products\nonFiction.cshtml" />
+    <Content Include="Views\products\motivationalBook.cshtml" />
+    <Content Include="Views\products\tv.cshtml" />
+    <Content Include="Views\products\washingMchine.cshtml" />
+    <Content Include="Views\products\mobilePhone.cshtml" />
+    <Content Include="Views\products\microwaveOven.cshtml" />
+    <Content Include="Views\products\laptop.cshtml" />
+    <Content Include="Views\products\productDescription.cshtml" />
+    <Content Include="Views\Shared\partialView.cshtml" />
+    <Content Include="Views\registrationTables\loginPage.cshtml" />
+    <Content Include="Views\productDescriptions\retLogin.cshtml" />
+    <Content Include="Views\productDescriptions\choices.cshtml" />
+    <Content Include="Views\retailers\Create.cshtml" />
+    <Content Include="Views\retailers\Delete.cshtml" />
+    <Content Include="Views\retailers\Details.cshtml" />
+    <Content Include="Views\retailers\Edit.cshtml" />
+    <Content Include="Views\retailers\Index.cshtml" />
+    <Content Include="Views\retailers\adminLogin.cshtml" />
+    <Content Include="Views\retailers\choices.cshtml" />
+    <Content Include="Views\Home\knowMore.cshtml" />
+    <Content Include="Views\products\compare.cshtml" />
+    <Content Include="Views\Shared\_cart.cshtml" />
+    <Content Include="Views\carts\Delete.cshtml" />
+    <Content Include="Views\carts\cartSpecific.cshtml" />
+    <Content Include="Views\carts\addCart.cshtml" />
+    <Content Include="Views\registrationTables\ForgotPassword.cshtml" />
+    <Content Include="Views\orderTables\order.cshtml" />
+    <Content Include="Views\products\successful.cshtml" />
+    <Content Include="Views\orderTables\placeCartOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\shirts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63658</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63658/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

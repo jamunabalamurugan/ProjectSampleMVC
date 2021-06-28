@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Rash_Airlines.Models.search_flight_Result>
+@using Rash_Airlines.Models
+
+
+@{
+    ViewBag.Title = "Search_Flight";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@*<div class="container">
+    <br /> <br />*@
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    @*<table class="table table-responsive table-hover">
+        <tr>
+            <th>
+
+                @Html.DisplayNameFor(model => model.flight_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.departure_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.arrival_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrival)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.flight_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.departure_time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.arrival_time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Arrival)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.flight_name }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.flight_name }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.flight_name })
+                    </td>*@
+            @*</tr>
+        }
+
+    </table>*@
+<div class="container" >
+    @foreach (var item in Model)
+    {
+        <div id="searchflight" padding:34px 37px 30px 34px;border-radius:20px 20px;">
+            <pre>@Html.Label("Flight Name:", new { @class = "search-inner" }) @Html.DisplayFor(modelItem => item.flight_name, new { @class = "search-inner"}) &nbsp&nbsp&nbsp  @Html.Label("Departure:", new { @class = "search-inner" })   @Html.DisplayFor(modelItem => item.departure_time,new { @class = "search-inner"})&nbsp&nbsp&nbsp       @Html.Label("Arrival:", new { @class = "search-inner" })  @Html.DisplayFor(modelItem => item.arrival_time, new { @class = "search-inner" })  
+                                              @Html.DisplayFor(modelItem => item.Departure, new { @class = "search-inner" })   <p class="glyphicon glyphicon glyphicon-send" > </p>         @Html.DisplayFor(modelItem => item.Arrival, new { @class = "search-inner" })
+        
+                </pre>
+        </div>
+      
+    }
+</div>

@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Welcome to iRELAX";
+    Layout = "~/Views/Shared/_RegisterLoginLayout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<style>
+
+
+    #PsNo {
+        padding: 30px;
+        margin-right: 50px;
+        position: center;
+        text-align: center;
+        height: 40%;
+        width: 100%;
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        border-radius: 45px;
+
+    }
+
+    #btnConfirm {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 32px;
+        background-color: #efefef;
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        color: black;
+    }
+    #btnirelax {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 30px;
+        border-radius: 35px;
+        background-color: #efefef;
+        color:black;
+        width: 100%;
+        height: 80px;
+        padding: 10px 50px 10px 50px;
+        font-weight:300;
+    }
+    h3 {
+        font-family: 'Megrim';
+        font-weight:800;
+    color:white;
+    }
+    h2,h4 {
+        font-family: 'Montserrat'; color:white;
+    }
+        #imgLogin
+    {
+        background-image:url('@Url.Content("~/Images/motiohead_panda.gif")') ;
+        border-radius: 35px;
+        width: 50%;
+        height: 320px;
+        background-size: 100% 100%;
+        display:inline-block;
+        margin-top:20px;
+    }
+
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-xs-08 col-sm-08 col-md-12 col-lg-12">
+            <div id="PsNo">
+                <div id="welcome" class="column left">
+                    <center>
+
+                        <h3> Welcome to iRelax! You have been registered successfully </h3>
+                        <h4>
+                            Here are a few questions that will help us serve you better...
+                        </h4>
+                        <h4>
+                            iRelax uses state of the art algorithms to monitor your inner peace and facilitate its constancy.
+                            And remember,
+                            Honesty is the best Policy!
+
+                        </h4>
+
+                    </center>
+                </div>
+                <div id="imgLogin" class="column right"></div>
+
+                <h3> Click here to enter a world of tranquility</h3>
+                <br />
+
+                @Html.ActionLink("iRelax", "Question", "Register", new { id = "btnirelax" })
+            </div>
+        </div>
+    </div>
+</div>
+@ViewBag.exception

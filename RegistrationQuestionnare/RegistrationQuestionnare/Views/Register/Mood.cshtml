@@ -1,0 +1,201 @@
+﻿
+@{
+    ViewBag.Title = "Register - Mood";
+}
+<style>
+    /*.footer {
+        font-size: 20px;
+        height: 40px;
+        box-shadow: rgba(0,0,0,0.1) 3px 3px 3px 3px;
+        border-top-left-radius: 35px;
+        border-top-right-radius: 35px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        color: black;
+        text-align: center;
+        /*padding-top:10px;*/
+
+
+    /*.Textbox {
+        width: 100%;
+        height: 50px;
+        border-radius: 32px;
+        text-align: center;
+        background-color: white;
+        outline: none;
+        border: none;
+    }
+
+
+    .button {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 35px;
+        height: 40px;
+        text-align: center;
+    }
+
+
+        .button:hover {
+            background-color: #3e8e41
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }*/
+    #emoji, #emoji1, #emoji2, #emoji3, #emoji4 {
+        height: 100px;
+        width: 100px;
+        display: inline-block;
+        justify-content: center;
+        border-radius: 32px;
+    }
+
+    h2 {
+        color: white;
+        font-family: 'Montserrat';
+        letter-spacing: 10px;
+    }
+
+    #btnSubmit {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 32px;
+        background-color: #efefef;
+        width: 200px;
+        height: 50px;
+    }
+
+    #modal-body {
+        height: 100%%;
+        width: 100%;
+        border-radius: 32px;
+        background-color: #70b2d9;
+        background-image: linear-gradient(315deg, #70b2d9 0%, #39e5b6 74%);
+        position: center;
+        align-content: center;
+        text-align: center;
+        margin-top: 100px;
+        padding-bottom: 20px;
+        font-family: 'Montserrat';
+        color: white;
+    }
+
+    #PsNo {
+        padding: 50px;
+        margin-right: 50px;
+        position: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        position: center;
+        border-radius: 32px;
+        color: white;
+    }
+</style>
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+@*<h2>Form4</h2>*@
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-xs-08 col-sm-08 col-md-12 col-lg-12">
+
+            <div id="PsNo">
+
+                @*<link rel="stylesheet" type="text/css" href="StyleSheetAbout.css">*@
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+                <script type="text/javascript">
+    function sendimg(a,emojival)
+    {
+        moodvalue = a;                  /*Store value of emoji*/
+        document.getElementById(emojival.id).style.opacity = "0.5";
+        @*//'<%Session["mood"] = "hello"; %>';
+        '@Session["mood"]="hello in js"'
+        //alert(<%=Session["mood"] %>);
+        $.get("/Register/Dash", function (data) {
+            $("#value").text(data);
+        });*@
+    }
+                </script>
+                <style>
+                    #emoji, #emoji1, #emoji2, #emoji3, #emoji4 {
+                        height: 100px;
+                        width: 100px;
+                        display: inline-block;
+                        justify-content: center;
+                    }
+                </style>
+                @*@using (Html.BeginForm("mood", "Register", FormMethod.Post, new { enctype = "multipart/form-data" }))*@
+                @using (Html.BeginForm())
+                {
+
+                    <div class="container">
+
+                        <div @*class="modal-header"*@ style="text-align:left">
+
+
+                            <h2 class="modal-title">How are you feeling today?</h2>
+
+                        </div>
+                        <div class="modal-body">
+
+                            @*<img src="~/html/veryhappy.png" id="emoji" alt="Very Happy" onClick="sendimg(1,this)" name="emoji1">
+                                <img src="~/html/happy.png" id="emoji1" alt="Happy" onClick="sendimg(2,this);" name="emoji2">
+                                <img src="~/html/neutralface.png" id="emoji2" alt="Neutral" onClick="sendimg(3,this);" name="emoji3">
+                                <img src="~/html/verysad.jpg" id="emoji3" alt="Sad" onClick="sendimg(4,this);" name="emoji4">
+                                <img src="~/html/sad.jpg" id="emoji4" alt="Very Sad" onClick="sendimg(5,this);" name="emoji5">*@
+
+                            <a href="@Url.Action("Emoji", "Register", new { id = 1 })" title="Very Happy">
+                                <img id="emoji" src="~/html/veryhappy.png" />
+                            </a>
+                            <a href="@Url.Action("Emoji", "Register", new { id = 2 })" title="Happy">
+                                <img id="emoji1" src="~/html/happy.png" />
+                            </a>
+                            <a href="@Url.Action("Emoji", "Register", new { id = 3 })" title="Neutral">
+                                <img id="emoji2" src="~/html/neutralface.png" />
+                            </a>
+                            <a href="@Url.Action("Emoji", "Register", new { id = 4 })" title="Sad">
+                                <img id="emoji3" src="~/html/verysad.jpg" />
+                            </a>
+                            <a href="@Url.Action("Emoji", "Register", new { id = 5 })" title="Very Sad">
+                                <img id="emoji4" src="~/html/sad.jpg" />
+                            </a>
+
+                        </div>
+                        @*<div class="modal-footer">*@
+                        <input type="submit" class="btn btn-default" data-dismiss="modal" name="ImageUpload" value="Submit" id="btnSubmit">
+
+                        @*</div>*@
+                    </div>
+
+
+
+                }
+
+                <label id="value"></label>
+            </div>
+        </div>
+    </div>
+</div>
+
+@ViewBag.exception

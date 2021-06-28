@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "HomeAfterLogin";
+    Layout = "~/Views/Shared/HomePageAfterLogin.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        body {
+            background-color: #ffc92f;
+        }
+
+        h2 {
+            color: mediumpurple;
+        }
+
+        i {
+            color: orchid;
+        }
+
+        .card:hover {
+            -ms-transform: scale(1.5); /* IE 9 */
+            -webkit-transform: scale(1.5); /* Safari 3-8 */
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <p> <h2> Welcome <i>@Session["Ruser_Id"]!</i>  </h2></p>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+
+
+            <img src="~/images/download (3).jpg" width="300" height="200" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">TRAVELLING DISCOUNTS</h5>
+                <p class="card-text">Book flight  tickets using snk bank credit/debit card and get 40% discount!!!! .</p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+
+
+            <img src="~/images/images (9).jpg" width="300" height="200" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">SHOPPING DISCOUNTS</h5>
+                <p class="card-text">Do shopping using snk bank credit/debit card and get a coupon of worth rupees 500 cashback .</p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+
+            <img src="~/images/images.png" width="300" height="200" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">MOVIE TIME</h5>
+                <p class="card-text">No more boring mondays!!!! enjoy your monday movie with 50% off using snk bank cerdit card .</p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Rash_Airlines.Models.Flights_Schedule>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<p>
+    @Html.ActionLink("Add New Flight", "Create_Schedule")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.journey_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.flight_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departure_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.arrival_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bc_availability)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ec_availability)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flights_Master.flight_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Routes_Master.route_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.journey_date.ToShortDateString()
+            @*@Html.DisplayFor(modelItem => item.journey_date)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.flight_id)
+        </td>
+        <td>
+           
+            @Html.DisplayFor(modelItem => item.departure_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.arrival_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bc_availability)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ec_availability)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flights_Master.flight_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Routes_Master.route_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit_Schedule", new { journey_date = item.journey_date, flight_id = item.flight_id }) |
+            @Html.ActionLink("Details", "Details_Schedule", new { journey_date = item.journey_date, flight_id = item.flight_id }) |
+            @Html.ActionLink("Delete", "Delete_Schedule", new { journey_date = item.journey_date, flight_id = item.flight_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "choices";
+}
+
+<h2>choices</h2>
+
+
+<div class="container" style="font-family:Algerian;align-content:center;">
+    <div class="row">
+        <div class="col-md-4">
+            <input class="btn btn-info" type="button" value="View all Retailer details and edit" onclick="@("window.location.href='" + @Url.Action("Index", "retailers") + "'");" />
+        </div>
+        <div class="col-md-4">
+            <input class="btn btn-info" type="button" value="Add a new Retailer" onclick="@("window.location.href='" + @Url.Action("Create", "retailers") + "'");" />
+        </div>
+        <div class="col-md-4">
+            <input class="btn btn-info" type="button" value="Back to Home page" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" />
+        </div>
+
+    </div>
+</div>
+

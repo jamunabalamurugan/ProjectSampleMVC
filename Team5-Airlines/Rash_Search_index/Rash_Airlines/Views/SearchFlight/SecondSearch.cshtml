@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Rash_Airlines.Models.search_flight_Result>
+@using Rash_Airlines.Models
+
+@{
+    ViewBag.Title = "SecondSearch";
+}
+
+<h2>SecondSearch</h2>
+
+@foreach (var item in Model)
+{
+    <div style="border:1px groove darkslategray;padding:34px 37px 30px 34px;border-radius:5px 5px;">
+        <pre> Flight Name: @Html.DisplayFor(modelItem => item.flight_name) &nbsp&nbsp&nbsp  Departure:   @Html.DisplayFor(modelItem => item.departure_time)    &nbsp&nbsp&nbsp  Arrival:  @Html.DisplayFor(modelItem => item.arrival_time)  
+                                      @Html.DisplayFor(modelItem => item.Departure)                  @Html.DisplayFor(modelItem => item.Arrival)
+        
+                 </pre>
+    </div>
+    <br />
+}

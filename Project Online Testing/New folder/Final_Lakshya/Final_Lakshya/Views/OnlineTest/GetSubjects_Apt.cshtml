@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Final_Lakshya.SubjectsClass>
+
+
+
+@foreach (var item in Model)
+{
+
+    <div class="panel col-sm-4 thirdbox">
+        <div class=" panel-body">
+            <p>@item.sub_name</p>
+            <hr />
+            <p> Attend the Test</p>
+            <button type="button" class="btn btn-info">@Html.ActionLink("Go To Test", "TakeTest", "OnlineTest", new { id = item.sub_id }, null)</button>
+        </div>
+    </div>
+
+}

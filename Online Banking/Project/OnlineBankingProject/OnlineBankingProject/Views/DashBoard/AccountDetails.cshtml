@@ -1,0 +1,78 @@
+﻿@model OnlineBankingProject.Models.Open_Savings_Account
+
+@{
+    ViewBag.Title = "AccountDetails";
+    Layout = "~/Views/Shared/HomePageAfterLogin.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        body {
+            background-color: lemonchiffon
+        }
+    </style>
+
+</head>
+<body>
+    <h2>AccountDetails</h2>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.First_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.First_Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mobile_Number)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mobile_Number)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email_Id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Source_Of_Income)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Source_Of_Income)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gross_Annual_income)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gross_Annual_income)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Balance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Balance)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+        @Html.ActionLink("Back", "HomeAfterLogin", "LOR")
+    </p>
+</body>
+</Html>

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "AdditionSuccessful";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <br />
+    <br />
+    <h2 style="text-align:center">Questions has been successfully added!</h2>
+    <br />
+    <br />
+    <div class="form-group" style="text-align:center">
+        <div class="col-md-offset-2 col-md-10" style="text-align:center">
+            <input class="btn-info" type="button" value="Go to Dashboard" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Admin") + "'");" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+}

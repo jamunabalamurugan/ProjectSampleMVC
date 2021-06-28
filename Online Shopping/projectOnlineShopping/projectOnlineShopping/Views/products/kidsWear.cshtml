@@ -1,0 +1,221 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <style>
+
+
+        .full {
+            color: red;
+        }
+
+        .rating-love {
+            position: relative;
+            display: inline-block;
+        }
+
+        .rate {
+            white-space: nowrap;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+    @Html.ActionLink("Back", "Index", "Home")
+
+    @if (Convert.ToBoolean(Session["result"]) == true)
+    {
+        @Html.Partial("~/Views/Shared/_cart.cshtml")
+    }
+    @{
+        ViewBag.Title = "kidsWear";
+    }
+
+
+
+
+    @using (Html.BeginForm("kidsWear", "products", FormMethod.Post))
+    {
+
+        <h6>Search for different Color</h6>
+        <input name="submit" type="submit" id="submit" value="red" />
+
+        @*<input name="submit" type="submit" id="submit" value="orange" />*@
+
+        <input name="submit" type="submit" id="submit" value="blue" />
+
+        <input name="submit" type="submit" id="submit" value="black" />
+
+        <input name="submit" type="submit" id="submit" value="green" />
+
+        @*<input name="submit" type="submit" id="submit" value="brown" />*@
+
+        <input name="submit" type="submit" id="submit" value="white" />
+
+        <input name="submit" type="submit" id="submit" value="skyBlue" />
+
+        <input name="submit" type="submit" id="submit" value="yellow" />
+
+        <input name="submit" type="submit" id="submit" value="pink" />
+
+        <input name="submit" type="submit" id="submit" value="ash" />
+
+
+
+        <br /><br />
+
+
+        <h6>Try different Brand</h6>
+        <input name="submit" type="submit" id="submit" value="zara" />
+
+        <input name="submit" type="submit" id="submit" value="CHEROKEE" />
+
+        <input name="submit" type="submit" id="submit" value="limited too" />
+
+        <input name="submit" type="submit" id="submit" value="BONPOINT" />
+
+        <input name="submit" type="submit" id="submit" value="PETIT BATEAU" />
+
+        <input name="submit" type="submit" id="submit" value="justice" />
+
+        <input name="submit" type="submit" id="submit" value="adidas" />
+
+        <input name="submit" type="submit" id="submit" value="SKIP HOP." />
+
+        <input name="submit" type="submit" id="submit" value="ruff." />
+
+        <input name="submit" type="submit" id="submit" value="chicco." />
+
+
+
+        <br /><br />
+
+        <h6>Take size that fit you</h6>
+        <input name="submit" type="submit" id="submit" value="s" />
+
+        <input name="submit" type="submit" id="submit" value="m" />
+
+
+
+        <br /><br />
+
+        <h6>Check pocket and buy</h6>
+        <input name="submit" type="submit" id="submit" value="below 999" />
+        <input name="submit" type="submit" id="submit" value="above 999" />
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div>
+        <br /><br />
+        <h2 style="font-family: Algerian ;letter-spacing:3px;text-align:center">KIDS WEAR</h2>
+
+
+
+        <div class="row" style="margin:5px;">
+            @foreach (var item in Model)
+            {
+                if (item.categoryId == 105)
+                {
+                    <div class="col-md-4">
+
+                        <br /><br />
+                        @if (item.frontImage != null)
+                        {
+
+
+                            <a href="@Url.Action( "productDescription", "products",new { id=item.itemId,catId=item.categoryId })" style="align-content:center">
+                                <img style="align-content:center" src="@Url.Content(item.frontImage)" height="250" width="200" /><br /><br />
+                            </a>
+
+
+                        }
+                        <br /><br /><br />
+
+
+
+
+                        <b style="letter-spacing:1px;">Kids Wear</b>
+                        <br />
+
+                        @{
+                            int rate = item.rating;
+                        }
+
+                        <div class="rating-love " style="float:left">
+                            <span class="fa fa-heart"></span>
+                            <span class="fa fa-heart "></span>
+                            <span class="fa fa-heart"></span>
+                            <span class="fa fa-heart"></span>
+                            <span class="fa fa-heart"></span>
+                            <span class="rate" style="width:@rate%;">
+                                <!-- change this value for 0 to 100 -->
+                                <span class="fa fa-heart full"></span>
+                                <span class="fa fa-heart full"></span>
+                                <span class="fa fa-heart full"></span>
+                                <span class="fa fa-heart full"></span>
+                                <span class="fa fa-heart full"></span>
+                            </span>
+                        </div>
+                        <br />
+
+                        @item.productName<br /><br />
+                        <p>
+                            Products which makes your kid feel more comfortable at affordable cost
+                        </p>
+
+
+                        <p>Size : @item.size</p>
+                        <p> Brand : @item.brand</p>
+                        <p> @item.currentCost&nbsp;INR<p>   <br /><br /> <br /><br />
+                    </div>
+                }
+
+
+
+            }
+        </div>
+    </div>
+
+</body></html>

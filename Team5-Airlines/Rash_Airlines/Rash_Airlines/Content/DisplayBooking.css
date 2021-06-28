@@ -1,0 +1,124 @@
+﻿
+body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white; /*#d3d3d3;*/
+    font-family: 'Oxygen', sans-serif;
+    font-size: 12px;
+    
+}
+
+.main {
+    margin-top: 0px;
+    
+    
+}
+
+h2.title {
+    font-size: 50px;
+    font-family: 'Passion One', cursive;
+    font-weight: 400;
+    color: white;
+  
+}
+
+hr {
+    width: 10%;
+    color: #fff;
+
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: center;
+    color:white;
+    /*position:center;*/
+    margin-left:200px;
+    font-weight:bold;
+}
+
+label {
+    margin-bottom: 14px;
+    color: white;
+    font-size: medium;
+    text-align:center;
+    margin-right:200px;
+    
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 9px;
+    padding-top: 3px;
+    
+}
+
+.main-login {
+    background-color: rgba(17, 18, 18, 0.44);
+    /* shadows and rounded borders */
+    -moz-border-radius: 10px 10px;
+    -webkit-border-radius: 10px 10px;
+    border-radius: 10px 10px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+   
+}
+
+.main-center {
+    margin-top: 30px;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 26px 30px 55px 30px;
+    
+}
+
+.login-button {
+    margin-top: 9px;
+}
+
+.login-register {
+    font-size: 8px;
+    text-align: center;
+}
+
+.bg {
+    /*background-image: url('../../images/fly3.gif');*/
+    background-position: left;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.cabin {
+    display: block;
+    width: 170%;
+    height: 34px;
+    padding: 3px 18px;
+    font-size: 17px;
+    line-height: 1.42857143;
+    color: #555;
+    /*background-color: #fff;
+                background-image: none;*/
+    /*border: 1px solid #ccc;*/
+    /*border-radius: 4px;*/
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+    .cabin.focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+.cen{
+    text-align:center;
+}
+.cols-sm-2 control-label
+{
+    font-weight:bold;
+}

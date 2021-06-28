@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Register - Weekend Preference";
+}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+<script>
+
+    $(function () {
+        $('.button-checkbox').each(function () {
+
+            // Settings
+            var $widget = $(this),
+                $button = $widget.find('button'),
+                $checkbox = $widget.find('input:checkbox'),
+                color = $button.data('color'),
+                settings = {
+                    on: {
+                        icon: 'glyphicon glyphicon-check'
+                    },
+                    off: {
+                        icon: 'glyphicon glyphicon-unchecked'
+                    }
+                };
+
+            // Event Handlers
+            $button.on('click', function () {
+                $checkbox.prop('checked', !$checkbox.is(':checked'));
+                $checkbox.triggerHandler('change');
+                updateDisplay();
+            });
+            $checkbox.on('change', function () {
+                updateDisplay();
+            });
+
+            // Actions
+            function updateDisplay() {
+                var isChecked = $checkbox.is(':checked');
+
+                // Set the button's state
+                $button.data('state', (isChecked) ? "on" : "off");
+
+                // Set the button's icon
+                $button.find('.state-icon')
+                    .removeClass()
+                    .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+                // Update the button's color
+                if (isChecked) {
+                    $button
+                        .removeClass('btn-default')
+                        .addClass('btn-' + color + ' active');
+                }
+                else {
+                    $button
+                        .removeClass('btn-' + color + ' active')
+                        .addClass('btn-default');
+                }
+            }
+
+            // Initialization
+            function init() {
+
+                updateDisplay();
+
+                // Inject the icon if applicable
+                if ($button.find('.state-icon').length == 0) {
+                    $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+                }
+            }
+            init();
+        });
+    });
+</script>
+
+<style>
+    button {
+        border-radius: 50px;
+        width: 200px;
+        height: 50px;
+    }
+
+    #preference {
+        height: 100%;
+        width: 100%;
+        border-radius: 32px;
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        position: center;
+        align-content: center;
+        text-align: center;
+        margin: 20px;
+        padding-bottom: 20px;
+        font-family: 'Montserrat';
+    }
+
+    #btnSubmit {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 32px;
+        background-color: lightgray;
+        width: 200px;
+        height: 50px;
+    }
+
+    #btnConfirm {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 32px;
+        background-color: #efefef;
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        color: black;
+    }
+
+    .btn {
+        border-radius: 32px;
+    }
+</style>
+
+@*<h2>Preference</h2>*@
+<center>
+    <div id="preference" style="background-size:cover;background-repeat:No-repeat;background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                    <div>
+                        <h1 style="color:white;font-family: 'Megrim'; letter-spacing:10px;font-weight:500 ">
+
+                            PREFERENCES
+                        </h1>
+                    </div>
+
+                    <div>
+
+                        @{int i = 1;
+                            using (Html.BeginForm())
+                            {
+                                foreach (var activity in ViewBag.activities)
+                                {
+                                    <br />
+                                    //@Html.CheckBox(Convert.ToString(i++))
+
+                                    @*<input type="checkbox" name="@Convert.ToString(i++)">
+
+                                        @activity.vWActivityName<br />*@
+                                    <span class="button-checkbox">
+                                        <button type="button" class="btn" data-color="primary">@activity.vWActivityName</button>
+
+                                        <input type="checkbox" class="hidden" checked name="@Convert.ToString(i++)" />
+                                    </span><br />
+
+                                }<br />
+                                <input type="submit" value="Add" id="btnConfirm" /><br />
+                            }
+                        }
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</center>
+@ViewBag.exception

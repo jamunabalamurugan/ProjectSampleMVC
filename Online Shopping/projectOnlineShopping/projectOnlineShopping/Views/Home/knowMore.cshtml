@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<head>
+    <style>
+
+        /*body {
+            background-image: url(../../image/bg1.jpg);
+            background-size: cover;
+        }*/
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+       
+        <img src="~/image/header.png" style="width:100%"  />
+        <marquee direction="right" scrollamount="30">
+            <img src="~/image/giphy.gif" style="width:500px" height="350" />
+        </marquee>
+        
+        <h2>ShopCart is guided by four principles: </h2>
+        <ul>
+            <li>  customer obsession rather than competitor focus.</li>
+            <li> passion for invention.</li>
+            <li>commitment to operational excellence.</li>
+            <li>long-term thinking.</li>
+        </ul>
+        <h2>Building the future</h2>
+        We strive to have a positive impact on customers, employees, small businesses, the economy, and communities. Amazonians are smart, passionate builders with different backgrounds and goals, who share a common desire to always be learning and inventing on behalf of our customers.
+
+
+        </p>
+        <br />
+        <br />
+    </div>
+    <div class="row">
+        <div class="column">
+
+            <img src="~/image/chart2.png" />
+
+        </div>
+        <div class="column">
+            <br/>
+            <h3>We........</h3>
+            <br />
+            <p>
+                <ul>
+                    <li>
+                        We have attractive products with discounts.
+                        Journey through the heart of Digital India.
+                        Get Latest Online Gadgets at Universal Gadgets where you can get latest designs of phone covers, screen protector, selfie sticks and much more gaming equipment at affordable prices.
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div @*style="background-color:lightskyblue"*@>
+        <img class="img-responsive center-block" src="~/image/shopcart2.jpg" style="width:50%;height:300px" />
+    </div>
+    @*<div class="container body-content">
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year -ShopCart</p>
+        </footer>
+    </div>*@
+</body>
+</html>
+
+
+
+
+
+

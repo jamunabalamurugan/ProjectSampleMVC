@@ -1,0 +1,131 @@
+﻿              
+  @{
+
+      ViewBag.Title = "Index";
+         }
+
+
+                    <style>
+                        div.b {
+                            font-size: 20px;
+                            width: 100%;
+                            height: 40%;
+                            font-family:'Californian FB';
+                            font-weight:500;
+                        }
+
+                        .navbar-inverse {
+                            background-color: #2f4628;
+                        }
+
+                        body {
+                            background-color: #badabf
+                        }
+
+                        .img11 {
+                            width: 70%;
+                        }
+
+                        footer {
+                            position: absolute;
+                        }
+                    </style>
+
+
+
+
+
+                    <h1>Farmer Home Page</h1>
+                    <br />
+                    <br />
+                    <center>
+                        <div class="b">
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+
+                        <div class="b">
+                            <div class="col-md-2">
+                                <div id="logo">
+                                    <a href="@Url.Action("AddSellRequest", "Farmer")">
+                                        @*<img src="~/FarmerImages/sol.png" />*@
+                                        <img src="~/FarmerImages/sellcrop.png" class="img11"/>
+                                        <br /><br />
+                                        Place Sell Request
+                                    </a>
+                                    <br />
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b">
+                            <div class="col-md-2">
+                                <div id="logo">
+                                    <a href="@Url.Action("ViewSoldhistory", "Farmer")">
+                                        @*<img src="~/FarmerImages/sold.png" />*@
+                                        <img src="~/FarmerImages/sold1.png" class="img11"  />
+
+                                        <br /><br />
+                                        View Sold History
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b">
+                            <div class="col-md-2">
+                                <div id="logo">
+                                    <a href="@Url.Action("ViewMarketplace", "Farmer")">
+                                        <img src="~/FarmerImages/market.png" class="img11" />
+                                        <br /><br />
+                                        View Marketplace
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b">
+                            <div class="col-md-2">
+                                <div id="logo">
+                                    <a href="https://www.farmers.com/claims">
+                                        <img src="~/FarmerImages/insure.png" class="img11"/>
+                                        <br /><br />
+                                        Claim Insurance
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div class=" b">
+
+            <Center>   @Html.ActionLink("View Profile", "FarDetails")</Center>
+
+        </div>*@
+                        <div class=" b">
+                            <div class="col-md-2">
+                                <div id="logo">
+                                    <a href="@Url.Action("FarDetails", "Farmer")">
+                                        <img src="~/FarmerImages/viewfarmer.png" class="img11" />
+                                        <br /><br />
+                                        View Profile
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="b">
+                                <div class="col-md-1">
+                                </div>
+                            </div>
+
+
+
+                    </center>
+
+
+
+
+
+
+
+
+

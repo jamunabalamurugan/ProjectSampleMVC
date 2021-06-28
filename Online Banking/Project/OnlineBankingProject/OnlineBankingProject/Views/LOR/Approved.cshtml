@@ -1,0 +1,228 @@
+﻿@model OnlineBankingProject.Models.Open_Savings_Account
+
+@{
+    ViewBag.Title = "Approved";
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        body {
+            background-color:aliceblue;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Approved</h2>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.First_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.First_Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Last_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Last_Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Father_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Father_Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mobile_Number)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mobile_Number)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AadharCard_Number)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AadharCard_Number)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Of_Birth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Of_Birth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Residential_Address_Line1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Residential_Address_Line1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Residential_Address_Line2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Residential_Address_Line2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Residential_Landmark)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Residential_Landmark)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Residential_State)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Residential_State)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Residential_City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Residential_City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Residential_Pincode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Residential_Pincode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Permanent_Address_Line1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Permanent_Address_Line1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Permanent_Address_Line2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Permanent_Address_Line2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Permanent_Landmark)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Permanent_Landmark)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Permanent_State)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Permanent_State)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Permanent_City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Permanent_City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Permanent_Pincode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Permanent_Pincode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Occupational_type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Occupational_type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Source_Of_Income)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Source_Of_Income)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gross_Annual_income)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gross_Annual_income)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Balance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Balance)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Approve_Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Approve_Status)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Email", "GenerateEmail", new { id = Model.Account_Number }) |
+        @Html.ActionLink("Back to List", "AdminStatusApproval")
+    </p>
+    <hr />
+    <footer>
+        <p>Terms of Use| &copy; @DateTime.Now.Year -SNK Bank Copyright Reserved </p>
+    </footer>
+
+</body>
+</html>

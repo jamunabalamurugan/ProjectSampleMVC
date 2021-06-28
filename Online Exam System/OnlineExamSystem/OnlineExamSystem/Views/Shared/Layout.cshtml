@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<title>@ViewBag.Title - Tech Blast - Home Page</title>*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        /*a.my-class {
+            color: skyblue
+        }
+        .my-class {
+            color: skyblue
+        }*/
+      
+        body {
+            
+            background-image: url('../../Images/wall.jpg');
+        }
+        
+        .btn {
+            text-align: center;
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 10%;
+        }
+
+        .info {
+            border-color: #003366;
+            color: #009393;
+        }
+            .info:hover {
+                background: #003366;
+                color: black;
+            }
+        #myList {
+            color: #003366;
+        }
+        option {
+            color: #003366
+        }
+        .m
+        {
+            background-color:darkblue;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Tech Blast", "Home", "User", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav"  style="font-weight:bold; font-size:x-large">
+                        <li><button><img src="~/Images/Logo.jpeg" width="120px" height="50px" /></button></li>
+                        <li>@Html.ActionLink("Home", "Home", "User")</li>
+                        <li>@Html.ActionLink("About Us", "AboutUs", "User")</li>
+                        @*<li>@Html.ActionLink("Contact", "Contact", "User")</li>*@
+                    </ul>
+                    @Html.Partial("~/Views/Shared/_LoginPartial.cshtml")
+                </div>
+            </div>
+        </div>
+    
+    <div class="container body-content">
+        @RenderBody()
+        
+        <footer style="bottom:0; text-align:center; width:100%; height:75px">
+            <hr />
+            <p>&copy;Copyright @DateTime.Now.Year - All Rights Reserved</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

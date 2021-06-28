@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="onlineShoppingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adminTable">
+    <Key>
+      <PropertyRef Name="adminId" />
+    </Key>
+    <Property Name="adminId" Type="int" Nullable="false" />
+    <Property Name="adminPassword" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="cartId" />
+    </Key>
+    <Property Name="cartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="varchar" MaxLength="10" />
+    <Property Name="itemId" Type="int" />
+  </EntityType>
+  <EntityType Name="categoryDetail">
+    <Key>
+      <PropertyRef Name="categoryId" />
+    </Key>
+    <Property Name="categoryId" Type="int" Nullable="false" />
+    <Property Name="categoryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderDetail">
+    <Key>
+      <PropertyRef Name="orderDetailsId" />
+    </Key>
+    <Property Name="orderDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderId" Type="int" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="cost" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderTable">
+    <Key>
+      <PropertyRef Name="orderId" />
+    </Key>
+    <Property Name="orderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderDate" Type="date" Nullable="false" />
+    <Property Name="customerId" Type="varchar" MaxLength="10" />
+    <Property Name="totalPrice" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productDescription">
+    <Key>
+      <PropertyRef Name="itemId" />
+    </Key>
+    <Property Name="itemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryId" Type="int" />
+    <Property Name="productName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="productDescription" Type="varchar" MaxLength="2000" />
+    <Property Name="stock" Type="int" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="20" />
+    <Property Name="backImage" Type="nvarchar(max)" />
+    <Property Name="frontImage" Type="nvarchar(max)" />
+    <Property Name="sideImage" Type="nvarchar(max)" />
+    <Property Name="rating" Type="int" />
+    <Property Name="actualCost" Type="int" Nullable="false" />
+    <Property Name="discount" Type="int" />
+    <Property Name="currentCost" Type="int" Nullable="false" />
+    <Property Name="brand" Type="varchar" MaxLength="50" />
+    <Property Name="size" Type="varchar" MaxLength="15" />
+    <Property Name="approvalStatus" Type="varchar" MaxLength="5" />
+    <Property Name="retailerId" Type="int" />
+  </EntityType>
+  <EntityType Name="registrationTable">
+    <Key>
+      <PropertyRef Name="phoneNo" />
+    </Key>
+    <Property Name="phoneNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="emailId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="90" />
+  </EntityType>
+  <EntityType Name="retailer">
+    <Key>
+      <PropertyRef Name="retailerId" />
+    </Key>
+    <Property Name="retailerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="phoneNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="emailId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="90" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__cart__itemId__44FF419A">
+    <End Role="productDescription" Type="Self.productDescription" Multiplicity="0..1" />
+    <End Role="cart" Type="Self.cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productDescription">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="cart">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cart__userId__440B1D61">
+    <End Role="registrationTable" Type="Self.registrationTable" Multiplicity="0..1" />
+    <End Role="cart" Type="Self.cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registrationTable">
+        <PropertyRef Name="phoneNo" />
+      </Principal>
+      <Dependent Role="cart">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orderTabl__custo__47DBAE45">
+    <End Role="registrationTable" Type="Self.registrationTable" Multiplicity="0..1" />
+    <End Role="orderTable" Type="Self.orderTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registrationTable">
+        <PropertyRef Name="phoneNo" />
+      </Principal>
+      <Dependent Role="orderTable">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__productDe__categ__403A8C7D">
+    <End Role="categoryDetail" Type="Self.categoryDetail" Multiplicity="0..1" />
+    <End Role="productDescription" Type="Self.productDescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoryDetail">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="productDescription">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__productDe__retai__412EB0B6">
+    <End Role="retailer" Type="Self.retailer" Multiplicity="0..1" />
+    <End Role="productDescription" Type="Self.productDescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="retailer">
+        <PropertyRef Name="retailerId" />
+      </Principal>
+      <Dependent Role="productDescription">
+        <PropertyRef Name="retailerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="foreign_work">
+    <End Role="productDescription" Type="Self.productDescription" Multiplicity="0..1" />
+    <End Role="orderDetail" Type="Self.orderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productDescription">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="orderDetail">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="foreign_works">
+    <End Role="orderTable" Type="Self.orderTable" Multiplicity="0..1" />
+    <End Role="orderDetail" Type="Self.orderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orderTable">
+        <PropertyRef Name="orderId" />
+      </Principal>
+      <Dependent Role="orderDetail">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="onlineShoppingModelStoreContainer">
+    <EntitySet Name="adminTable" EntityType="Self.adminTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cart" EntityType="Self.cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="categoryDetail" EntityType="Self.categoryDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orderDetail" EntityType="Self.orderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orderTable" EntityType="Self.orderTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productDescription" EntityType="Self.productDescription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="registrationTable" EntityType="Self.registrationTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="retailer" EntityType="Self.retailer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__cart__itemId__44FF419A" Association="Self.FK__cart__itemId__44FF419A">
+      <End Role="productDescription" EntitySet="productDescription" />
+      <End Role="cart" EntitySet="cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cart__userId__440B1D61" Association="Self.FK__cart__userId__440B1D61">
+      <End Role="registrationTable" EntitySet="registrationTable" />
+      <End Role="cart" EntitySet="cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orderTabl__custo__47DBAE45" Association="Self.FK__orderTabl__custo__47DBAE45">
+      <End Role="registrationTable" EntitySet="registrationTable" />
+      <End Role="orderTable" EntitySet="orderTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__productDe__categ__403A8C7D" Association="Self.FK__productDe__categ__403A8C7D">
+      <End Role="categoryDetail" EntitySet="categoryDetail" />
+      <End Role="productDescription" EntitySet="productDescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK__productDe__retai__412EB0B6" Association="Self.FK__productDe__retai__412EB0B6">
+      <End Role="retailer" EntitySet="retailer" />
+      <End Role="productDescription" EntitySet="productDescription" />
+    </AssociationSet>
+    <AssociationSet Name="foreign_work" Association="Self.foreign_work">
+      <End Role="productDescription" EntitySet="productDescription" />
+      <End Role="orderDetail" EntitySet="orderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="foreign_works" Association="Self.foreign_works">
+      <End Role="orderTable" EntitySet="orderTable" />
+      <End Role="orderDetail" EntitySet="orderDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

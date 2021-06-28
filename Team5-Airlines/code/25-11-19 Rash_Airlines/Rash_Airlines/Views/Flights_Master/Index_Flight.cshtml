@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Rash_Airlines.Models.Flights_Master>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2 style="text-align:center">Flights</h2>
+
+<p>
+    <button class="button button1 btn-block">  @Html.ActionLink("Add New Flight", "Create_Flight") </button>
+</p>
+<table class="table table-responsive table-hover" style="font-weight:700;font-size:12px;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.flight_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.business_capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.economy_capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.flight_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Routes_Master.route_id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.flight_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.business_capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.economy_capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.flight_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Routes_Master.route_id)
+            </td>
+            <td>
+                <button class="button button1"> @Html.ActionLink("Edit", "Edit_Flight", new { id = item.flight_id }) </button>
+                @*<button class="button button1">               @Html.ActionLink("Details", "Details_Flight", new { id = item.flight_id })  </button>*@
+                <button class="button button1"> @Html.ActionLink("Delete", "Delete_Flight", new { id = item.flight_id }) </button>
+            </td>
+        </tr>
+    }
+
+</table>

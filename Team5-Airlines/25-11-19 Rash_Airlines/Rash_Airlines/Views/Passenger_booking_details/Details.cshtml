@@ -1,0 +1,82 @@
+﻿@model Rash_Airlines.Models.Passenger_booking_details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Passenger_booking_details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.no_of_seats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_of_seats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.@class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.@class)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.booking_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.booking_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.journey_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.journey_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flights_Master.flight_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flights_Master.flight_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.place_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place.place_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place1.place_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place1.place_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passenger_Reg.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passenger_Reg.title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.booking_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

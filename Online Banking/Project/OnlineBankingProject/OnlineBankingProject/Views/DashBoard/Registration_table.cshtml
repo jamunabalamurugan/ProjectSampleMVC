@@ -1,0 +1,62 @@
+﻿@model IEnumerable<OnlineBankingProject.Models.Registration_table>
+
+@{
+    ViewBag.Title = "Registration_table";
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+<html>
+<head>
+    <style>
+        body {
+            background-color: mistyrose;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Registration_table</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login_Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction_Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Open_Savings_Account.First_Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Login_Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transaction_Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Open_Savings_Account.First_Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Back", "AdminStatusApproval", "LOR")
+                </td>
+            </tr>
+        }
+
+    </table>
+    </body>
+</html>

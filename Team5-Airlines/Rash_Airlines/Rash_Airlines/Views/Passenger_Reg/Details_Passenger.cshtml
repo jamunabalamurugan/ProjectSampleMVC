@@ -1,0 +1,205 @@
+﻿@model Rash_Airlines.Models.Passenger_Reg
+
+@{
+
+}
+
+@*<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <style>
+        dt {
+            color: cornflowerblue;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        dd {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 style="text-align:center;color:cornflowerblue;">Your Profile</h2>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.first_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.first_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.last_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.last_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pwd)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pwd)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.confirm_pwd)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.confirm_pwd)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dob)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dob)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mobile)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mobile)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit_Passenger", new { id = Model.passenger_id }) |
+        @Html.ActionLink("Back to List", "DetailedSearch", "Passenger_booking_details")
+    </p>
+</body>
+</html>*@
+
+
+
+
+
+
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="~/Content/Profile.css" rel="stylesheet" />
+
+    <style>
+        .container1
+        {
+            /*margin-left:600px;
+            margin-right:00px;*/
+            margin-top:100px;
+        }
+        .lis {
+            color: white;
+            font-size:25px;
+            text-align:center;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="row profile">
+            <div class="col-md-3">
+                <div class="profile-sidebar" style="margin-left:190px; margin-right:-800px;padding-top:50px;padding-bottom:50px;">
+                    <!-- SIDEBAR USERPIC -->
+                    @*<div class="profile-userpic">
+                        <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                    </div>*@
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        @*<div class="profile-usertitle-name">
+                            
+
+                        </div>
+                        <div class="profile-usertitle-job">
+                           
+                            <br/>
+                           
+                        </div>*@
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <div class="profile-userbuttons">
+                        <button type="button" class="btn btn-success" style="padding:15px;font-size:15px;">@Html.ActionLink("View Ticket", "Show_Tickets_List","BookingDetails")</button>
+                        <button type="button" class="btn btn-danger" style="padding:15px;font-size:15px;"> @Html.ActionLink("Edit Profile", "Edit_Passenger", new { id = Model.passenger_id })</button>
+                    </div>
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <div class="profile-usermenu">
+                        <ul class="nav">
+                            <li class="lis">
+                                <i class="glyphicon glyphicon-user"></i>
+
+                                @Html.DisplayFor(model => model.title) @Html.DisplayFor(model => model.first_name)
+
+
+                            </li>
+                            <li class="lis">
+                              
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    @Html.DisplayFor(model => model.last_name)
+                               
+                            </li>
+                            <li class="lis">
+                               
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                    @Html.DisplayFor(model => model.dob)
+                               
+                            </li>
+                            <li class="lis">
+                             
+                                    <i class="glyphicon glyphicon-envelope"></i>
+                                    @Html.DisplayFor(model => model.email)
+                            
+                            </li>
+
+                            <li class="lis">
+                              
+                                    <i class="glyphicon glyphicon-phone"></i>
+                                    @Html.DisplayFor(model => model.mobile)
+                               
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END MENU -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+</body>
+</html>

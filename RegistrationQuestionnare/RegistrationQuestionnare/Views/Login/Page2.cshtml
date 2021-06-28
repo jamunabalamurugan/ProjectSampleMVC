@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Login - Mood";
+    Layout = "~/Views/Shared/_RegisterLoginLayout.cshtml";
+
+}
+
+@*<link rel="stylesheet" type="text/css" href="StyleSheetAbout.css">*@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<script>
+
+    function sendimg(a, emojival) {
+        moodvalue = a;                  /*Store value of emoji*/
+        document.getElementById(emojival.id).style.opacity = "0.5";
+
+
+    }
+</script>
+<style>
+    #emoji, #emoji1, #emoji2, #emoji3, #emoji4, img {
+        height: 100px;
+        width: 100px;
+        display: inline-block;
+        justify-content: center;
+        border-radius: 32px;
+    }
+
+    #modal-body {
+        height: 100%%;
+        width: 100%;
+        border-radius: 32px;
+        background-color: #70b2d9;
+        background-image: linear-gradient(315deg, #70b2d9 0%, #39e5b6 74%);
+        position: center;
+        align-content: center;
+        text-align: center;
+        margin-top: 100px;
+        padding-bottom: 20px;
+        font-family: 'Montserrat';
+    }
+
+    h2 {
+        color: white;
+        font-family: 'Montserrat';
+        letter-spacing: 10px;
+    }
+
+    #btnSubmit {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        border-radius: 32px;
+        background-color: #efefef;
+        width: 200px;
+        height: 50px;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+            @using (Html.BeginForm("Page2", "Log", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <br /><br />
+
+
+                <div id="modal-body">
+                    <center>
+                        <h2 class="modal-title">How you feeling today?</h2> <br /><br />
+                        @*<img src="~/html/veryhappy.png" id=1 alt="Very Happy" onClick="mood=1">
+                            <img src="~/html/happy.png" id="emoji1" alt="Happy" onClick="sendimg(2,this);">
+                            <img src="~/html/neutralface.png" id="emoji2" alt="Neutral" onClick="sendimg(3,this);">
+                            <img src="~/html/verysad.jpg" id="emoji3" alt="Sad" onClick="sendimg(4,this);">
+                            <img src="~/html/sad.jpg" id="emoji4" alt="Very Sad" onClick="sendimg(5,this);">*@
+
+                        <a href="@Url.Action("Dashboard", "Main", new { mid = 1 })" title="Very Happy">
+                            <img src="~/html/veryhappy.png" />
+                        </a>
+                        <a href="@Url.Action("Dashboard", "Main", new { mid = 2 })" title="Happy">
+                            <img src="~/html/happy.png" />
+                        </a>
+                        <a href="@Url.Action("Dashboard", "Main", new { mid = 3 })" title="Neutral">
+                            <img src="~/html/neutralface.png" />
+                        </a>
+                        <a href="@Url.Action("Dashboard", "Main", new { mid = 4 })" title="Sad">
+                            <img src="~/html/verysad.jpg" />
+                        </a>
+                        <a href="@Url.Action("Dashboard", "Main", new { mid = 5 })" title="Very Sad">
+                            <img src="~/html/sad.jpg" />
+                        </a>
+                    </center>
+
+                    <br /><br /><br />
+                    @*<button type="button" id="btnSubmit" class="btn btn-default" data-dismiss="modal" name="ImageUpload">Submit</button>*@
+
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@ViewBag.exception
+<br><br><br><br><br><br>
+

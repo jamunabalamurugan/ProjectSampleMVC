@@ -1,0 +1,34 @@
+﻿<script>
+    window.setTimeout(function () {
+        window.location.href = 'http://localhost:52768/Main/Dashboard';
+    }, 1200);
+</script>
+@{
+    ViewBag.Title = "ExitGame";
+}
+<head>
+    <style>
+        #roundedcorner {
+            margin: 50px;
+            background-image: linear-gradient(to bottom right,#3b6d6d,#87ceeb);
+            border-radius: 25px;
+            /*background: #73AD21;*/
+            padding: 20px;
+            width: 60%;
+            height: 75%;
+        }
+
+        #guess {
+            border-radius: 50%;
+            height: 40%;
+            width: 40%;
+        }
+    </style>
+</head>
+<center>
+    <div id="roundedcorner">
+        <img src="~/Images1/end.jpg" id="guess">
+        <h4 style="font-size:30px;">Your Score : @Session["points"]</h4>
+    </div>
+</center>
+@ViewBag.exception

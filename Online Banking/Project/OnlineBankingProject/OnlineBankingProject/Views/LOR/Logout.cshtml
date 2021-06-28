@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Logout";
+    Layout = "~/Views/Shared/HomePageAfterLogin.cshtml";
+}
+
+<h2>Logout</h2>
+<div style="width:auto ;background-color:aqua"
+     @if (Request.IsAuthenticated) { <strong>@Html.Encode(User.Identity.Name)</strong>
+         @Html.ActionLink("Logout", "Logout", "LOR")
+
+     }
+   
+</div>
+

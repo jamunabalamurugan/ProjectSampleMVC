@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_Lakshay_OnlinetestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_FillBlank">
+    <Key>
+      <PropertyRef Name="FB_Id" />
+    </Key>
+    <Property Name="FB_Id" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="FB_Ques" Type="nvarchar" MaxLength="400" />
+    <Property Name="FB_Ans_Key" Type="nvarchar" MaxLength="30" />
+    <Property Name="Sub_Id_FB" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tbl_MCQ">
+    <Key>
+      <PropertyRef Name="MCQ_Id" />
+    </Key>
+    <Property Name="MCQ_Id" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="MCQ_Ques" Type="nvarchar" MaxLength="400" />
+    <Property Name="Op_A" Type="nvarchar" MaxLength="200" />
+    <Property Name="Op_B" Type="nvarchar" MaxLength="200" />
+    <Property Name="Op_C" Type="nvarchar" MaxLength="200" />
+    <Property Name="Op_D" Type="nvarchar" MaxLength="200" />
+    <Property Name="Op_E" Type="nvarchar" MaxLength="200" />
+    <Property Name="MCQ_Ans_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sub_Id_MCQ" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tbl_Subjects">
+    <Key>
+      <PropertyRef Name="Sub_Id" />
+    </Key>
+    <Property Name="Sub_Id" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Sub_Name" Type="nvarchar" MaxLength="20" />
+    <Property Name="Sub_Category" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tbl_Test">
+    <Key>
+      <PropertyRef Name="Test_Id" />
+    </Key>
+    <Property Name="Test_Id" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Sub_Id_Test" Type="nvarchar" MaxLength="15" />
+    <Property Name="Test_Name" Type="nvarchar" MaxLength="40" />
+    <Property Name="Time_Alloted" Type="datetime" />
+    <Property Name="No_of_Ques" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_TestReport">
+    <Key>
+      <PropertyRef Name="Report_Id" />
+    </Key>
+    <Property Name="Report_Id" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Test_Id_TestRep" Type="nvarchar" MaxLength="15" />
+    <Property Name="Tran_Id_Tran" Type="nvarchar" MaxLength="15" />
+    <Property Name="User_Id_User" Type="nvarchar" MaxLength="15" />
+    <Property Name="Attempted_Ques_No" Type="int" />
+    <Property Name="Correct_Ques_No" Type="int" />
+    <Property Name="Wrong_Ques_No" Type="int" />
+    <Property Name="Start_Time" Type="datetime" />
+    <Property Name="End_Time" Type="datetime" />
+    <Property Name="Score" Type="int" />
+    <Property Name="Percentage" Type="float" />
+    <Property Name="Result_Status" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tbl_Transaction">
+    <Key>
+      <PropertyRef Name="Tran_Id" />
+    </Key>
+    <Property Name="Tran_Id" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="MCQ_Id" Type="nvarchar" MaxLength="15" />
+    <Property Name="FB_Id" Type="nvarchar" MaxLength="15" />
+    <Property Name="TF_Id" Type="nvarchar" MaxLength="15" />
+    <Property Name="Test_Id_Tran" Type="nvarchar" MaxLength="15" />
+    <Property Name="Ques_Type" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tbl_TrueOrFalse">
+    <Key>
+      <PropertyRef Name="TF_Id" />
+    </Key>
+    <Property Name="TF_Id" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="TF_Ques" Type="nvarchar" MaxLength="400" />
+    <Property Name="TF_Ans_Key" Type="nvarchar" MaxLength="20" />
+    <Property Name="Sub_Id_TF" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" />
+    <Property Name="User_Email" Type="nvarchar" MaxLength="40" />
+    <Property Name="Phone_No" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="Mail_Status" Type="bit" />
+  </EntityType>
+  <Association Name="fk_FB_Id">
+    <End Role="tbl_FillBlank" Type="Self.tbl_FillBlank" Multiplicity="0..1" />
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_FillBlank">
+        <PropertyRef Name="FB_Id" />
+      </Principal>
+      <Dependent Role="tbl_Transaction">
+        <PropertyRef Name="FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MCQ_Id">
+    <End Role="tbl_MCQ" Type="Self.tbl_MCQ" Multiplicity="0..1" />
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_MCQ">
+        <PropertyRef Name="MCQ_Id" />
+      </Principal>
+      <Dependent Role="tbl_Transaction">
+        <PropertyRef Name="MCQ_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sub_Id_FB">
+    <End Role="tbl_Subjects" Type="Self.tbl_Subjects" Multiplicity="0..1" />
+    <End Role="tbl_FillBlank" Type="Self.tbl_FillBlank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Subjects">
+        <PropertyRef Name="Sub_Id" />
+      </Principal>
+      <Dependent Role="tbl_FillBlank">
+        <PropertyRef Name="Sub_Id_FB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sub_Id_MCQ">
+    <End Role="tbl_Subjects" Type="Self.tbl_Subjects" Multiplicity="0..1" />
+    <End Role="tbl_MCQ" Type="Self.tbl_MCQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Subjects">
+        <PropertyRef Name="Sub_Id" />
+      </Principal>
+      <Dependent Role="tbl_MCQ">
+        <PropertyRef Name="Sub_Id_MCQ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sub_Id_Test">
+    <End Role="tbl_Subjects" Type="Self.tbl_Subjects" Multiplicity="0..1" />
+    <End Role="tbl_Test" Type="Self.tbl_Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Subjects">
+        <PropertyRef Name="Sub_Id" />
+      </Principal>
+      <Dependent Role="tbl_Test">
+        <PropertyRef Name="Sub_Id_Test" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sub_Id_TF">
+    <End Role="tbl_Subjects" Type="Self.tbl_Subjects" Multiplicity="0..1" />
+    <End Role="tbl_TrueOrFalse" Type="Self.tbl_TrueOrFalse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Subjects">
+        <PropertyRef Name="Sub_Id" />
+      </Principal>
+      <Dependent Role="tbl_TrueOrFalse">
+        <PropertyRef Name="Sub_Id_TF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Test_Id_TestRep">
+    <End Role="tbl_Test" Type="Self.tbl_Test" Multiplicity="0..1" />
+    <End Role="tbl_TestReport" Type="Self.tbl_TestReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Test">
+        <PropertyRef Name="Test_Id" />
+      </Principal>
+      <Dependent Role="tbl_TestReport">
+        <PropertyRef Name="Test_Id_TestRep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Test_Id_Tran">
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="0..1" />
+    <End Role="tbl_Transaction1" Type="Self.tbl_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Transaction">
+        <PropertyRef Name="Tran_Id" />
+      </Principal>
+      <Dependent Role="tbl_Transaction1">
+        <PropertyRef Name="Test_Id_Tran" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TF_Id">
+    <End Role="tbl_TrueOrFalse" Type="Self.tbl_TrueOrFalse" Multiplicity="0..1" />
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TrueOrFalse">
+        <PropertyRef Name="TF_Id" />
+      </Principal>
+      <Dependent Role="tbl_Transaction">
+        <PropertyRef Name="TF_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Tran_Id_Tran">
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="0..1" />
+    <End Role="tbl_TestReport" Type="Self.tbl_TestReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Transaction">
+        <PropertyRef Name="Tran_Id" />
+      </Principal>
+      <Dependent Role="tbl_TestReport">
+        <PropertyRef Name="Tran_Id_Tran" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_User_Id_User">
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+    <End Role="tbl_TestReport" Type="Self.tbl_TestReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="tbl_TestReport">
+        <PropertyRef Name="User_Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_Lakshay_OnlinetestModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_FillBlank" EntityType="Self.tbl_FillBlank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_MCQ" EntityType="Self.tbl_MCQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Subjects" EntityType="Self.tbl_Subjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Test" EntityType="Self.tbl_Test" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TestReport" EntityType="Self.tbl_TestReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Transaction" EntityType="Self.tbl_Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TrueOrFalse" EntityType="Self.tbl_TrueOrFalse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_FB_Id" Association="Self.fk_FB_Id">
+      <End Role="tbl_FillBlank" EntitySet="tbl_FillBlank" />
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MCQ_Id" Association="Self.fk_MCQ_Id">
+      <End Role="tbl_MCQ" EntitySet="tbl_MCQ" />
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sub_Id_FB" Association="Self.fk_Sub_Id_FB">
+      <End Role="tbl_Subjects" EntitySet="tbl_Subjects" />
+      <End Role="tbl_FillBlank" EntitySet="tbl_FillBlank" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sub_Id_MCQ" Association="Self.fk_Sub_Id_MCQ">
+      <End Role="tbl_Subjects" EntitySet="tbl_Subjects" />
+      <End Role="tbl_MCQ" EntitySet="tbl_MCQ" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sub_Id_Test" Association="Self.fk_Sub_Id_Test">
+      <End Role="tbl_Subjects" EntitySet="tbl_Subjects" />
+      <End Role="tbl_Test" EntitySet="tbl_Test" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sub_Id_TF" Association="Self.fk_Sub_Id_TF">
+      <End Role="tbl_Subjects" EntitySet="tbl_Subjects" />
+      <End Role="tbl_TrueOrFalse" EntitySet="tbl_TrueOrFalse" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Test_Id_TestRep" Association="Self.fk_Test_Id_TestRep">
+      <End Role="tbl_Test" EntitySet="tbl_Test" />
+      <End Role="tbl_TestReport" EntitySet="tbl_TestReport" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Test_Id_Tran" Association="Self.fk_Test_Id_Tran">
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+      <End Role="tbl_Transaction1" EntitySet="tbl_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TF_Id" Association="Self.fk_TF_Id">
+      <End Role="tbl_TrueOrFalse" EntitySet="tbl_TrueOrFalse" />
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Tran_Id_Tran" Association="Self.fk_Tran_Id_Tran">
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+      <End Role="tbl_TestReport" EntitySet="tbl_TestReport" />
+    </AssociationSet>
+    <AssociationSet Name="fk_User_Id_User" Association="Self.fk_User_Id_User">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_TestReport" EntitySet="tbl_TestReport" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,19 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+
+
+<br />
+<br />
+<br />
+<center>
+    <img src="~/Images/Sorry.gif" width="350" height="350">
+</center>
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request. Sorry for the inconvience</h2>
+
+@Html.ActionLink("Home Page", "HomeBeforeLogin","LOR")
+

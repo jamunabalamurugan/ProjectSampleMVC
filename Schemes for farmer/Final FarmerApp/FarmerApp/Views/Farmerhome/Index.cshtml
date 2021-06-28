@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Farmer-Scheme Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .column {
+            float: left;
+            width: 25%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(47, 70, 40, 1);
+            border-color: red;
+        }
+
+        .container {
+            padding: 0 16px;
+        }
+
+            .container::after, .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+        .title {
+            color: grey;
+        }
+
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #2f4628;
+            text-align: center;
+            cursor: pointer;
+            align-content: center;
+        }
+
+            .button:hover {
+                background-color: black;
+            }
+
+        .navbar-inverse {
+            background-color: #2f4628;
+        }
+
+    body {
+        background-image: url("~/carousel/bg9.png");
+           /*background-color: #badabf;*/
+           font-family: 'Californian FB';
+           font-size: medium; }
+
+        .zoom {
+            transition: transform .2s;
+        }
+
+            .zoom:hover {
+                -ms-transform: scale(1.5); /* IE 9 */
+                -webkit-transform: scale(1.5); /* Safari 3-8 */
+                transform: scale(1.5);
+              
+            }
+        footer {
+            position:relative;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>*@
+      
+                @*@Html.ActionLink("Farmer-Scheme", "Index", "Farmerhome", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                    <img src="~/farmer logo/farmerlogo7.jpg" width="50px" height="50px" />&nbsp;&nbsp;&nbsp;</li>
+                    <li>@Html.ActionLink("Farmer-Scheme", "Index", "Farmerhome", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Home", "Index", "Farmerhome")</li>
+                    <li>@Html.ActionLink("About", "Fabout", "Farmerhome")</li>
+                    <li>@Html.ActionLink("Contact", "Fcontact", "Farmerhome")</li>
+                    <li>@Html.ActionLink("Admin Login", "Login", "Farmerhome")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <marquee><h4>Bringing Growth, Innovation, and Experience to the market.</h4></marquee>
+
+
+    @*<center><img class="d-block w-100" src="~/carousel/download6.jpg" height="20%" width="90%"></center>*@
+    <div class="container">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <img src="~/carousel/download9.jpg" alt="Los Angeles" style="width:100%; height:250px">
+                    <div class="carousel-caption">
+                        <h3>In Nature We Trust</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="~/carousel/download8.jpg" alt="Chicago" style="width:100%; height:250px;">
+                    <div class="carousel-caption">
+                        <h3>If You Ate Today, Thank A Farmer.</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="~/carousel/download6.jpg" alt="New York" style="width:100%; height:250px;">
+                    <div class="carousel-caption">
+                        <h3>A Decision For Nature.</h3>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <br /><br /><br />
+    <div class="col-md-12">
+
+
+        <div class="row">
+            <div class=" col-md-2">
+            </div>
+            <div class="column col-md-3">
+                <div class="card zoom">
+                    <img src="~/carousel/pic2.jpg" alt="Mike" style="width:100%">
+                </div>
+                <div class="container">
+                    <br /><br />
+                    @*<p class="title">New User?Register Here</p>*@
+                    <p>
+                        <button class="button" onclick='window.location = "@Url.Action("FarLogin", "Farmerhome")";'>
+                            Farmer Login
+                        </button>@*&nbsp;New User?Register Here*@
+                    <p class="title"> @Html.ActionLink("New User?Register Here", "FarmerRegister")</p>
+                </div>
+
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="column  col-md-3">
+                <div class="card zoom">
+                    <img src="~/carousel/pic1.jpg" alt="Mike" style="width:100%">
+                </div>
+                <div class="container">
+                    <br /><br />
+                    @*<p class="title">New User?Register Here</p>*@
+                    <p>
+                        <button class="button" onclick='window.location = "@Url.Action("BidLogin", "Farmerhome")";'>
+                            Bidder Login
+                        </button>
+                    <p class="title"> @Html.ActionLink("New User?Register Here", "BidderReg")</p>
+                    <br /><br />
+                </div>
+            </div>
+            <div class=" col-md-2">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container body-content">
+        @*@RenderBody()*@
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@RenderSection("scripts", required: false)*@
+</body>
+</html>

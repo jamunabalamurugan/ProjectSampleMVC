@@ -1,0 +1,152 @@
+﻿@*@using Rash_Airlines.Models
+    @model IEnumerable<Rash_Airlines.Models.search_flight2_Result>
+
+    {
+        ViewBag.Title = "DisplayFlight";
+    }
+
+    <h2>DisplayFlight</h2>
+
+
+    <p>
+
+    </p>
+    <table class="table table-responsive table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.flight_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.departure_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.arrival_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrival)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.flight_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.departure_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.arrival_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrival)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.flight_name }) |
+                @Html.ActionLink("Details", "Details", new { id=item.flight_name }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.flight_name })
+            </td>
+            <td>
+                @Html.ActionLink("Book Now", "Create", new {flight_id= item.flight_id})
+                </td>
+        </tr>
+        }
+
+    </table>*@
+@model IEnumerable<Rash_Airlines.Models.search_flight2_Result>
+@{
+    ViewBag.Title = "Search_Flight";
+    Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="~/Content/main.css" rel="stylesheet" />
+
+    </head>
+
+    <body style="background-color:aliceblue;">
+        <div class="container">
+            <div class="row">
+                <div class="ticket">
+                    <div class="ticket-left">
+                        <div class="ticket-1">
+                            <p>DEPARTURE</p>
+                            <h1>@Html.DisplayFor(model => item.departure_time)</h1>
+                            <div class="desc">
+                                <b><h3><span>@Html.DisplayFor(model => item.Departure)</span></h3></b>
+
+                            </div>
+                        </div>
+                        <div style="text-align:center;">
+                            <h2> @Html.DisplayFor(modelItem => item.flight_name)</h2>
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="ticket-2">
+                            <p>ARRIVAL</p>
+                            <h1> @Html.DisplayFor(modelItem => item.arrival_time)</h1>
+                            <div class="desc">
+                                <b><h3><span>@Html.DisplayFor(modelItem => item.Arrival)</span></h3></b>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ticket-right">
+                        <div class="ticket-top">
+                            <div class="ticket-white" style="background-color:aqua;">
+                                <button class="btn btn-warning btn-lg">
+                                    @Html.ActionLink("Book Now", "Create", new { flight_id = item.flight_id })
+                                </button>
+                                @*<div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Search" class="btn btn-default" />
+                                    </div>*@
+                                @*<p button class="btn btn-default">BOOK NOW</p>*@
+                                @*<h1>IST</h1>
+                                        <div class="desc">
+                                            <span>SEPTEMBER 22, 2019</span>
+                                            <span>04:10 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="ticket-white">
+                                        <p>TO</p>
+                                        <h1>LGW</h1>
+                                        <div class="desc">
+                                            <span>SEPTEMBER 30, 2019</span>
+                                            <span>01:30 AM</span>
+                                        </div>*@
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/c8ee3dd930.js"></script>
+    </body>
+</html>
+}
+

@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_Lakshay_OnlinetestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_FillBlank">
+    <Key>
+      <PropertyRef Name="FB_Id" />
+    </Key>
+    <Property Name="FB_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FB_Ques" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="FB_Ans_Key" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Sub_Id_FB" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Transaction" Relationship="Self.fk_FB_Id" FromRole="tbl_FillBlank" ToRole="tbl_Transaction" />
+    <NavigationProperty Name="tbl_Subjects" Relationship="Self.fk_Sub_Id_FB" FromRole="tbl_FillBlank" ToRole="tbl_Subjects" />
+  </EntityType>
+  <EntityType Name="tbl_MCQ">
+    <Key>
+      <PropertyRef Name="MCQ_Id" />
+    </Key>
+    <Property Name="MCQ_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MCQ_Ques" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Op_A" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Op_B" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Op_C" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Op_D" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Op_E" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MCQ_Ans_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sub_Id_MCQ" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Transaction" Relationship="Self.fk_MCQ_Id" FromRole="tbl_MCQ" ToRole="tbl_Transaction" />
+    <NavigationProperty Name="tbl_Subjects" Relationship="Self.fk_Sub_Id_MCQ" FromRole="tbl_MCQ" ToRole="tbl_Subjects" />
+  </EntityType>
+  <EntityType Name="tbl_Subjects">
+    <Key>
+      <PropertyRef Name="Sub_Id" />
+    </Key>
+    <Property Name="Sub_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sub_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Sub_Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_FillBlank" Relationship="Self.fk_Sub_Id_FB" FromRole="tbl_Subjects" ToRole="tbl_FillBlank" />
+    <NavigationProperty Name="tbl_MCQ" Relationship="Self.fk_Sub_Id_MCQ" FromRole="tbl_Subjects" ToRole="tbl_MCQ" />
+    <NavigationProperty Name="tbl_Test" Relationship="Self.fk_Sub_Id_Test" FromRole="tbl_Subjects" ToRole="tbl_Test" />
+    <NavigationProperty Name="tbl_TrueOrFalse" Relationship="Self.fk_Sub_Id_TF" FromRole="tbl_Subjects" ToRole="tbl_TrueOrFalse" />
+  </EntityType>
+  <EntityType Name="tbl_Test">
+    <Key>
+      <PropertyRef Name="Test_Id" />
+    </Key>
+    <Property Name="Test_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sub_Id_Test" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Test_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Time_Alloted" Type="DateTime" Precision="3" />
+    <Property Name="No_of_Ques" Type="Int32" />
+    <NavigationProperty Name="tbl_Subjects" Relationship="Self.fk_Sub_Id_Test" FromRole="tbl_Test" ToRole="tbl_Subjects" />
+    <NavigationProperty Name="tbl_TestReport" Relationship="Self.fk_Test_Id_TestRep" FromRole="tbl_Test" ToRole="tbl_TestReport" />
+  </EntityType>
+  <EntityType Name="tbl_TestReport">
+    <Key>
+      <PropertyRef Name="Report_Id" />
+    </Key>
+    <Property Name="Report_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Test_Id_TestRep" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Tran_Id_Tran" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="User_Id_User" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Attempted_Ques_No" Type="Int32" />
+    <Property Name="Correct_Ques_No" Type="Int32" />
+    <Property Name="Wrong_Ques_No" Type="Int32" />
+    <Property Name="Start_Time" Type="DateTime" Precision="3" />
+    <Property Name="End_Time" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="Percentage" Type="Double" />
+    <Property Name="Result_Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Test" Relationship="Self.fk_Test_Id_TestRep" FromRole="tbl_TestReport" ToRole="tbl_Test" />
+    <NavigationProperty Name="tbl_Transaction" Relationship="Self.fk_Tran_Id_Tran" FromRole="tbl_TestReport" ToRole="tbl_Transaction" />
+    <NavigationProperty Name="tbl_User" Relationship="Self.fk_User_Id_User" FromRole="tbl_TestReport" ToRole="tbl_User" />
+  </EntityType>
+  <EntityType Name="tbl_Transaction">
+    <Key>
+      <PropertyRef Name="Tran_Id" />
+    </Key>
+    <Property Name="Tran_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MCQ_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FB_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="TF_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Test_Id_Tran" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Ques_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_FillBlank" Relationship="Self.fk_FB_Id" FromRole="tbl_Transaction" ToRole="tbl_FillBlank" />
+    <NavigationProperty Name="tbl_MCQ" Relationship="Self.fk_MCQ_Id" FromRole="tbl_Transaction" ToRole="tbl_MCQ" />
+    <NavigationProperty Name="tbl_TestReport" Relationship="Self.fk_Tran_Id_Tran" FromRole="tbl_Transaction" ToRole="tbl_TestReport" />
+    <NavigationProperty Name="tbl_Transaction1" Relationship="Self.fk_Test_Id_Tran" FromRole="tbl_Transaction" ToRole="tbl_Transaction1" />
+    <NavigationProperty Name="tbl_Transaction2" Relationship="Self.fk_Test_Id_Tran" FromRole="tbl_Transaction1" ToRole="tbl_Transaction" />
+    <NavigationProperty Name="tbl_TrueOrFalse" Relationship="Self.fk_TF_Id" FromRole="tbl_Transaction" ToRole="tbl_TrueOrFalse" />
+  </EntityType>
+  <EntityType Name="tbl_TrueOrFalse">
+    <Key>
+      <PropertyRef Name="TF_Id" />
+    </Key>
+    <Property Name="TF_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TF_Ques" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="TF_Ans_Key" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Sub_Id_TF" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Subjects" Relationship="Self.fk_Sub_Id_TF" FromRole="tbl_TrueOrFalse" ToRole="tbl_Subjects" />
+    <NavigationProperty Name="tbl_Transaction" Relationship="Self.fk_TF_Id" FromRole="tbl_TrueOrFalse" ToRole="tbl_Transaction" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="User_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Mail_Status" Type="Boolean" />
+    <NavigationProperty Name="tbl_TestReport" Relationship="Self.fk_User_Id_User" FromRole="tbl_User" ToRole="tbl_TestReport" />
+  </EntityType>
+  <Association Name="fk_FB_Id">
+    <End Role="tbl_FillBlank" Type="Self.tbl_FillBlank" Multiplicity="0..1" />
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_FillBlank">
+        <PropertyRef Name="FB_Id" />
+      </Principal>
+      <Dependent Role="tbl_Transaction">
+        <PropertyRef Name="FB_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sub_Id_FB">
+    <End Role="tbl_Subjects" Type="Self.tbl_Subjects" Multiplicity="0..1" />
+    <End Role="tbl_FillBlank" Type="Self.tbl_FillBlank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Subjects">
+        <PropertyRef Name="Sub_Id" />
+      </Principal>
+      <Dependent Role="tbl_FillBlank">
+        <PropertyRef Name="Sub_Id_FB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MCQ_Id">
+    <End Role="tbl_MCQ" Type="Self.tbl_MCQ" Multiplicity="0..1" />
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_MCQ">
+        <PropertyRef Name="MCQ_Id" />
+      </Principal>
+      <Dependent Role="tbl_Transaction">
+        <PropertyRef Name="MCQ_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sub_Id_MCQ">
+    <End Role="tbl_Subjects" Type="Self.tbl_Subjects" Multiplicity="0..1" />
+    <End Role="tbl_MCQ" Type="Self.tbl_MCQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Subjects">
+        <PropertyRef Name="Sub_Id" />
+      </Principal>
+      <Dependent Role="tbl_MCQ">
+        <PropertyRef Name="Sub_Id_MCQ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sub_Id_Test">
+    <End Role="tbl_Subjects" Type="Self.tbl_Subjects" Multiplicity="0..1" />
+    <End Role="tbl_Test" Type="Self.tbl_Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Subjects">
+        <PropertyRef Name="Sub_Id" />
+      </Principal>
+      <Dependent Role="tbl_Test">
+        <PropertyRef Name="Sub_Id_Test" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sub_Id_TF">
+    <End Role="tbl_Subjects" Type="Self.tbl_Subjects" Multiplicity="0..1" />
+    <End Role="tbl_TrueOrFalse" Type="Self.tbl_TrueOrFalse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Subjects">
+        <PropertyRef Name="Sub_Id" />
+      </Principal>
+      <Dependent Role="tbl_TrueOrFalse">
+        <PropertyRef Name="Sub_Id_TF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Test_Id_TestRep">
+    <End Role="tbl_Test" Type="Self.tbl_Test" Multiplicity="0..1" />
+    <End Role="tbl_TestReport" Type="Self.tbl_TestReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Test">
+        <PropertyRef Name="Test_Id" />
+      </Principal>
+      <Dependent Role="tbl_TestReport">
+        <PropertyRef Name="Test_Id_TestRep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Tran_Id_Tran">
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="0..1" />
+    <End Role="tbl_TestReport" Type="Self.tbl_TestReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Transaction">
+        <PropertyRef Name="Tran_Id" />
+      </Principal>
+      <Dependent Role="tbl_TestReport">
+        <PropertyRef Name="Tran_Id_Tran" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_User_Id_User">
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+    <End Role="tbl_TestReport" Type="Self.tbl_TestReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="tbl_TestReport">
+        <PropertyRef Name="User_Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Test_Id_Tran">
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="0..1" />
+    <End Role="tbl_Transaction1" Type="Self.tbl_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Transaction">
+        <PropertyRef Name="Tran_Id" />
+      </Principal>
+      <Dependent Role="tbl_Transaction1">
+        <PropertyRef Name="Test_Id_Tran" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TF_Id">
+    <End Role="tbl_TrueOrFalse" Type="Self.tbl_TrueOrFalse" Multiplicity="0..1" />
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TrueOrFalse">
+        <PropertyRef Name="TF_Id" />
+      </Principal>
+      <Dependent Role="tbl_Transaction">
+        <PropertyRef Name="TF_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_Lakshay_OnlinetestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_FillBlank" EntityType="Self.tbl_FillBlank" />
+    <EntitySet Name="tbl_MCQ" EntityType="Self.tbl_MCQ" />
+    <EntitySet Name="tbl_Subjects" EntityType="Self.tbl_Subjects" />
+    <EntitySet Name="tbl_Test" EntityType="Self.tbl_Test" />
+    <EntitySet Name="tbl_TestReport" EntityType="Self.tbl_TestReport" />
+    <EntitySet Name="tbl_Transaction" EntityType="Self.tbl_Transaction" />
+    <EntitySet Name="tbl_TrueOrFalse" EntityType="Self.tbl_TrueOrFalse" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+    <AssociationSet Name="fk_FB_Id" Association="Self.fk_FB_Id">
+      <End Role="tbl_FillBlank" EntitySet="tbl_FillBlank" />
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sub_Id_FB" Association="Self.fk_Sub_Id_FB">
+      <End Role="tbl_Subjects" EntitySet="tbl_Subjects" />
+      <End Role="tbl_FillBlank" EntitySet="tbl_FillBlank" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MCQ_Id" Association="Self.fk_MCQ_Id">
+      <End Role="tbl_MCQ" EntitySet="tbl_MCQ" />
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sub_Id_MCQ" Association="Self.fk_Sub_Id_MCQ">
+      <End Role="tbl_Subjects" EntitySet="tbl_Subjects" />
+      <End Role="tbl_MCQ" EntitySet="tbl_MCQ" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sub_Id_Test" Association="Self.fk_Sub_Id_Test">
+      <End Role="tbl_Subjects" EntitySet="tbl_Subjects" />
+      <End Role="tbl_Test" EntitySet="tbl_Test" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sub_Id_TF" Association="Self.fk_Sub_Id_TF">
+      <End Role="tbl_Subjects" EntitySet="tbl_Subjects" />
+      <End Role="tbl_TrueOrFalse" EntitySet="tbl_TrueOrFalse" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Test_Id_TestRep" Association="Self.fk_Test_Id_TestRep">
+      <End Role="tbl_Test" EntitySet="tbl_Test" />
+      <End Role="tbl_TestReport" EntitySet="tbl_TestReport" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Tran_Id_Tran" Association="Self.fk_Tran_Id_Tran">
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+      <End Role="tbl_TestReport" EntitySet="tbl_TestReport" />
+    </AssociationSet>
+    <AssociationSet Name="fk_User_Id_User" Association="Self.fk_User_Id_User">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_TestReport" EntitySet="tbl_TestReport" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Test_Id_Tran" Association="Self.fk_Test_Id_Tran">
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+      <End Role="tbl_Transaction1" EntitySet="tbl_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TF_Id" Association="Self.fk_TF_Id">
+      <End Role="tbl_TrueOrFalse" EntitySet="tbl_TrueOrFalse" />
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

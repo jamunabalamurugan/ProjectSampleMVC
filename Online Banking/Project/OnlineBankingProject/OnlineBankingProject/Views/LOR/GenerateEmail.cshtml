@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>GenerateEmail</title>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h3>Are you sure you want to send the Account Number to the Email-id? Then Click on send</h3>
+    <div>
+
+        <form method="post"
+              action="GenerateEmail">
+
+            <input class="btn btn-primary"
+                   type="submit"
+                   value="Send" />
+
+        </form>
+
+    </div>
+    <hr />
+    <footer>
+        <p>Terms of Use| &copy; @DateTime.Now.Year -SNK Bank Copyright Reserved </p>
+    </footer>
+
+</body>
+</html>

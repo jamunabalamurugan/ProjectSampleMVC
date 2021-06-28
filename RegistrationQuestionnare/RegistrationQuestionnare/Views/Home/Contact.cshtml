@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "Contact Us";
+}
+
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    #navigbar {
+        box-shadow: rgba(0,0,0,0.3) 5px 5px 5px 5px;
+        -moz-border-radius: 35px;
+        -webkit-border-radius: 35px;
+        border-radius: 35px;
+        margin-top: 10px;
+        background-color: white;
+        height: 40px;
+    }
+
+    li {
+        margin-right: 20px;
+    }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Float four columns side by side */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding */
+    .row {
+        margin: 0 -5px;
+    }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+        height: 500px;
+        width: 100%;
+        border-radius: 32px;
+        background-image: linear-gradient(to bottom right, #EDA306, #F5BA14);
+    }
+
+
+    #mapimg {
+        border-radius: 25px;
+        width: 100%;
+        height: 300px;
+        bottom: 10px;
+    }
+
+    .glyphicon-envelope {
+        height: 50px;
+        width: 50px;
+    }
+
+    #contactusText {
+        border-radius: 32px;
+        background-color: #0DACF4;
+        width: 250px;
+        height: 40px;
+        color: white;
+        text-decoration: none;
+        font-family: 'Segoe UI';
+        border: none;
+        outline: none;
+    }
+
+    h3 {
+        color: white;
+        font-family: 'Segoe UI';
+    }
+</style>
+
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h3>Write to us ! we will get back to you soon !</h3>
+
+                    <center>
+                        <button id="contactusText">
+                            <h4>
+                                irelaxapp@gmail.com
+                            </h4>
+                        </button>
+                    </center>
+                    <br /> <br />
+                    <img src="~/images/gmail.jpg" id="mapimg" alt="DLF Map">
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <a href="https://www.google.com/maps/place/10,+DLF+IT+Park+Rd,+Manapakkam,+Chennai,+Tamil+Nadu+600125" target="_blank">
+                        <img src="~/images/dlfmap.png" id="mapimg" alt="DLF Map">
+                    </a>
+                    <br />  <br />
+                    <div class="card-body">
+                        <center>
+                            <button id="contactusText">
+
+                                <h4>Click image for directions</h4>
+
+                            </button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <br />
+    <br />
+</body>

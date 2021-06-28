@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "StartGame";
+}
+
+<head>
+    <style>
+        h1 {
+            text-shadow: 0 0 3px #FF0000;
+        }
+
+        #submitbutton {
+            padding: 5px 10px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+        }
+
+        #roundedcorner {
+            margin: 50px;
+            background-image: linear-gradient(to bottom right,#3b6d6d,#87ceeb);
+            border-radius: 25px;
+            /*background: #73AD21;*/
+            padding: 20px;
+            width: 65%;
+            height: 60%;
+        }
+
+        #guess {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<center>
+    <br />
+
+    <div id="roundedcorner">
+        <h1>Guess The Brand</h1><br />
+        <img src="~/Images1/guess.png" id="guess"><br /><br />
+        <input type="button" value="Play Quiz" onclick="window.location.href='http://localhost:52768/GTB/LogoDisplay'" id="submitbutton" />
+    </div>
+</center>
+@ViewBag.exception

@@ -1,0 +1,50 @@
+﻿@model OnlineExamSystem.Models.QUESTION
+
+@{
+    ViewBag.Title = "SelectTechnology";
+}
+
+<h2>Select Technology</h2>
+<br />
+<input class="btn-info" type="button" value="Go to Dashboard" onclick="@("window.location.href='" + @Url.Action("UserDashboard", "User") + "'");" />
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <br />
+        <br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TECHNOLOGY_ID, "Technology", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TECHNOLOGY_ID", new SelectList(ViewBag.TECHNOLOGies, "TECHNOLOGY_ID", "TECHNOLOGY_NAME"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TECHNOLOGY_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Take Test" class="btn-info" />
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br /> 
+    <br />
+    <br /> 
+    <br />
+  
+    <br /> 
+    <br />
+    <br />
+}

@@ -1,0 +1,235 @@
+﻿@{
+    ViewBag.Title = "DailyActivities";
+    Layout = "~/Views/Shared/_Layoutw.cshtml";
+}
+<script>
+    //window.onload = function () {
+    //    alert("in");
+    //};
+   var duration = '@Session["duration"]';
+    //duration = 2000;
+    (function addDot() {
+        setTimeout(function () {
+            alert("Your Activity duration is completed!");
+            window.location = 'http://localhost:52768/Main/Dashboard';
+            //window.location = 'https://www.google.com/';
+        }, duration);
+    })();
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<style>
+    .button {
+        text-align: center;
+        background: blue;
+        font-size: 20px;
+        padding: 10px;
+        margin: 25px;
+        color: white;
+    }
+
+    #myCarousel {
+        border-radius: 32px;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+    }
+
+    .carousel-control, #carousel2control {
+        outline: none;
+        border: none;
+        border-radius: 32px;
+        background-image: none !important;
+        filter: none !important;
+    }
+
+    #imgCarousal {
+        width: 100%;
+        height: 90%;
+    }
+
+
+    #btnVisit {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 30px;
+        border-radius: 32px;
+        background-color: #fec84e;
+        background-image: linear-gradient(315deg, #fec84e 0%, #ffdea8 74%);
+        width: 200px;
+        height: 50px;
+        letter-spacing: 5px;
+        text-decoration: none;
+        color: white;
+    }
+
+    h2 {
+        position: center;
+        text-align: left;
+        background-color: black;
+        -webkit-background-clip: Text;
+        -webkit-text-fill-color: transparent;
+        font-family: 'Roboto', sans-serif;
+        margin: 5px;
+    }
+
+
+    .left {
+        text-align: center;
+        display: inline-block;
+    }
+
+    left > right {
+        text-align: center;
+        display: inline-block;
+    }
+
+
+
+    .right {
+        display: inline-block;
+    }
+
+
+
+    li {
+        margin-right: 20px;
+    }
+
+
+    #btnContainer {
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        width: 300px;
+        margin: 20px;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        /*min-height: 50vh;*/
+    }
+
+    .btn {
+        flex: 1 1 auto;
+        margin: 50px;
+        padding: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        text-decoration: none;
+        color: white;
+        border-radius: 32px;
+        font-size: 20px;
+        font-family: 'Segoe UI';
+    }
+
+
+
+        .btn:hover {
+            background-position: right center; /* change the direction of the change here */
+            text-decoration: none;
+            color: white;
+        }
+
+    .btn {
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+    }
+
+    #btnsOtherActivities {
+        margin-left: 30px;
+        text-decoration: none;
+        color: white;
+    }
+
+    a {
+        text-decoration: none !important;
+        color: white;
+    }
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="border-radius:32px;">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            @for (int i = 2; i <= 3; i++)
+            {
+                <li data-target="#myCarousel" data-slide-to=i></li>
+            }
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" style="border-radius:32px;">
+            @{
+                var activityname = Session["actname"];
+                //activityname = "Music";
+                var activityid = Session["actid"];
+                //activityid = 3;
+                var path1 = "~/Images/" + activityid + "/1.png";
+                <div class="item active" style="border-radius:32px;">
+                    <img src="@Url.Content(path1)" id="imgCarousal">
+                </div>
+            }
+            @{for (int i = 2; i <= 3; i++)
+                {
+                    var activityid1 = Session["actid"];
+                    //activityid1 = 3;
+                    int si = Convert.ToInt32(i);
+                    string path = "~/Images/" + activityid1 + "/" + si + ".png";
+                    <div class="item" style="border-radius:32px;">
+                        <img src="@Url.Content(path)" id="imgCarousal">
+                    </div>
+                }
+            }
+        </div>
+
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<div class="container-fluid" id="btnsOtherActivities">
+    <div class="row">
+        @{
+            foreach (var act in ViewBag.daily)
+            {
+                string name = act.vDActivityName;
+                int id = act.iDActivityID;
+                string sid = Convert.ToString(id);
+                <div class="col-md-4 btn" id="btnContainer">
+                    @Html.ActionLink(name, "DailyActivities", "Daily", new { ActivityID = id }, null)
+                    @*<a href="" style="color:white;">@act.vWActivityName</a>*@
+                </div>
+            }
+        }
+    </div>
+</div>
+@ViewBag.exception

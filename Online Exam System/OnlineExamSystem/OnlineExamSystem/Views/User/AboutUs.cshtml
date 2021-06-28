@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "AboutUs";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <br />
+    <h2 style="text-align:center"> About Tech Blast </h2>
+    <div style="width: 100%; padding:5%; text-align:center">
+        <style>
+            ul.star-shaped-bullet {
+                margin: 0;
+                list-style: none;
+                text-align: left
+            }
+
+                ul.star-shaped-bullet li:before {
+                    content: "\223E"
+                }
+        </style>
+        <ul class="star-shaped-bullet" style="text-align:center">
+            <li> A Place to Check your technological knowledge and skills </li>
+            <li> Tech Blast gives the user friendly experience in taking online exams </li>
+            <li> Multiple skills check at one place at your disposal </li>
+            <li> Your scores and levels help you to analyze yourself </li>
+            <li> Tech Blast is a pioneer in online examination field </li>            
+        </ul>
+        <br />
+        <br />
+
+        <address style="text-align:center">
+            Tech Blast<br />
+            Redmond, WA 98052-6399<br />
+            <abbr title="Phone">Phone:</abbr>
+            044-27775534
+        </address>
+
+        <address style="text-align:center">
+            <strong>Student Helpdesk:</strong>   <a href="mailto:sangfroidshakthi@gmail.com">Support@techblast.com</a><br />
+            <strong>Marketing:</strong> <a  href="mailto:sangfroidshakthi@gmail.com">Marketing@techblast.com</a>
+        </address>
+        </div>
+        }

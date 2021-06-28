@@ -1,0 +1,48 @@
+﻿@model IEnumerable<OnlineExamSystem.Models.QUESTION>
+
+@{
+    ViewBag.Title = "ViewQuestions";
+}
+
+<h2 style="text-align:center">View Questions</h2>
+<br />
+<input class="btn-info" type="button" value="Go to Dashboard" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Admin") + "'");" />
+<br />
+
+<h4>
+    @Html.ActionLink("Click here to Add new Questions", "AddQuestions", null, new { @class = "my-class" })
+</h4>
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QUESTION1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEST_LEVEL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TECHNOLOGY.TECHNOLOGY_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUESTION1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEST_LEVEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TECHNOLOGY.TECHNOLOGY_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Remove", "DeleteQuestions", new { id = item.QUESTION_ID})
+        </td>
+    </tr>
+    }
+</table>

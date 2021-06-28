@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Rash_Airlines.Models.Place>
+
+@{
+    ViewBag.Title = "Place Display";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center">Places</h2>
+
+<p>
+    <button class="button button1 btn-block"> @Html.ActionLink("Add New Places", "Create") </button>
+</p>
+<table class="table table-hover table-responsive" style="font-weight:700;font-size:12px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.place_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.place_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.place_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.place_name)
+        </td>
+        <td>
+            <button class="button button1">
+                @Html.ActionLink("Edit", "Edit_Places", new { id = item.place_id }) </button>
+                <button class="button button1">
+                    @Html.ActionLink("Details", "Details_Places", new { id = item.place_id })
+                    </button>
+                    <button class="button button1">  @Html.ActionLink("Delete", "Delete_Places", new { id = item.place_id })</button>
+</td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+@{
+    ViewBag.Title = "Contact";
+}
+<style>
+    .con_left_img {
+        clip-path: polygon(0% 0%, 25% 0, 56% 51%, 25% 100%, 0% 100%);
+    }
+    .con_right_img {
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    }
+    .contact
+    {
+        font-family:'Comic Sans MS';
+        font-size:medium;
+        font-style:italic;
+        margin-right:40px;
+    }
+</style>
+
+
+
+
+
+<div class="row">
+
+    <div class="col-lg-8"><img class="con_left_img" style="margin-left:1px;" src="~/Controllers/images/contact.gif" /></div>
+
+    <div class="col-lg-4">
+        <br>
+
+        <div class="contact" style="margin-top:50px;"> <h3> <br /> Tirumala Kulkarni <br> </h3> Tirumala.Kulkarni@lntinfotech.com  </div>
+
+    </div>
+
+
+
+
+    <div class="col-lg-8"><img class="con_left_img" style="margin-left:1px;" src="~/Controllers/images/contact1.gif" /></div>
+    <div class="col-lg-4 pull-right">
+        <br>
+        <div class="contact"  style="margin-bottom:6px;"> <h3> <br /> Rashmi RV <br> </h3> Rashmi.RV@lntinfotech.com  </div>
+
+    </div>
+    <div class="col-lg-4">
+        <br>
+
+        <div class="contact" style="margin-top:35px;"> <h3> <u> </u> <br /> Neha Vijayananda <br>  </h3> Neha.Vijayananda@lntinfotech.com </div>
+
+    </div>
+
+    <div class="col-lg-4">
+        <br>
+        <div class="contact pull-right" style="margin-top:480px;"> <h3> <u>  </u> <br /> Vineet Mallya <br></h3> Vineet.Mallya@lntinfotech.com  </div>
+
+    </div>
+</div>
+

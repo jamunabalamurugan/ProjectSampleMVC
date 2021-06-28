@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "LoginLink";
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+
+<div>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Login
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Admin", "AdminLogin", "LOR")</li>
+                    <li>@Html.ActionLink("User", "Login", "LOR")</li>
+                </ul>
+            </div>
+        </li>
+        @*Html.Partial("_LoginPartial")*@
+        <li>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Signup
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Register", "Register", "LOR")</li>
+                    <li>@Html.ActionLink("Open New Account", "SavingAccount", "LOR")</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<projectOnlineShopping.Models.retailer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<br /><br /><br />
+<div class="container" style="font-family:Algerian;">
+    <div class="row">
+        <div class="col-md-12">
+            <input class="btn btn-info" type="button" value="Back to choices" onclick="@("window.location.href='" + @Url.Action("Choices", "retailers") + "'");" />
+        </div>
+    </div>
+</div>
+<br /><br /><br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNo)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.phoneNo)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.ActionLink("Change the details of this Retailer", "Edit", new { id = item.retailerId }) |
+                @Html.ActionLink("View details of this Retailer", "Details", new { id = item.retailerId }) |
+                @Html.ActionLink("Remove this Retailer", "Delete", new { id = item.retailerId })
+            </td>
+        </tr>
+    }
+
+</table>

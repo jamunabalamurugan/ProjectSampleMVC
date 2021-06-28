@@ -1,0 +1,226 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<style>
+    .bg-text {
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 200px;
+        height: 200px;
+        perspective: 1000px;
+        border-radius: 35px;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 35px;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+        border-radius: 35px;
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 35px;
+    }
+
+    .flip-card-front {
+        background-color: #bbb;
+        color: black;
+        border-radius: 35px;
+    }
+
+
+    .flip-card-back {
+        background-color: #2980b9;
+        color: white;
+        transform: rotateY(180deg);
+        border-radius: 35px;
+    }
+
+    .centered {
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+        border-radius: 35px;
+    }
+
+    body {
+        background-image: url("Images/iStock_74516649_0816.jpg");
+        border-radius: 35px;
+    }
+
+    img {
+        border-radius: 35px;
+    }
+</style>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <center>
+        <div class="bg-text">
+            <p>
+                “It's never too early or too late to work towards being the Healthiest YOU when iRELAX walks next to you!”<br>
+                We'll be there for you :)<br />nanga irukom <span class="glyphicon glyphicon-heart"></span>
+            </p>
+        </div><br /><br />
+        <br />
+        <br />
+        <div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        @*<img src="img_avatar.png" alt="Avatar" >*@
+                        <img src="~/Images/anant.jpg" style="width:200px;height:200px;">
+
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Anant</h1>
+                        <p>Team Leader</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        @*<img src="img_avatar.png" alt="Avatar" >*@
+                        <img src="~/Images/anurag.jpg" style="width:200px;height:200px;">
+
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Anurag</h1>
+                        <p>Product Owner</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        @*<img src="img_avatar.png" alt="Avatar" >*@
+                        <img src="~/Images/ashwini.jpg" style="width:200px;height:200px;" />
+
+
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Ashwini</h1>
+                        <p>Database Administration</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        @*<img src="img_avatar.png" alt="Avatar" >*@
+                        <img src="~/Images/k.jpg" style="width:200px;height:200px;">
+
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Komal</h1>
+                        <p>UI Validatior</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        @*<img src="img_avatar.png" alt="Avatar" >*@
+                        <img src="~/Images/Rohini.jpg" style="width:200px;height:200px;">
+
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Rohini</h1>
+                        <p>Database Administration</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        @*<img src="img_avatar.png" alt="Avatar" >*@
+                        <img src="~/Images/rudram.jpg" style="width:200px;height:200px;">
+
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Rudram</h1>
+                        <p>Scrum Master</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        @*<img src="img_avatar.png" alt="Avatar" >*@
+                        <img src="~/Images/Trupti (1).jpg" style="width:200px;height:200px;">
+
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Trupti</h1>
+                        <p>Project Performance Tester</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        @*<img src="img_avatar.png" alt="Avatar" >*@
+                        <img src="~/Images/vishal.jpg" style="width:200px;height:200px;">
+
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Vishal</h1>
+                        <p>UI Lead</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </center>
+    <br />
+    <br />
+    <br />
+</body>

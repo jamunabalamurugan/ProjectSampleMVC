@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OnlineExamSystemModelStoreContainer" CdmEntityContainer="OnlineExamSystemEntities1">
+    <EntitySetMapping Name="QUESTIONs">
+      <EntityTypeMapping TypeName="OnlineExamSystemModel.QUESTION">
+        <MappingFragment StoreEntitySet="QUESTION">
+          <ScalarProperty Name="QUESTION_ID" ColumnName="QUESTION_ID" />
+          <ScalarProperty Name="TECHNOLOGY_ID" ColumnName="TECHNOLOGY_ID" />
+          <ScalarProperty Name="QUESTION1" ColumnName="QUESTION" />
+          <ScalarProperty Name="OPTION1" ColumnName="OPTION1" />
+          <ScalarProperty Name="OPTION2" ColumnName="OPTION2" />
+          <ScalarProperty Name="OPTION3" ColumnName="OPTION3" />
+          <ScalarProperty Name="OPTION4" ColumnName="OPTION4" />
+          <ScalarProperty Name="RIGHT_ANSWER" ColumnName="RIGHT_ANSWER" />
+          <ScalarProperty Name="TEST_LEVEL" ColumnName="TEST_LEVEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REPORTs">
+      <EntityTypeMapping TypeName="OnlineExamSystemModel.REPORT">
+        <MappingFragment StoreEntitySet="REPORT">
+          <ScalarProperty Name="REPORT_ID" ColumnName="REPORT_ID" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+          <ScalarProperty Name="TEST_LEVEL" ColumnName="TEST_LEVEL" />
+          <ScalarProperty Name="TECHNOLOGY_ID" ColumnName="TECHNOLOGY_ID" />
+          <ScalarProperty Name="DATE_OF_EXAM" ColumnName="DATE_OF_EXAM" />
+          <ScalarProperty Name="SCORE" ColumnName="SCORE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TECHNOLOGies">
+      <EntityTypeMapping TypeName="OnlineExamSystemModel.TECHNOLOGY">
+        <MappingFragment StoreEntitySet="TECHNOLOGY">
+          <ScalarProperty Name="TECHNOLOGY_ID" ColumnName="TECHNOLOGY_ID" />
+          <ScalarProperty Name="TECHNOLOGY_NAME" ColumnName="TECHNOLOGY_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_DETAIL">
+      <EntityTypeMapping TypeName="OnlineExamSystemModel.USER_DETAIL">
+        <MappingFragment StoreEntitySet="USER_DETAIL">
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="QUALIFICATION" ColumnName="QUALIFICATION" />
+          <ScalarProperty Name="YEAR_OF_COMPLETION" ColumnName="YEAR_OF_COMPLETION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

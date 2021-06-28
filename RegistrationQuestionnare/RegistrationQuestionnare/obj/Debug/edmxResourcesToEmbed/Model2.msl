@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ImageDBModelStoreContainer" CdmEntityContainer="ImageDBEntities">
+    <EntitySetMapping Name="ImageSets">
+      <EntityTypeMapping TypeName="ImageDBModel.ImageSet">
+        <MappingFragment StoreEntitySet="ImageSet">
+          <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="vOption1" ColumnName="vOption1" />
+          <ScalarProperty Name="vOption2" ColumnName="vOption2" />
+          <ScalarProperty Name="vOption3" ColumnName="vOption3" />
+          <ScalarProperty Name="vCorrectOption" ColumnName="vCorrectOption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

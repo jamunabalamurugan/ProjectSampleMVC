@@ -1,0 +1,67 @@
+
+<div class="cockpit">
+@{
+
+    var i = 0;
+    var loop_check = 0;
+    for (i = 1; i <= 200; i++)
+    {
+        if (i % 6 == 0)
+        {
+            <br />
+        }
+
+        loop_check = 0;
+        foreach (var item in Model)
+        {
+            var s = item.seat_no;
+            if (i == s)
+            {
+                
+                        <input class="btn btn-info btn-sm" type="button" id="button" disabled value="@i" style="color:black;" @*onclick="setColor(event)"*@ ; data-count="1" />
+                
+                loop_check = 1;
+                break;
+            }
+
+
+        }
+        if (loop_check == 0)
+        {
+          
+                          <input class="btn btn-info btn-sm" type="button" id="button" value="@i" style="color:black;" @*onclick="setColor(event)"*@ ; data-count="1" />
+            
+        }
+            
+                       
+        }
+                    }
+
+</div>
+
+
+
+
+
+<style>
+    .cockpit {
+        height: 1250px;
+        position:relative;
+        margin-left:750px;
+        overflow: hidden;
+        text-align: center;      
+    }
+        
+    </style>
+
+
+
+
+<p>
+    <input type="submit" name="setValue" id="setValue" value="submit" onclick="setValue(this.value)" />
+</p>
+<p>
+    <label>
+        <input type="text" name="button" id="button" />
+    </label>
+</p>

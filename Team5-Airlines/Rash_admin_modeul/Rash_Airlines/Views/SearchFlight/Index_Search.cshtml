@@ -1,0 +1,126 @@
+﻿@using Rash_Airlines.Models
+@model IEnumerable<search_flight_Result>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<body id="bg">
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="flight-engine">
+                <div class="top-right" style="font-family:'Tahoma', Geneva, Verdana, sans-serif">Plan your Trip</div>
+                <div class="container">
+                    <div class="tabing">
+                        <ul>
+                            <li>
+                                <a class="active"><i class="fa fa-plane" aria-hidden="true"></i> Flight</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="1" class="tab1 active">
+                                <div class="flight-tab row">
+                                    <div class="persent-one">
+
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                       @using (Html.BeginForm())
+                                       {
+                                                @Html.DropDownList("dep", null, "From", htmlAttributes: new { @class = "textboxstyle" })
+
+                                        <div class="persent-one">
+                                            <i class="fa fa-map-marker" id="arrival" aria-hidden="true"></i>
+                                            @Html.DropDownList("arr", null, "To", htmlAttributes: new { @class = "textboxstyle" })
+                                        </div>
+                                        <div class="persent-one less-per">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            <input type="date" name="fromdate" class="textboxstyle" id="from-date1" placeholder="Depart" required>
+                                        </div>
+
+                                        <div class="persent-one less-btn">
+                                            <input type="Submit" name="submit" value="Search" onclick="loc()" class="btn btn-info cst-btn" id="srch">
+                                        </div>
+                                       }
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+
+                    <div class="container" id="imagepanel">
+                        <div class="row justify-content-center">
+                            <div style="text-align:center;text-shadow:2px 2px 3px #333;font-size: x-large;">The Rash Expeirence</div><br />
+                            <div class="col-lg-3">
+                                <div class="card inner" style="width: 25rem;">
+                                    <img class="card-img-top" src="~/images/seats.jpg" alt="Card image cap" style="width: 270px;height:150px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><br />Economy Class Seats</h4>
+                                        <p class="card-text">
+                                            Best in class economy seats with sufficient leg room at great prices.
+                                            Relax, Recline and enjoy the comfort for your travel.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3" id="imagepanel">
+                                <div class="card inner " style="width: 25rem;">
+                                    <img class="card-img-top " src="~/images/seats.jpg" alt="Card image cap" style="width: 270px;height:150px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><br />Buisness Class</h4>
+                                        <p class="card-text">WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3" id="imagepanel">
+                                <div class="card inner" style="width: 25rem;">
+                                    <img class="card-img-top" src="~/images/index.jpg" alt="Card image cap" style="width: 270px;height:150px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><br />Inflight Entertainment </h4>
+                                        <p class="card-text">WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3" id="imagepanel">
+                                <div class="card inner" style="width: 25rem;">
+                                    <img class="card-img-top" src="~/images/home.jpg" alt="Card image cap" style="width: 270px;height:150px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><br />Wifi Enabled </h4>
+                                        <p class="card-text">WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT WRITE NEESARY CONTENT</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    @* END of three image row *@
+                    <hr style="border:0.5px solid black;" />
+                </div>
+
+
+
+
+                <div class="col-md-4">
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                </div>
+
+
+            </div>
+
+</body>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="18b6bcb6323143c290e4b49c4b6d8cf6" Name="Diagram1">
+        <EntityTypeShape EntityType="onlineShoppingModel.adminTable" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineShoppingModel.cart" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineShoppingModel.categoryDetail" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineShoppingModel.orderDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineShoppingModel.orderTable" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineShoppingModel.productDescription" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineShoppingModel.registrationTable" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineShoppingModel.retailer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineShoppingModel.sysdiagram" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="onlineShoppingModel.FK__cart__itemId__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="onlineShoppingModel.FK__cart__userId__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="onlineShoppingModel.FK__productDe__categ__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="onlineShoppingModel.foreign_work" ManuallyRouted="false" />
+        <AssociationConnector Association="onlineShoppingModel.foreign_works" ManuallyRouted="false" />
+        <AssociationConnector Association="onlineShoppingModel.FK__orderTabl__custo__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="onlineShoppingModel.FK__productDe__retai__412EB0B6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

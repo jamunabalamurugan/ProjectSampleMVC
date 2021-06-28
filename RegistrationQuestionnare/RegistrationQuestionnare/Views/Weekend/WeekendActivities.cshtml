@@ -1,0 +1,237 @@
+﻿@{
+    ViewBag.Title = "Weekend Activities";
+    Layout = "~/Views/Shared/_Layoutw.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<style>
+
+
+    .card-img-top {
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        width: 100%;
+        height: 200px;
+        display: inline-block;
+        background-color: none;
+        outline: none;
+        border: none;
+    }
+
+    .card {
+        border-radius: 32px;
+        box-shadow: rgba(0,0,0,0.3) 5px 5px 5px 5px;
+        height: 270px;
+        display: inline-block;
+        background-color: none;
+        outline: none;
+        border: none;
+    }
+
+    .card-body {
+        border-bottom-left-radius: 35px;
+        border-bottom-right-radius: 35px;
+        display: inline-block;
+        height: 290px;
+        background-color: none;
+        outline: none;
+        border: none;
+        box-shadow: rgba(0,0,0,0.3) 5px 5px 5px 5px;
+    }
+
+    .card-title {
+        display: inline-block;
+    }
+
+    .card-text {
+        margin: 20px;
+        justify-content: flex-start;
+        font-family: 'Montserrat';
+        font-size: 10px;
+        color: black;
+        display: inline-block;
+        outline: none;
+        border: none;
+    }
+
+    #btnVisit {
+        outline: none;
+        border: none;
+        font-family: 'Montserrat';
+        font-size: 30px;
+        border-radius: 32px;
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        width: 200px;
+        height: 50px;
+        letter-spacing: 5px;
+        text-decoration: none;
+        color: white;
+    }
+
+    h2 {
+        position: center;
+        text-align: left;
+        background-color: black;
+        -webkit-background-clip: Text;
+        -webkit-text-fill-color: transparent;
+        font-family: 'Roboto', sans-serif;
+        margin: 5px;
+    }
+
+
+    .left {
+        text-align: center;
+        display: inline-block;
+    }
+
+    left > right {
+        text-align: center;
+        display: inline-block;
+    }
+
+
+
+    .right {
+        display: inline-block;
+    }
+
+
+
+    li {
+        margin-right: 20px;
+    }
+
+
+    #btnContainer {
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        width: 200px;
+        margin: 20px;
+        text-decoration: none;
+        color: white;
+        /*min-height: 50vh;*/
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+    }
+
+    .btn {
+        flex: 1 1 auto;
+        margin: 50px;
+        padding: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+        text-decoration: none;
+        color: white;
+        border-radius: 32px;
+        font-size: 20px;
+        font-family: 'Segoe UI';
+    }
+
+
+
+        .btn:hover {
+            background-position: right center; /* change the direction of the change here */
+            text-decoration: none;
+            color: black;;
+        }
+
+    .btn {
+        background-color: #310e68;
+        background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+    }
+
+    #btnsOtherActivities {
+        margin-left: 30px;
+        text-decoration: none;
+        color: black;;
+       
+    }
+
+    a {
+        text-decoration: none !important;
+        color: white;
+    }
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+
+<body>
+    <br /><br /><br />
+    <div class="container-fluid">
+        <div class="row" @*style="background:red;"*@>
+            @{
+                int counter = 3;
+
+                foreach (var place in ViewBag.places)
+                {
+                    counter--;
+                    <div class="col-md-4 col-lg-3" style="margin:20px;">
+                        <div class="card" style="width:300px;height:490px;">
+                            <img class="card-img-top" src="@place.vImageLink" style="width:100%">
+                            <div class="card-body">
+                                <div class="left">
+                                    <div>
+                                        <h2 class="card-title" style="display:inline-block">@place.vPlaceName</h2>
+                                    </div>
+                                </div>
+                                <br>
+                                @*<div class="right">
+                                        <div>
+                                            <h2 class="card-title">@place.vCity</h2>
+                                        </div>
+                                    </div>*@
+                                <p class="card-text">
+                                    @place.vDescription
+                                </p>
+                                @*<a href="#" class="btn btn-primary">visit</a>*@
+                                <center>
+                                    <button id="btnVisit">
+                                        <a target="_blank" href="https://www.google.com/search?q=@place.vPlaceName" >Visit</a>
+                                    </button>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    if (counter == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+        </div>
+    </div>
+    <br /><br /><br />
+    <div class="container-fluid" id="btnsOtherActivities">
+        <div class="row">
+            @{
+                foreach (var act in ViewBag.weekends)
+                {
+                    string name = act.vWActivityName;
+                    int id = act.iWActivityID;
+                    string sid = Convert.ToString(id);
+                    <div class="col-md-2 btn" id="btnContainer">
+                        @Html.ActionLink(name, "WeekendActivities", "Weekend", new { ActivityID = id }, null)
+                        @*<a href="" style="color:white;">@act.vWActivityName</a>*@
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    @ViewBag.exception
+</body>

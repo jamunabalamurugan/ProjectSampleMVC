@@ -1,0 +1,114 @@
+use OnlineBanking
+
+create Table Open_Savings_Account(
+Account_Number bigint Identity (1006320000123450,1),
+First_Name varchar(255) not null,
+Last_Name varchar(255),
+Father_Name varchar(255) not null,
+Mobile_Number varchar(10),
+Email_Id varchar(225),
+AadharCard_Number varchar(225),
+Date_Of_Birth Date,
+Residential_Address_Line1 varchar(255),
+Residential_Address_Line2 varchar(255),
+Residential_Landmark varchar(150),
+Residential_State varchar(150),
+Residential_City varchar(150),
+Residential_Pincode varchar(10),
+Permanent_Address_Line1 varchar(255),
+Permanent_Address_Line2 varchar(255),
+Permanent_Landmark varchar(150),
+Permanent_State varchar(150),
+Permanent_City varchar(150),
+Permanent_Pincode varchar(10),
+Occupational_type varchar(255),
+Source_Of_Income varchar(255),
+Gross_Annual_income varchar(10),
+Balance money,
+Approve_Status varchar(10),
+primary key (Account_Number) )
+
+insert into Open_Savings_Account values ('Shriya', 'sp','Prasanna', '9149347981','shriya.sprasanna@gmail.com','164313456532','02-28-1997',
+'No.111, C Block, Venketwings Royal','Shivanahalli Yelahanka Old Town','Raithara Santhe','Karnataka','Bangalore','560064', 'No.111, C Block,
+ Venketwings Royal','Shivanahalli, Yelahanka Old Town','Raithara Santhe','Karnataka','Bangalore','560064', 'GET', 'Job', '3.5',2350000,'')
+
+insert into Open_Savings_Account values ('Sowndariya', 'k','kamaraj', '8870119556','sowndariyak01@gmail.com','765313456532','12-18-1997',
+'No.11, Lingappan Palayam street','Pillaiyar Palayam','Near Csm school','TamilNadu','Kanchipuram','631502', 'No.11, Lingappan Palayam street',
+'Pillaiyar Palayam','Near Csm school','TamilNadu','Kanchipuram','631502', 'GET', 'JOB', '3.4' ,1750000,'')
+
+
+select *from Open_Savings_Account
+
+drop table Open_Savings_Account
+
+
+Create table Registration_table(
+Ruser_Id varchar(255),
+Account_Number bigint,
+Email_Id varchar(255),
+Login_Password varchar(255),
+Transaction_Password varchar(255),
+primary key (Ruser_Id),
+FOREIGN KEY (Account_Number) REFERENCES Open_Savings_Account(Account_Number))
+
+select*from Registration_table
+
+drop table Registration_table
+
+insert into Registration_table values ('Shriya',1006320000123450,'shriya.sprasanna@gmail.com', 'shriya','shriya')
+insert into Registration_table values ('Sownd',1006320000123451,'sowndariyak01@gmail.com', 'sow','sow')
+
+
+create table Beneficiary_Table(
+Beneficiary_Id int Identity(100,1),
+Beneficiary_Name varchar(255),
+Beneficiary_Account_Number bigint,
+Nick_Name varchar(100),
+Account_Number bigint,
+foreign key(Account_Number)  references Open_Savings_Account(Account_Number),
+primary key (Beneficiary_Id))
+
+sp_help Beneficiary_Table
+select *from Beneficiary_Table
+
+drop table Beneficiary_Table
+
+insert into Beneficiary_Table values ('Kavitha',9876541234567890,'mom',1006320000123450)
+insert into Beneficiary_Table values ('Kavitha', 9876541234567890,'kavi',1006320000123451)
+
+
+
+
+create table Transaction_Table(
+Reference_Id int identity(5000,2),
+Account_Number bigint,
+Beneficiary_Account_Number bigint,
+Transaction_Date date,
+Transaction_Amount int,
+Transaction_Mode varchar(255),
+primary key (Reference_Id),
+foreign key(Account_Number)  references Open_Savings_Account(Account_Number))
+
+               
+select *from Transaction_Table
+
+drop table Transaction_Table
+insert into Transaction_Table  values (1006320000123450,9876541234567890,'11-11-2019',1000,'IMPS')
+
+
+
+select *from Open_Savings_Account
+select*from Registration_table
+select *from Beneficiary_Table
+select *from Transaction_Table
+
+
+
+drop table Open_Savings_Account
+drop table Registration_table
+drop table Beneficiary_Table
+drop table Transaction_Table
+
+
+
+

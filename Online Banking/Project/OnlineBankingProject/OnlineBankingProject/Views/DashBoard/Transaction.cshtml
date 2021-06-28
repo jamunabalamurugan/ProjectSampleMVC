@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Transaction";
+    Layout = "~/Views/Shared/HomePageAfterLogin.cshtml";
+}
+<html>
+<head>
+    <style>
+        body {
+            background-color: lemonchiffon;
+        }
+    </style>
+</head>
+<body>
+    <h3>Please Choose The Mode of Your Transaction</h3>
+    
+        <ol>
+          <li><h4> @Html.ActionLink("Immediate Payment Service Transaction(IMPS)", "Imps")<br /></h4></li>
+           <li><h4>  @Html.ActionLink("National Electronic Funds Transaction(NEFT)", "Neft")<br /></h4></li>
+            <li><h4> @Html.ActionLink("Real Time Gross Settlement(RTGS)", "Rtgs")<br /></h4></li>
+
+        </ol>
+
+
+    
+    </body>
+</html>

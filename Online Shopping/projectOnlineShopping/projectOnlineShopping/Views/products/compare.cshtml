@@ -1,0 +1,317 @@
+﻿
+@{
+    ViewBag.Title = "compare";
+}
+
+
+
+
+
+
+
+@if (Convert.ToBoolean(Session["result"]) == true)
+{
+    @Html.Partial("~/Views/Shared/_cart.cshtml")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row" style="margin:5px">
+    <br /><br />
+
+
+
+
+    <div class="col-md-4">
+        @foreach (var item in Model)
+        {
+            if (item.itemId == Convert.ToInt32(Session["currId"]))
+            {
+                <div class="col-md-4">
+
+                    <br /><br />
+                    @if (item.frontImage != null)
+                    {
+
+
+                        <a href="@Url.Action( "productDescription", "products",new { id=item.itemId,catId=item.categoryId })" style="align-content:center">
+                            <img style="align-content:center" src="@Url.Content(item.frontImage)" height="220" width="300" /><br /><br />
+                        </a>
+
+
+                    }
+                    <br /><br /><br />
+
+
+                    @item.productName <br />
+                    <br />
+                    <p>
+                        Replace your personal computer with is stylish and light weight laptops but get all the features of computer
+                    </p>
+
+
+
+                    <p> @item.currentCost&nbsp;INR<p>
+                </div>
+            }
+
+
+
+        }
+    </div>
+
+
+
+
+    <div class="col-md-4">
+        @foreach (var item in Model)
+        {
+            if (item.itemId == @ViewBag.catIdplus && item.categoryId == Convert.ToInt32(Session["CatogId"]))
+            {
+                <div class="col-md-4">
+
+                    <br /><br />
+                    @if (item.frontImage != null)
+                    {
+
+
+                        <a href="@Url.Action( "productDescription", "products",new { id=item.itemId,catId=item.categoryId })" style="align-content:center">
+                            <img style="align-content:center" src="@Url.Content(item.frontImage)" height="220" width="300" /><br /><br />
+                        </a>
+
+
+                    }
+                    <br /><br /><br />
+
+                    @item.productName <br />
+                    <br />
+                    <p>
+                        Replace your personal computer with is stylish and light weight laptops but get all the features of computer
+                    </p>
+
+                    <p> @item.currentCost&nbsp;INR<p>
+                </div>
+            }
+
+
+        }
+    </div>
+
+
+
+
+
+
+
+    <div class="col-md-4">
+        @foreach (var item in Model)
+        {
+            if (item.itemId == @ViewBag.catIdminus && item.categoryId == Convert.ToInt32(Session["CatogId"]))
+            {
+                <div class="col-md-4">
+
+                    <br /><br />
+                    @if (item.frontImage != null)
+                    {
+
+
+                        <a href="@Url.Action( "productDescription", "products",new { id=item.itemId,catId=item.categoryId })" style="align-content:center">
+                            <img style="align-content:center" src="@Url.Content(item.frontImage)" height="220" width="300" /><br /><br />
+                        </a>
+
+
+                    }
+                    <br /><br /><br />
+                    @*<b style="letter-spacing:1px;">LAPTOP</b><br />*@
+
+                    @item.productName <br />
+                    <br />
+                    <p>
+                        Replace your personal computer with is stylish and light weight laptops but get all the features of computer
+                    </p>
+
+
+
+                    <p> @item.currentCost&nbsp;INR<p>
+                </div>
+            }
+
+
+        }
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div>
+        <h4>productDescription</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.productName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.productName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.productDescription1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.productDescription1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.stock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.stock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.color)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.color)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.backImage)
+            </dt>
+
+            <dd>
+
+                <img src="@Url.Content(Model.backImage)" height="100" width="100" />
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.frontImage)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.frontImage)" height="100" width="100" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sideImage)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.sideImage)" height="100" width="100" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.rating)
+            </dt>
+
+            <dd>
+
+                @Html.DisplayFor(model => model.rating)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.actualCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.actualCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.discount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.discount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.currentCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.currentCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.size)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.size)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.approvalStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.approvalStatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.categoryDetail.categoryName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.categoryDetail.categoryName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.retailer.phoneNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.retailer.phoneNo)
+            </dd>
+
+        </dl>
+    </div>*@
+
+

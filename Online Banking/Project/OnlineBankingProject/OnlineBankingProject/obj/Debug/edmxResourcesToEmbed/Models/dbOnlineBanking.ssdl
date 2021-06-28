@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineBankingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminName" />
+    </Key>
+    <Property Name="AdminName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Beneficiary_Table">
+    <Key>
+      <PropertyRef Name="Beneficiary_Id" />
+    </Key>
+    <Property Name="Beneficiary_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Beneficiary_Name" Type="varchar" MaxLength="255" />
+    <Property Name="Beneficiary_Account_Number" Type="bigint" />
+    <Property Name="Nick_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Account_Number" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Open_Savings_Account">
+    <Key>
+      <PropertyRef Name="Account_Number" />
+    </Key>
+    <Property Name="Account_Number" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="First_Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="255" />
+    <Property Name="Father_Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Mobile_Number" Type="varchar" MaxLength="10" />
+    <Property Name="Email_Id" Type="varchar" MaxLength="225" />
+    <Property Name="AadharCard_Number" Type="varchar" MaxLength="225" />
+    <Property Name="Date_Of_Birth" Type="date" />
+    <Property Name="Residential_Address_Line1" Type="varchar" MaxLength="255" />
+    <Property Name="Residential_Address_Line2" Type="varchar" MaxLength="255" />
+    <Property Name="Residential_Landmark" Type="varchar" MaxLength="150" />
+    <Property Name="Residential_State" Type="varchar" MaxLength="150" />
+    <Property Name="Residential_City" Type="varchar" MaxLength="150" />
+    <Property Name="Residential_Pincode" Type="varchar" MaxLength="10" />
+    <Property Name="Permanent_Address_Line1" Type="varchar" MaxLength="255" />
+    <Property Name="Permanent_Address_Line2" Type="varchar" MaxLength="255" />
+    <Property Name="Permanent_Landmark" Type="varchar" MaxLength="150" />
+    <Property Name="Permanent_State" Type="varchar" MaxLength="150" />
+    <Property Name="Permanent_City" Type="varchar" MaxLength="150" />
+    <Property Name="Permanent_Pincode" Type="varchar" MaxLength="10" />
+    <Property Name="Occupational_type" Type="varchar" MaxLength="255" />
+    <Property Name="Source_Of_Income" Type="varchar" MaxLength="255" />
+    <Property Name="Gross_Annual_income" Type="varchar" MaxLength="10" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="Approve_Status" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Registration_table">
+    <Key>
+      <PropertyRef Name="Ruser_Id" />
+    </Key>
+    <Property Name="Ruser_Id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Account_Number" Type="bigint" />
+    <Property Name="Email_Id" Type="varchar" MaxLength="255" />
+    <Property Name="Login_Password" Type="varchar" MaxLength="255" />
+    <Property Name="Transaction_Password" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Transaction_Table">
+    <Key>
+      <PropertyRef Name="Reference_Id" />
+    </Key>
+    <Property Name="Reference_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account_Number" Type="bigint" />
+    <Property Name="Beneficiary_Account_Number" Type="bigint" />
+    <Property Name="Transaction_Date" Type="date" />
+    <Property Name="Transaction_Amount" Type="int" />
+    <Property Name="Transaction_Mode" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK__Beneficia__Accou__4B7734FF">
+    <End Role="Open_Savings_Account" Type="Self.Open_Savings_Account" Multiplicity="0..1" />
+    <End Role="Beneficiary_Table" Type="Self.Beneficiary_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Open_Savings_Account">
+        <PropertyRef Name="Account_Number" />
+      </Principal>
+      <Dependent Role="Beneficiary_Table">
+        <PropertyRef Name="Account_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__Accou__489AC854">
+    <End Role="Open_Savings_Account" Type="Self.Open_Savings_Account" Multiplicity="0..1" />
+    <End Role="Registration_table" Type="Self.Registration_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Open_Savings_Account">
+        <PropertyRef Name="Account_Number" />
+      </Principal>
+      <Dependent Role="Registration_table">
+        <PropertyRef Name="Account_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__Accou__4E53A1AA">
+    <End Role="Open_Savings_Account" Type="Self.Open_Savings_Account" Multiplicity="0..1" />
+    <End Role="Transaction_Table" Type="Self.Transaction_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Open_Savings_Account">
+        <PropertyRef Name="Account_Number" />
+      </Principal>
+      <Dependent Role="Transaction_Table">
+        <PropertyRef Name="Account_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="OnlineBankingModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Beneficiary_Table" EntityType="Self.Beneficiary_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Open_Savings_Account" EntityType="Self.Open_Savings_Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registration_table" EntityType="Self.Registration_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction_Table" EntityType="Self.Transaction_Table" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Beneficia__Accou__4B7734FF" Association="Self.FK__Beneficia__Accou__4B7734FF">
+      <End Role="Open_Savings_Account" EntitySet="Open_Savings_Account" />
+      <End Role="Beneficiary_Table" EntitySet="Beneficiary_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__Accou__489AC854" Association="Self.FK__Registrat__Accou__489AC854">
+      <End Role="Open_Savings_Account" EntitySet="Open_Savings_Account" />
+      <End Role="Registration_table" EntitySet="Registration_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__Accou__4E53A1AA" Association="Self.FK__Transacti__Accou__4E53A1AA">
+      <End Role="Open_Savings_Account" EntitySet="Open_Savings_Account" />
+      <End Role="Transaction_Table" EntitySet="Transaction_Table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,59 @@
+﻿@model OnlineBankingProject.Models.Transaction_Table
+
+@{
+    ViewBag.Title = "TransactionReceipt";
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+
+<h2>TransactionReceipt</h2>
+
+<div>
+    <h4>Transaction_Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Beneficiary_Account_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beneficiary_Account_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transaction_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transaction_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transaction_Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transaction_Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transaction_Mode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transaction_Mode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Open_Savings_Account.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Open_Savings_Account.First_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back", "HomeAfterLogin", "LOR", new { @class = "form-control" }, null)
+
+</p>

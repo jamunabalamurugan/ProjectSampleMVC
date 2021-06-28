@@ -1,0 +1,118 @@
+﻿@model IEnumerable<projectOnlineShopping.Models.cart>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.productDescription.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productDescription.frontImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productDescription.currentCost)
+        </th>
+
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+    @{
+        int count = 0;
+    }
+    @foreach (var item in Model)
+    {
+        if (item.userId == @ViewBag.cartSpecific)
+        {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.productDescription.productName)
+        </td>
+
+
+
+
+        <td>
+
+            @if (item.productDescription.frontImage != null)
+            {
+                <img src="@Url.Content(item.productDescription.frontImage)" height="100" width="100" />
+            }
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.productDescription.currentCost)
+        </td>
+
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.cartId })
+
+
+        </td>
+
+        @{
+            count = count + item.productDescription.currentCost;
+            Session["TC"] = count;
+
+        }
+
+    </tr>
+        }
+
+    }
+
+
+
+
+</table>
+<h4> Total Cost is : @count </h4>
+
+
+
+
+
+
+
+
+
+
+<div class="container" style="font-family:Algerian;align-content:center;">
+    <div class="row">
+        @{
+            if (Convert.ToBoolean(Session["result"]) == true)
+            {
+
+                <a href="@Url.Action("placeCartOrder", "orderTables")" style="align-content:center">
+                    <input name="submit" type="submit" id="submit" value="Place Order" />
+                </a>
+            }
+            else
+            {
+                bool placeOrderInCart = true;
+                Session["placeOrderInCart"] = placeOrderInCart;
+                <div class="col-md-6">
+                    <input class="btn btn-info" type="button" value="Login to place order" onclick="@("window.location.href='" + @Url.Action("loginPage", "registrationTables") + "'");" />
+                </div>
+            }
+
+        }
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@{
+    Session["TotalCartPrice"] = count;
+}

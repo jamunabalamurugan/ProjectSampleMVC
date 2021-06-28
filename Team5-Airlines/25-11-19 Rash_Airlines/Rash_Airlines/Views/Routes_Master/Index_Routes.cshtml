@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Rash_Airlines.Models.Routes_Master>
+
+@{
+    ViewBag.Title = "Routes Display";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2 style="text-align:center">Routes</h2>
+
+<p>
+    <button class="button button1 btn-block"> @Html.ActionLink("Add New Routes", "Create_Routes") </button>
+</p>
+<table class="table table-responsive table-hover" style="font-weight:700;font-size:13px;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.route_id)
+        </th>
+        <th>
+            @Html.DisplayName("Departure")
+            @*@Html.DisplayNameFor(model => model.Place1.place_name)*@
+        </th>
+        <th>
+            @Html.DisplayName("Arrival")
+            @*@Html.DisplayNameFor(model => model.Place.place_name)*@
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.economy_cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.business_cost)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.route_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Place1.place_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Place.place_name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.economy_cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.business_cost)
+            </td>
+
+
+            <td>
+                <button class="button button1"> @Html.ActionLink("Edit", "Edit_Routes", new { id = item.route_id }) </button>
+                @*<button class="button button1"> @Html.ActionLink("Details", "Details_Routes", new { id = item.route_id }) </button>*@
+                <button class="button button1"> @Html.ActionLink("Delete", "Delete_Routes", new { id = item.route_id })</button>
+            </td>
+        </tr>
+    }
+
+</table>

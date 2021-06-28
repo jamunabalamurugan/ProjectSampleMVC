@@ -1,0 +1,94 @@
+create database seat
+use seat
+
+create table seatno
+(seat_no int)
+
+create table passenger_details
+(first_name varchar(30),last_name varchar(30),age int,seat_no int,cost_per_head float,
+booking_id int ,
+foreign key (booking_id) references booking_det(booking_id))
+drop table passenger_details
+create table booking_det
+(
+	booking_id int primary key identity,
+	no_of_seats int,
+	booking_date datetime default(getdate()),
+)
+
+select * from passenger_details
+
+
+
+
+
+
+
+
+
+@*@{
+        ViewBag.Title = "Seat";
+    }
+
+    <h2>Seat</h2>
+
+    @for (int i = 1; i < 7; i++)
+    {
+        char s = '@';
+        for (int j = 1; j < 19; j++)
+        {
+            s++;
+            <input type="button" id="btn" value="@i@s" onclick="setColor('button', '#101010')" />
+        }
+    }*@
+<script>
+    function setColor(e) {
+        var target = e.target, count = +target.dataset.count;
+
+        target.style.backgroundColor = count === 1 ? "#7FFF00" : "goldenyellow" /*'#FFFFFF'*/;
+        target.dataset.count = count === 1 ? 0 : 1;
+        /*
+
+        () : ? - this is conditional (ternary) operator - equals
+
+        if (count === 1) {
+           target.style.backgroundColor = "#7FFF00";
+           target.dataset.count = 0;
+        } else {
+           target.style.backgroundColor = "#FFFFFF";
+           target.dataset.count = 1;
+        }
+        target.dataset - return all "data attributes" for current element,
+        in the form of object,
+        and you don't need use global variable in order to save the state 0 or 1
+       */
+        function dis() {
+
+        }
+    }
+</script>
+
+@for (int i = 1; i <7; i++)
+{
+
+    <br />
+    char s = '@';
+    @*if(i==4)
+        {
+            <br/>
+        }*@
+    for (int j = 1; j < 10; j++)
+    {
+
+        s++;
+        <input class="btn btn-warning" type="button" id="button" value="@i@s" style="color:black;" onclick="setColor(event)" ; data-count="1" />
+    }
+}
+
+@*<input type="button"
+    id="button"
+    value="button"
+    style="color:white"
+    onclick="setColor(event)" ;
+    data-count="1" />*@
+

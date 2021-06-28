@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineExamSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="QUESTION">
+    <Key>
+      <PropertyRef Name="QUESTION_ID" />
+    </Key>
+    <Property Name="QUESTION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TECHNOLOGY_ID" Type="int" />
+    <Property Name="QUESTION" Type="varchar" MaxLength="1000" />
+    <Property Name="OPTION1" Type="varchar" MaxLength="500" />
+    <Property Name="OPTION2" Type="varchar" MaxLength="500" />
+    <Property Name="OPTION3" Type="varchar" MaxLength="500" />
+    <Property Name="OPTION4" Type="varchar" MaxLength="500" />
+    <Property Name="RIGHT_ANSWER" Type="int" />
+    <Property Name="TEST_LEVEL" Type="int" />
+  </EntityType>
+  <EntityType Name="REPORT">
+    <Key>
+      <PropertyRef Name="REPORT_ID" />
+    </Key>
+    <Property Name="REPORT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERID" Type="int" />
+    <Property Name="FULL_NAME" Type="varchar" MaxLength="20" />
+    <Property Name="TEST_LEVEL" Type="int" />
+    <Property Name="TECHNOLOGY_ID" Type="int" />
+    <Property Name="DATE_OF_EXAM" Type="date" />
+    <Property Name="SCORE" Type="int" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TECHNOLOGY">
+    <Key>
+      <PropertyRef Name="TECHNOLOGY_ID" />
+    </Key>
+    <Property Name="TECHNOLOGY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TECHNOLOGY_NAME" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="USER_DETAIL">
+    <Key>
+      <PropertyRef Name="USERID" />
+    </Key>
+    <Property Name="USERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FULL_NAME" Type="varchar" MaxLength="20" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MOBILE" Type="varchar" MaxLength="15" />
+    <Property Name="CITY" Type="varchar" MaxLength="20" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="STATE" Type="varchar" MaxLength="15" />
+    <Property Name="QUALIFICATION" Type="varchar" MaxLength="10" />
+    <Property Name="YEAR_OF_COMPLETION" Type="int" />
+  </EntityType>
+  <Association Name="FK__QUESTION__TECHNO__71D1E811">
+    <End Role="TECHNOLOGY" Type="Self.TECHNOLOGY" Multiplicity="0..1" />
+    <End Role="QUESTION" Type="Self.QUESTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNOLOGY">
+        <PropertyRef Name="TECHNOLOGY_ID" />
+      </Principal>
+      <Dependent Role="QUESTION">
+        <PropertyRef Name="TECHNOLOGY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REPORT__TECHNOLO__6E01572D">
+    <End Role="TECHNOLOGY" Type="Self.TECHNOLOGY" Multiplicity="0..1" />
+    <End Role="REPORT" Type="Self.REPORT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNOLOGY">
+        <PropertyRef Name="TECHNOLOGY_ID" />
+      </Principal>
+      <Dependent Role="REPORT">
+        <PropertyRef Name="TECHNOLOGY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REPORT__USERID__6EF57B66">
+    <End Role="USER_DETAIL" Type="Self.USER_DETAIL" Multiplicity="0..1" />
+    <End Role="REPORT" Type="Self.REPORT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_DETAIL">
+        <PropertyRef Name="USERID" />
+      </Principal>
+      <Dependent Role="REPORT">
+        <PropertyRef Name="USERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OnlineExamSystemModelStoreContainer">
+    <EntitySet Name="QUESTION" EntityType="Self.QUESTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REPORT" EntityType="Self.REPORT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TECHNOLOGY" EntityType="Self.TECHNOLOGY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_DETAIL" EntityType="Self.USER_DETAIL" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__QUESTION__TECHNO__71D1E811" Association="Self.FK__QUESTION__TECHNO__71D1E811">
+      <End Role="TECHNOLOGY" EntitySet="TECHNOLOGY" />
+      <End Role="QUESTION" EntitySet="QUESTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REPORT__TECHNOLO__6E01572D" Association="Self.FK__REPORT__TECHNOLO__6E01572D">
+      <End Role="TECHNOLOGY" EntitySet="TECHNOLOGY" />
+      <End Role="REPORT" EntitySet="REPORT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REPORT__USERID__6EF57B66" Association="Self.FK__REPORT__USERID__6EF57B66">
+      <End Role="USER_DETAIL" EntitySet="USER_DETAIL" />
+      <End Role="REPORT" EntitySet="REPORT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

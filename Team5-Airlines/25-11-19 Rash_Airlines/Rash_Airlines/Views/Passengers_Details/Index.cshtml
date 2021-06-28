@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Rash_Airlines.Models.Passengers_Details>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Passenger_Reg.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passenger_Reg.title)
+        </dd>*@
+        <th>
+            @Html.DisplayNameFor(model => model.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.perhead_cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passenger_booking_details.@class)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passenger_Reg.passenger_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passenger_booking_details.booking_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.perhead_cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passenger_booking_details.@class)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passenger_Reg.passenger_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passenger_booking_details.booking_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.seat_no }) |
+            @Html.ActionLink("Details", "Details", new { id = item.seat_no }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.seat_no })
+        </td>
+    </tr>
+}
+
+</table>

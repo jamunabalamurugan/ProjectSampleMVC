@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b03ba3454d449f3a2ea36389041333e" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="OnlineBankingModel.Beneficiary_Table" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineBankingModel.Open_Savings_Account" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineBankingModel.Registration_table" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineBankingModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineBankingModel.Transaction_Table" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="OnlineBankingModel.FK__Beneficia__Accou__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineBankingModel.FK__Registrat__Accou__489AC854" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineBankingModel.FK__Transacti__Accou__4E53A1AA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OnlineBankingModel.Admin" Width="1.5" PointX="5.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

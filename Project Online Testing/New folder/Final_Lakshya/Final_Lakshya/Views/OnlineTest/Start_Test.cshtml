@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Final_Lakshya.ViewModel>
+
+@{
+    ViewBag.Title = "Test Started";
+}
+<center><h2>Test Started</h2></center>
+<head>
+    @*<link href="~/Content/testfirst.css" rel="stylesheet" />*@
+    <link href="~/Content/test.css" rel="stylesheet" />
+</head>
+<body style="background-color:peru">
+
+    <div class="row">
+        @*card view*@
+        <div class=" card col-md-3" style="background-color:white;margin-top:20px">
+            <p>Questions</p>
+            <hr />
+            @for (var i = 1; i <= 15; i++)
+            {
+                <span class="dot" style="margin-top:10px"><h8 style="color:white">@i</h8></span>
+            }
+            <br />
+            <br />
+
+        </div>
+
+
+
+        <div class="col-sm-9 ">
+            <div class="panel firstbox" ">
+                <div class="panel-heading"><p>Java - Online Assessment </p></div>
+            </div>
+            <div class="panel ">
+                <div class="panel-body">
+                    <h4> Questions</h4>
+                    <hr />
+
+                    @using (Html.BeginForm("Test_Report","OnlineTest",FormMethod.Post))
+                    {
+                        <div class="form-horizontal">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    @foreach (var item in Model)
+                                    {
+                                        int ques_count = 1;
+                                        foreach (var i in item.Questions)
+                                        {
+                                            string rad_id = "ques" + ques_count;
+                                            <tr>
+                                                <td style="float:right;"><b>@ques_count.</b></td>
+                                                <td>
+                                                    <b>@i.ques</b><br />
+                                                    @if (i.q_id.StartsWith("M"))
+                                                    {
+                                                        foreach (var j in item.Mcq_Options)
+                                                        {
+                                                            if (i.q_id == j.q_id)
+                                                            {
+                                                                <br />
+                                                                @Html.RadioButton(rad_id, j.Op_A)<span>&nbsp;</span>@j.Op_A<br />
+                                                                @Html.RadioButton(rad_id, j.Op_B)<span>&nbsp;</span>@j.Op_B<br />
+                                                                @Html.RadioButton(rad_id, j.Op_C)<span>&nbsp;</span>@j.Op_C<br />
+
+                                                                if (j.Op_D != null)
+                                                                {
+                                                                    @Html.RadioButton(rad_id, j.Op_D)<span>&nbsp;</span>@j.Op_D<br />
+                                                                    if (j.Op_E != null)
+                                                                    {
+                                                                        @Html.RadioButton(rad_id, j.Op_E)<span>&nbsp;</span>@j.Op_E<br />
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (i.q_id.StartsWith("F"))
+                                                    {
+                                                        <br />
+                                                        <input id="@rad_id" type="text" class="form-control" required />
+                                                    }
+                                                    else if (i.q_id.StartsWith("T"))
+                                                    {
+                                                        bool op_true = true;
+                                                        bool op_false = false;
+                                                        <br />
+                                                        @Html.RadioButton(rad_id, op_true)<span>&nbsp;</span>@op_true<br />
+                                                        @Html.RadioButton(rad_id, op_false)<span>&nbsp;</span>@op_false<br />
+                                                    }
+                                                </td>
+                                            </tr>
+                                            ques_count++;
+                                        }
+                                        <tr>
+                                            <td colspan="5">
+                                                <center>
+                                                    <button type="submit" class="btn btn-primary btn-group-lg center-block"> <span class="glyphicon glyphicon-briefcase"></span> Submit</button>
+                                                    @*<input type="button" class="btn btn-primary" id="@item.User_Id" value="Activate User" onclick="location.href='@Url.Action("Send_Mail", "Admin")?id=' + document.getElementById('@item.User_Id').id" />*@
+                                                </center>
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    }
+                    @*<button type="button" class="btn btn-primary btn-group-lg"> <span class="glyphicon glyphicon-circle-arrow-right"></span> Next </button>
+                    *@
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+</body>

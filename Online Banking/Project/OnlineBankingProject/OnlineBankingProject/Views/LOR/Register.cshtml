@@ -1,0 +1,96 @@
+﻿@model OnlineBankingProject.Models.Register
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/HomePageBeforeLogin.cshtml";
+}
+
+<h2>Register</h2>
+
+<html>
+<head>
+    <style>
+        body {
+            background-color: lemonchiffon
+        }
+    </style>
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ruser_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ruser_Id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ruser_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Account_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Account_Number, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Account_Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AadharCard_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AadharCard_Number, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AadharCard_Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <input class="btn btn-primary"
+                   type="submit"
+                   value="OTPGeneration" />
+
+
+
+        </div>
+    }
+
+    <div>
+        @*<div>
+                <form method="get"
+                      action="OTPGeneration">
+
+                    <input class="btn btn-primary"
+                           type="submit"
+                           value="GenerateOTP" />
+
+                </form>
+            </div>*@
+
+        @*@Html.ActionLink("OTPGeneration", "OTPGeneration")*@
+    </div>
+    <div>
+        @Html.ActionLink("Back", "HomeAfterLogin")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr />
+    <footer>
+        <p>Terms of Use| &copy; @DateTime.Now.Year -SNK Bank Copyright Reserved </p>
+    </footer>
+</body>
+</html>

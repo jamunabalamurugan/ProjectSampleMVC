@@ -1,0 +1,71 @@
+﻿@model IEnumerable<OnlineExamSystem.Models.USER_DETAIL>
+
+@{
+    ViewBag.Title = "ViewReport";
+}
+
+<h2>View Student's Report</h2>
+<br />
+<input class="btn-info" type="button" value="Go to Dashboard" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Admin") + "'");" />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FULL_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.MOBILE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CITY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUALIFICATION)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FULL_NAME)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MOBILE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CITY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QUALIFICATION)
+            </td>
+
+        </tr>
+    }
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

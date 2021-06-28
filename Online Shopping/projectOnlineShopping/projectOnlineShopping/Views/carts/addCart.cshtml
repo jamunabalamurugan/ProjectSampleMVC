@@ -1,0 +1,81 @@
+﻿@*@model IEnumerable<projectOnlineShopping.Models.cart>*@
+@*@model IEnumerable<projectOnlineShopping.Models.productDescription>*@
+
+
+
+<h1> Your product Details</h1>
+
+
+
+
+
+
+@*<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frontImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.currentCost)
+        </th>
+
+
+        <th></th>
+    </tr>*@
+
+@foreach (var item in Model)
+{
+
+    if (item.itemId == @ViewBag.cartItemId)
+    {
+
+
+
+
+
+
+
+        if (item.frontImage != null)
+        {
+            <img src="@Url.Content(item.frontImage)" height="100" width="100" />
+        }
+
+
+        <p>ProductName : @item.productName</p>
+        <p>ProductCost : @item.currentCost</p>
+
+
+
+    }
+
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-12">
+        <input type="submit" value="Add" class="btn btn-default" />
+    </div>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

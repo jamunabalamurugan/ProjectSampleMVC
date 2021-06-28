@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+        <table class="table">
+            @foreach (var item in Model)
+            {
+                int ques_count = 1;
+                foreach (var i in item.Questions)
+                {
+                    string rad_id = "ques" + ques_count;
+                    <tr>
+                        <td style="float:right;"><b>@ques_count.</b></td>
+                        <td>
+                            <b>@i.ques</b><br />
+                            @if (i.q_id.StartsWith("M"))
+                            {
+                                foreach (var j in item.Mcq_Options)
+                                {
+                                    if (i.q_id == j.q_id)
+                                    {
+                                        <br />
+                                        @Html.RadioButton(rad_id, j.Op_A)<span>&nbsp;</span>@j.Op_A<br />
+                                        @Html.RadioButton(rad_id, j.Op_B)<span>&nbsp;</span>@j.Op_B<br />
+                                        @Html.RadioButton(rad_id, j.Op_C)<span>&nbsp;</span>@j.Op_C<br />
+
+                                        if (j.Op_D != null)
+                                        {
+                                            @Html.RadioButton(rad_id, j.Op_D)<span>&nbsp;</span>@j.Op_D<br />
+                                            if (j.Op_E != null)
+                                            {
+                                                @Html.RadioButton(rad_id, j.Op_E)<span>&nbsp;</span>@j.Op_E<br />
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else if (i.q_id.StartsWith("F"))
+                            {
+                                <br />
+                                <input id="@rad_id" type="text" class="form-control" required />
+                            }
+                            else if (i.q_id.StartsWith("T"))
+                            {
+                                bool op_true = true;
+                                bool op_false = false;
+                                <br />
+                                @Html.RadioButton(rad_id, op_true)<span>&nbsp;</span>@op_true<br />
+                                @Html.RadioButton(rad_id, op_false)<span>&nbsp;</span>@op_false<br />
+                            }
+                        </td>
+                    </tr>
+                    ques_count++;
+                }
+                <tr>
+                    <td colspan="5">
+                        <center>
+                            <button class="btn btn-primary btn-lg">Submit Test</button>
+                        </center>
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+    </div>
+</body>
+</html>

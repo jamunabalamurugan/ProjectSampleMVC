@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Session_Login";
+}
+<center>
+    <div>
+        <h2>Session_Login</h2>
+    </div>
+    <div>
+        @if (ViewBag.Not_Active != null)
+        {
+            <h3>@ViewBag.Not_Active</h3>
+        }
+        else if (ViewBag.Password_Invalid != null)
+        {
+            <h3>@ViewBag.Password_Invalid</h3>
+        }
+        else if (ViewBag.Id_Invalid != null)
+        {
+            <h3>@ViewBag.Id_Invalid</h3>
+        }
+    </div>
+    </center>

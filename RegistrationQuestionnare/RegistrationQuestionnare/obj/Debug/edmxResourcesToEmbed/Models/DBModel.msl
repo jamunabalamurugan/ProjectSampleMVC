@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IRelaxModel1StoreContainer" CdmEntityContainer="DBModels">
+    <EntitySetMapping Name="WeekendActivities">
+      <EntityTypeMapping TypeName="IRelaxModel1.WeekendActivity">
+        <MappingFragment StoreEntitySet="WeekendActivities">
+          <ScalarProperty Name="iWActivityID" ColumnName="iWActivityID" />
+          <ScalarProperty Name="vWActivityName" ColumnName="vWActivityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
